@@ -3,19 +3,18 @@
     <th>First Name</th>
     <th>Last Name</th>
     <th>Email</th>
-    <th>Producer</th>
     <th>Admin</th>
+    <th>Make Admin</th>
     <th>Edit</th>
     <th>Delete</th>
   </tr>
 <% @users.each do |user| %>
   <tr>
-    <td><%=h user.account.first_name %></td>
-    <td><%=h user.account.last_name %></td>
+    <td><%=h user.first_name %></td>
+    <td><%=h user.last_name %></td>
     <td><%=h user.email %></td>
-    <td><%= (user.account.producer ? 'yes' : 'no') %></td>
-    <td><%= (user.account.admin ? 'yes' : 'no') %></td>
-    <td><%= link_to 'Edit', edit_account_path(user.account) %></td>
-    <td><%= link_to 'Delete', account_path(user.account), :method => :delete %>
+    <td><%= (user.admin ? 'yes' : 'no') %></td>
+    <td><%= link_to 'Edit', edit_user_path(user) %></td>
+    <td><%= link_to 'Delete', user_path(user), :method => :delete %>
 <% end %>
 </table>

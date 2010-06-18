@@ -155,4 +155,8 @@ module ApplicationHelper
     	['Wisconsin', 'WI'], 
     	['Wyoming', 'WY']]
   end
+  
+  def is_admin
+    @current_user and @current_user.admin
+  end
 end

@@ -31,3 +31,9 @@
 <%= form.label :phone %><br />
 <%= form.text_field :phone %><br />
 <br />
+
+<% if is_admin %>
+  <%= form.label :admin %><br />
+  <%= form.check_box :admin %><br />
+  <br />
+<% end %>
