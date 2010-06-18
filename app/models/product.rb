@@ -33,21 +33,4 @@ class Product < ActiveRecord::Base
     facets
   end
   
-  def category_image
-    res = nil
-    if self.category
-      if self.category.image_url and !self.category.image_url.blank?
-        res = self.category.image_url
-      else
-        self.category.ancestors.each do |cat|
-          if cat.image_url and !cat.image_url.blank? 
-            res = cat.image_url
-            break
-          end
-        end
-      end
-    end
-    res
-  end
-  
 end

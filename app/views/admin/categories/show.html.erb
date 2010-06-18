@@ -5,7 +5,12 @@
 
 <p>
   <b>Parent:</b>
-  <%=h @category.parent.name if @category.parent %>
+  <%=h @category.parent ? @category.parent.name : 'None' %>
+</p>
+
+<p>
+  <b>Image:</b><br />
+  <%= image_for(@category) %>
 </p>
 
 

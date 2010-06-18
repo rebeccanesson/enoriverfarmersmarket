@@ -30,16 +30,23 @@ module ApplicationHelper
         res = "<img src='#{item.image_url}' />"
       elsif item.account.logo_url and !item.account.logo_url.blank? 
         res = "<img src='#{item.account.logo_url}' />"
-      else
-        cat_image = item.category_image
+      elsif item.category 
+        cat_image = item.category.image
         if cat_image and !cat_image.blank? 
           res = "<img src='#{cat_image}' />"
-        else
-          res = "<img src='/images/logo.jpg'>"
         end
+      else
+        res = "<img src='/images/logo.jpg' />"
+      end
+    elsif item.is_a?(Category)
+      cat_image = item.image
+      if cat_image and !cat_image.blank? 
+        res = "<img src='#{cat_image}' />"
+      else
+        res = "<img src='/images/logo.jpg' />"
       end
     else
-      res = "<img src='/images/logo.jpg'>"
+      res = "<img src='/images/logo.jpg' />"
     end
     res
   end
@@ -57,7 +64,7 @@ module ApplicationHelper
     if siblings.size > 0
       ret = '<ul>'
       siblings.collect do |sibling|
-        ret += '<li>' + link_to(sibling.name, edit_admin_category_path(sibling))
+        ret += '<li>' + link_to(sibling.name, admin_category_path(sibling))
         ret += ' (' + link_to('Delete', admin_category_path(sibling), :method => :delete) + ')' 
         ret += categories_ul(sibling.children) if sibling.children.size > 0
         ret += '</li>'

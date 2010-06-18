@@ -30,5 +30,20 @@ class Category < ActiveRecord::Base
       self.name
     end
   end
+  
+  def image
+    res = nil
+    if self.image_url and !self.image_url.blank?
+      res = self.image_url
+    else
+      self.ancestors.each do |cat|
+        if cat.image_url and !cat.image_url.blank? 
+          res = cat.image_url
+          break
+        end
+      end
+    end
+    res
+  end
 
 end
