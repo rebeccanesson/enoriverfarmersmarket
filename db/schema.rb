@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100618193302) do
+ActiveRecord::Schema.define(:version => 20100618202727) do
 
   create_table "account_memberships", :force => true do |t|
     t.integer  "account_id"
@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(:version => 20100618193302) do
     t.integer  "parent_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "image_url"
   end
 
   create_table "orderables", :force => true do |t|

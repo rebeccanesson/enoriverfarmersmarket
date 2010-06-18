@@ -7,3 +7,7 @@
   <%= select("category", "parent_id", @categories.collect {|c| [ c.name, c.id ] }, {:include_blank => true})
    %>
 </p>
+<p>
+  <%= form.label :image_url %><br />
+  <%= form.text_field :image_url %>
+</p>

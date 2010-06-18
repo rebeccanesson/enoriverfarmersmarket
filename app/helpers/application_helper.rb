@@ -31,7 +31,12 @@ module ApplicationHelper
       elsif item.account.logo_url and !item.account.logo_url.blank? 
         res = "<img src='#{item.account.logo_url}' />"
       else
-        res = "<img src='/images/logo.jpg'>"
+        cat_image = item.category_image
+        if cat_image and !cat_image.blank? 
+          res = "<img src='#{cat_image}' />"
+        else
+          res = "<img src='/images/logo.jpg'>"
+        end
       end
     else
       res = "<img src='/images/logo.jpg'>"
@@ -52,7 +57,7 @@ module ApplicationHelper
     if siblings.size > 0
       ret = '<ul>'
       siblings.collect do |sibling|
-        ret += '<li>' + link_to(sibling.name, admin_category_path(sibling))
+        ret += '<li>' + link_to(sibling.name, edit_admin_category_path(sibling))
         ret += ' (' + link_to('Delete', admin_category_path(sibling), :method => :delete) + ')' 
         ret += categories_ul(sibling.children) if sibling.children.size > 0
         ret += '</li>'

@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
   has_many :managed_account_memberships, :through => :account_memberships, :source => :account
   has_many :producer_account_requests, :dependent => :destroy, :order => 'created_at DESC'
   
-  validates_presence_of :first_name, :last_name, :street, :city, :state, :zipcode
+  validates_presence_of :first_name, :last_name, :phone
   
   def name
     "#{self.first_name} #{self.last_name}"
