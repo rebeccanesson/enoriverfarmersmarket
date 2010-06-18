@@ -1,0 +1,34 @@
+<div class="span-12">
+<h2>Editing account</h2>
+
+<% form_for(@account) do |f| %>
+  <%= f.error_messages %>
+  <%= render :partial => "form", :object => f %>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %> 
+</div>
+<div class="span-6 last">
+<% if can_edit(@account) %>
+  <h3>Account Managers</h3>
+  <ul>
+  <% @account.managers.each do |manager| %>
+    <li><%= link_to manager.name, manager %>
+        <%= ' (owner)' if manager == @account.creator %>
+        <%= link_to 'Remove', {:controller => 'accounts', :action => 'remove_member', :user_id => manager.id } if is_owner(@account) and manager != @account.creator %></li>
+  <% end %>
+  </ul>
+<% end %>
+
+<% if is_owner(@account) %>
+  <h4>Add Account Manager</h4>
+  <div>
+  <% form_for :user, :url => add_member_account_path(@account) do |form| %>
+    <p>Username of user to add: <%= form.text_field :login %> <%= form.submit 'Add as manager' %></p>
+  <% end %>
+  </div>
+<% end %>
+</div>
+<%= link_to 'Show', @account %> |
+<%= link_to 'Back', accounts_path %>

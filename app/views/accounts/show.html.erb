@@ -1,0 +1,25 @@
+<div class="column span-18">
+<h2><%= @account.producer_name %>
+    <% if can_edit(@account) %>
+      (<%= link_to 'edit', edit_account_path(@account) %>) 
+    <% end %>
+</h2>
+
+<p><%= @account.description %></p>
+
+<p><%=h @account.street %><br />
+   <%=h @account.city %><br />
+   <%=h @account.state %>, <%=h @account.zipcode %><br />
+   <%= "Phone: #{@account.phone}" unless @account.phone.blank? %><br />
+   <%= "Website: #{@account.website_url}" unless @account.website_url.blank? %>
+</p>
+
+<h3>Products</h3>
+
+  <div class="column span-18">
+    <%= render :partial => "/common/product_small", :collection => @account.products %>
+  </div>
+
+<p><%= link_to 'Add a new product', new_account_product_path(@account,@product) %></p>
+</div>
+<%= render :partial => 'sidebar' %>

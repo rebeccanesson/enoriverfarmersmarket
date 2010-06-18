@@ -1,0 +1,22 @@
+<h1>Listing orderables</h1>
+
+<table>
+  <tr>
+    <th>Product</th>
+    <th>Order</th>
+  </tr>
+
+<% @orderables.each do |orderable| %>
+  <tr>
+    <td><%=h orderable.product_id %></td>
+    <td><%=h orderable.order_id %></td>
+    <td><%= link_to 'Show', orderable %></td>
+    <td><%= link_to 'Edit', edit_orderable_path(orderable) %></td>
+    <td><%= link_to 'Destroy', orderable, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New orderable', new_orderable_path %>

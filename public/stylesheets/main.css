@@ -1,0 +1,14 @@
+#sidebar { 
+	border-left: 1px solid blue;
+	padding-left: 10px;
+	min-height: 450px;
+}
+
+ul { 
+	margin-left:10px;
+	padding-left:10px;
+}
+
+ul li { 
+	padding-left:0px;
+}

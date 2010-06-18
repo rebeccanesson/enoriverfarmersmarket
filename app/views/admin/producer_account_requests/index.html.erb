@@ -1,0 +1,19 @@
+<table>
+  <tr>
+    <th>User Name</th>
+    <th>Date of Request</th>
+    <th>Status</th>
+    <th>Approve</th>
+    <th>Deny</th>
+    <th>Delete</th>
+  </tr>
+<% @producer_account_requests.each do |par| %>
+  <tr>
+    <td><%=h par.user.name %></td>
+    <td><%=h par.created_at %></td>
+    <td><%=h par.status %></td>
+    <td><%= link_to 'Approve', approve_producer_account_request_path(par) if par.status == 'Pending' %></td>
+    <td><%= link_to 'Deny', deny_producer_account_request_path(par) if par.status == 'Pending' %></td>
+    <td><%= link_to 'Delete', producer_account_request_path(par), :method => :delete %>
+<% end %>
+</table>

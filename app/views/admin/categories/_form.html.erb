@@ -1,0 +1,9 @@
+<p>
+  <%= form.label :name %><br />
+  <%= form.text_field :name %>
+</p>
+<p>
+  <%= form.label :parent_id %><br />
+  <%= select("category", "parent_id", @categories.collect {|c| [ c.name, c.id ] }, {:include_blank => true})
+   %>
+</p>

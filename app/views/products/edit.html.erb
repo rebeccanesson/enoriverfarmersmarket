@@ -1,0 +1,13 @@
+<h1>Editing product</h1>
+
+<% form_for([@account,@product]) do |f| %>
+  <%= f.error_messages %>
+
+  <%= render :partial => "form", :object => f %>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', account_product_path(@account,@product) %> |
+<%= link_to 'Back', account_products_path(@account) %>

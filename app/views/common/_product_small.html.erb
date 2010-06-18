@@ -1,0 +1,30 @@
+<% product = product_small %>
+<div class="span-18" style="margin-bottom:10px;">
+  <div class="span-15">
+    <div class="span-3">
+      <%= image_for(product) %>
+    </div>
+    <div class="span-7">
+      <p><b><%= link_to product.title, account_product_path(product.account,product) %></b><br />
+         From <%= link_to product.account.name, account_path(product.account) %><br />
+         <%= product.description %><br />
+         Category: <%= (product.category ? product.category.name : 'Uncategorized') %></p>
+    </div>
+    <div class="span-5 last">
+      <p><%= product.formatted_price %> per <%= product.ordering_unit %><br />
+         <%= product.available_orderables.count %> currently available for purchase<br />
+         <%= product.carted_orderables.count %> currently in shopper's carts<br />
+         <%= product.ordered_orderables.count %> currently in completed orders</p>
+    </div>
+  </div> 
+
+  <div class="span-3 last">
+    <ul>
+      <% if can_edit(product) %>
+        <li><%= link_to 'Edit', edit_account_product_path(product.account,product) %></li>
+        <li><%= link_to 'Delete', account_product_path(product.account,product,:method => :delete) %></li>
+        
+      <% end %>
+    </ul>
+  </div>
+</div>

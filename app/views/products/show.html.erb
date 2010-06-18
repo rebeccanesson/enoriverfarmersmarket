@@ -1,0 +1,39 @@
+<p>
+  <b>Account:</b>
+  <%=h @product.account_id %>
+</p>
+
+<p>
+  <b>Image url:</b>
+  <%=h @product.image_url %>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%=h @product.title %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @product.description %>
+</p>
+
+<p>
+  <b>Ordering unit:</b>
+  <%=h @product.ordering_unit %>
+</p>
+
+<p>
+  <b>Price per unit:</b>
+  <%=h @product.price_per_unit %>
+</p>
+
+<p>
+  <b>Category:</b>
+  <%=h @product.category.name if @product.category %>
+</p>
+
+<% if @account %>
+  <%= link_to 'Edit', edit_account_product_path(@account,@product) %> |
+<% end %>
+<%= link_to 'Back', products_path %>

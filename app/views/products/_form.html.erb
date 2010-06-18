@@ -1,0 +1,27 @@
+<p>
+  <%= form.label :image_url %><br />
+  <%= form.text_field :image_url %>
+</p>
+<p>
+  <%= form.label :title %><br />
+  <%= form.text_field :title %>
+</p>
+<p>
+  <%= form.label :description %><br />
+  <%= form.text_field :description %>
+</p>
+<p>
+  <%= form.label :ordering_unit %><br />
+  <%= form.text_field :ordering_unit %>
+</p>
+<p>
+  <%= form.label :price_per_unit %><br />
+  <%= form.text_field :price_per_unit %>
+</p>
+
+<p>
+  <%= form.label :category %><br />
+  <select name="product[category_id]">
+    <%= expand_tree_into_select_field(Category.root_categories) %>
+  </select>
+</p>

@@ -1,0 +1,13 @@
+<p>
+  <b>Product:</b>
+  <%=h @orderable.product_id %>
+</p>
+
+<p>
+  <b>Order:</b>
+  <%=h @orderable.order_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_orderable_path(@orderable) %> |
+<%= link_to 'Back', orderables_path %>

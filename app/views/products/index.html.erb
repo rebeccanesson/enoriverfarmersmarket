@@ -1,0 +1,18 @@
+<div class="span-18">
+<h2><%= make_title(@search.conditions) %></h2>
+
+<%#= products_by_category_ul(@categorized_products) %>
+
+<div class="column span-22">
+ <%= render :partial => '/common/product_small', :collection => @products %>
+</div>
+
+<br />
+
+<% if @account %>
+  <%= link_to 'New product', new_account_product_path(@account) %>
+<% end %>
+</div>
+<div class="span-6 last">
+  <%= render :partial => 'sidebar' %>
+</div>
