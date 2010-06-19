@@ -1,10 +1,10 @@
 <% product = product_small %>
-<div class="span-18" style="margin-bottom:10px;">
-  <div class="span-15">
-    <div class="span-3">
+<div id="<%=dom_id(product)%>" class="span-18" style="margin-bottom:10px;">
+  <div class="span-13">
+    <div class="span-2">
       <%= image_for(product) %>
     </div>
-    <div class="span-7">
+    <div class="span-6">
       <p><b><%= link_to product.title, account_product_path(product.account,product) %></b><br />
          From <%= link_to product.account.name, account_path(product.account) %><br />
          <%= product.description %><br />
@@ -18,12 +18,17 @@
     </div>
   </div> 
 
-  <div class="span-3 last">
+  <div class="span-5 last">
     <ul>
       <% if can_edit(product) %>
         <li><%= link_to 'Edit', edit_account_product_path(product.account,product) %></li>
         <li><%= link_to 'Delete', account_product_path(product.account,product,:method => :delete) %></li>
-        
+        <li><% form_remote_tag :url => make_orderable_account_product_path(product.account,product) do -%>
+           <div><%= text_field_tag 'number', 0, :size => 3 %> <%= submit_tag 'Add Inventory' %></div>
+        <% end -%></li>
+        <li><% form_remote_tag :url => remove_orderable_account_product_path(product.account,product) do -%>
+          <div><%= text_field_tag 'number', 0, :size => 3 %> <%= submit_tag 'Drop Inventory' %></div>
+        <% end -%></li>
       <% end %>
     </ul>
   </div>

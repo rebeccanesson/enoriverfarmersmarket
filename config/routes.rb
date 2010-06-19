@@ -2,10 +2,10 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :orderables
 
 
-  map.resources :products
+  map.resources :products, :member => { :make_orderable => :post, :remove_orderable => :post }
 
   map.resources :accounts, :member => { :add_member => :post, :remove_member => :get } do |accounts|
-    accounts.resources :products
+    accounts.resources :products, :member => { :make_orderable => :post, :remove_orderable => :post }
   end
   
   map.namespace :admin do |admin|

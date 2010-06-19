@@ -45,5 +45,15 @@ class Category < ActiveRecord::Base
     end
     res
   end
+  
+  def descendants(res=nil)
+    res = [] unless res
+    res << self
+    self.children.each do |c|
+      tmp = c.descendants
+      res = res + tmp
+    end
+    res
+  end
 
 end

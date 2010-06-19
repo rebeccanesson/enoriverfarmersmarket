@@ -2,7 +2,7 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.xml
   
-  before_filter :load_product, :only => [:show, :edit, :update, :destroy]
+  before_filter :load_product, :only => [:show, :edit, :update, :destroy, :make_orderable, :remove_orderable]
   before_filter :load_account, :except => [:index, :show]
   before_filter :is_owner_or_admin, :only => [:edit, :update, :destroy]
   before_filter :load_sidebar_variables, :only => [:index]
@@ -92,6 +92,34 @@ class ProductsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
+  def make_orderable
+    number = params[:number].to_i
+    number.times do |i|
+      o = Orderable.create(:product_id => @product.id, :status => 'Available')
+      o.save
+    end 
+    respond_to do |format|
+      format.js
+    end
+  end
+  
+  def remove_orderable
+    number = params[:number].to_i
+    if number and number > 0
+      number.times do |i|
+        o = Orderable.find(:first, :conditions => 'status = "Available"')
+        if o
+          o.destroy
+        else
+          break
+        end
+      end
+    end
+    respond_to do |format|
+      format.js
+    end 
+  end 
   
   def load_product 
     @product = Product.find(params[:id])

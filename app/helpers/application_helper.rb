@@ -95,11 +95,11 @@ module ApplicationHelper
       ret = '<ul class="facets">'
       siblings.collect do |sibling|
         ret += '<li>'
-        ret += link_to "#{sibling.name} (#{facets[:categories][sibling.id]})", products_url(:search => search.conditions.merge(:category_id_equals => sibling.id))
+        ret += link_to "#{sibling.name} (#{facets[:categories][sibling.id]})", products_url(:search => search.conditions.merge(:category_id_equals_any => sibling.descendants.map { |d| d.id }))
         ret += category_facets(sibling.children, facets, search) if sibling.children.size > 0 
         ret += '</li>'
       end
-      ret += "<li>#{link_to "Any Category", products_url(:search => search.conditions.reject{ |k,v| k == :category_id_equals })}</li>" if first
+      ret += "<li>#{link_to "Any Category", products_url(:search => search.conditions.reject{ |k,v| k == :category_id_equals_any })}</li>" if first
       ret += '</ul>'
     end
     ret
