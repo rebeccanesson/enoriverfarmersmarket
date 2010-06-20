@@ -22,8 +22,8 @@
     <td><%=h date_fmt(delivery_cycle.order_close) %></td>
     <td><%=h date_fmt(delivery_cycle.delivery_open) %></td>
     <td><%=h date_fmt(delivery_cycle.delivery_close) %></td>
-    <td><%=h date_fmt(delivery_cycle.pickup_open) %></td>
-    <td><%=h date_fmt(delivery_cycle.pickup_close) %></td>
+    <td><%=h date_fmt(delivery_cycle.pickup_open) if delivery_cycle.pickup_open %></td>
+    <td><%=h date_fmt(delivery_cycle.pickup_close) if delivery_cycle.pickup_close %></td>
     <td><%= link_to 'Edit', edit_admin_delivery_cycle_path(delivery_cycle) %></td>
     <td><%= link_to 'Destroy', admin_delivery_cycle_path(delivery_cycle), :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
