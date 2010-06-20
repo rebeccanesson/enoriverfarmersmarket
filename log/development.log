@@ -34436,3 +34436,23 @@ Rendering comatose_admin/index
   [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM `comatose_pages` WHERE (`comatose_pages`.parent_id = 1) [0m
 Rendered comatose_admin/_page_list_item (17.2ms)
 Completed in 50ms (View: 36, DB: 1) | 200 OK [http://localhost/comatose_admin]
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Admin::HomeController#index (for 127.0.0.1 at 2010-06-19 20:25:02) [GET]
+  Parameters: {"action"=>"index", "controller"=>"admin/home"}
+  [4;35;1mUser Columns (3.2ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '2') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Update (1.0ms)[0m   [0;1mUPDATE `users` SET `updated_at` = '2010-06-20 00:25:02', `perishable_token` = 'OnQwF1Y2V6QhjgWfd2e3', `last_request_at` = '2010-06-20 00:25:02' WHERE `id` = 2[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mCOMMIT[0m
+  [4;36;1mDeliveryCycle Load (0.3ms)[0m   [0;1mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-19 20:25:02' and delivery_close >= '2010-06-19 20:25:02') LIMIT 1[0m
+  [4;35;1mDeliveryCycle Columns (2.0ms)[0m   [0mSHOW FIELDS FROM `delivery_cycles`[0m
+  [4;36;1mOrderable Load (0.5ms)[0m   [0;1mSELECT * FROM `orderables` WHERE (`orderables`.delivery_cycle_id = 1) AND ((status = 'Available') AND (`orderables`.delivery_cycle_id = 1)) [0m
+  [4;35;1mOrderable Load (0.4ms)[0m   [0mSELECT * FROM `orderables` WHERE (`orderables`.delivery_cycle_id = 1) AND ((status = 'In Cart') AND (`orderables`.delivery_cycle_id = 1)) [0m
+Rendering template within layouts/application
+Rendering admin/home/index
+Rendered layouts/_head_tag (6.2ms)
+Rendered layouts/_header (12.6ms)
+Rendered layouts/_footer (1.0ms)
+Completed in 710ms (View: 88, DB: 9) | 200 OK [http://localhost/admin]

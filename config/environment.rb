@@ -50,7 +50,4 @@ Comatose.configure do |config|
   # Sets the text in the Admin UI's title area
   config.admin_title = "Online Market Site Content"
   config.admin_sub_title = "Substantive content for the site"
-  config.admin_includes << :authenticated_system
-  config.admin_authorization = :require_admin
-  
 end
