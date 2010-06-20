@@ -1,0 +1,17 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  edit_open: 2010-06-18 21:08:27
+  edit_close: 2010-06-18 21:08:27
+  order_open: 2010-06-18 21:08:27
+  order_close: 2010-06-18 21:08:27
+  delivery_open: 2010-06-18 21:08:27
+  delivery_close: 2010-06-18 21:08:27
+
+two:
+  edit_open: 2010-06-18 21:08:27
+  edit_close: 2010-06-18 21:08:27
+  order_open: 2010-06-18 21:08:27
+  order_close: 2010-06-18 21:08:27
+  delivery_open: 2010-06-18 21:08:27
+  delivery_close: 2010-06-18 21:08:27

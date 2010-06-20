@@ -1,0 +1,33 @@
+<p>
+  <b>Edit open:</b>
+  <%=h @delivery_cycle.edit_open %>
+</p>
+
+<p>
+  <b>Edit close:</b>
+  <%=h @delivery_cycle.edit_close %>
+</p>
+
+<p>
+  <b>Order open:</b>
+  <%=h @delivery_cycle.order_open %>
+</p>
+
+<p>
+  <b>Order close:</b>
+  <%=h @delivery_cycle.order_close %>
+</p>
+
+<p>
+  <b>Delivery open:</b>
+  <%=h @delivery_cycle.delivery_open %>
+</p>
+
+<p>
+  <b>Delivery close:</b>
+  <%=h @delivery_cycle.delivery_close %>
+</p>
+
+
+<%= link_to 'Edit', edit_admin_delivery_cycle_path(@delivery_cycle) %> |
+<%= link_to 'Back', admin_delivery_cycles_path %>

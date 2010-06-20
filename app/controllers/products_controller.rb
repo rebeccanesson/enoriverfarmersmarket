@@ -6,6 +6,7 @@ class ProductsController < ApplicationController
   before_filter :load_account, :except => [:index, :show]
   before_filter :is_owner_or_admin, :only => [:edit, :update, :destroy]
   before_filter :load_sidebar_variables, :only => [:index]
+  before_filter :ordering_and_delivery_closed, :only => [:edit, :create, :update, :destroy]
   
   def index
     @search = Product.search(params[:search])
@@ -96,7 +97,8 @@ class ProductsController < ApplicationController
   def make_orderable
     number = params[:number].to_i
     number.times do |i|
-      o = Orderable.create(:product_id => @product.id, :status => 'Available')
+      break unless @current_delivery_cycle
+      o = Orderable.create(:product_id => @product.id, :status => 'Available', :delivery_cycle_id => @current_delivery_cycle.id)
       o.save
     end 
     respond_to do |format|
@@ -108,7 +110,8 @@ class ProductsController < ApplicationController
     number = params[:number].to_i
     if number and number > 0
       number.times do |i|
-        o = Orderable.find(:first, :conditions => 'status = "Available"')
+        break unless @current_delivery_cycle
+        o = Orderable.find(:first, :conditions => 'status = "Available"', :delivery_cycle_id => @current_delivery_cycle.id)
         if o
           o.destroy
         else
@@ -137,6 +140,13 @@ class ProductsController < ApplicationController
   def is_owner_or_admin
     unless current_user and (current_user.managed_accounts.include?(@product.account) or current_user.admin)
       flash[:notice] = "You are not authorized to perform this action."
+      redirect_to product_url(@product)
+    end
+  end
+  
+  def ordering_and_delivery_closed
+    unless @current_delivery_cycle and @current_delivery_cycle.permits_product_editing
+      flash[:notice] = "You cannot edit or delete products during the ordering and delivery phases of a delivery cycle"
       redirect_to product_url(@product)
     end
   end

@@ -23,6 +23,8 @@ Rails::Initializer.run do |config|
   config.gem "authlogic"
   config.gem "searchlogic"
   config.gem "jrails"
+  config.gem "acts_as_list", "~>0.1"
+  
 
   # Only load the plugins named here, in the order given (default is alphabetical).
   # :all can be used as a placeholder for all plugins not explicitly named
@@ -42,4 +44,14 @@ Rails::Initializer.run do |config|
   # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
   # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}')]
   # config.i18n.default_locale = :de
+end
+
+ActionController::Base.fragment_cache_store = :file_store, File.join(RAILS_ROOT, 'tmp', 'cache', 'fragments')
+Comatose.configure do |config|
+  # Sets the text in the Admin UI's title area
+  config.admin_title = "Online Market Site Content"
+  config.admin_sub_title = "Substantive content for the site"
+  config.admin_includes << :authenticated_system
+  config.admin_authorization = :require_admin
+  
 end

@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100618202727) do
+ActiveRecord::Schema.define(:version => 20100619235650) do
 
   create_table "account_memberships", :force => true do |t|
     t.integer  "account_id"
@@ -41,12 +41,55 @@ ActiveRecord::Schema.define(:version => 20100618202727) do
     t.string   "image_url"
   end
 
+  create_table "comatose_page_versions", :force => true do |t|
+    t.integer  "comatose_page_id"
+    t.integer  "version"
+    t.integer  "parent_id"
+    t.text     "full_path"
+    t.string   "title"
+    t.string   "slug"
+    t.string   "keywords"
+    t.text     "body"
+    t.string   "filter_type",      :limit => 25, :default => "Textile"
+    t.string   "author"
+    t.integer  "position",                       :default => 0
+    t.datetime "updated_on"
+    t.datetime "created_on"
+  end
+
+  create_table "comatose_pages", :force => true do |t|
+    t.integer  "parent_id"
+    t.text     "full_path"
+    t.string   "title"
+    t.string   "slug"
+    t.string   "keywords"
+    t.text     "body"
+    t.string   "filter_type", :limit => 25, :default => "Textile"
+    t.string   "author"
+    t.integer  "position",                  :default => 0
+    t.integer  "version"
+    t.datetime "updated_on"
+    t.datetime "created_on"
+  end
+
+  create_table "delivery_cycles", :force => true do |t|
+    t.datetime "edit_open"
+    t.datetime "edit_close"
+    t.datetime "order_open"
+    t.datetime "order_close"
+    t.datetime "delivery_open"
+    t.datetime "delivery_close"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "orderables", :force => true do |t|
     t.integer  "product_id"
     t.integer  "order_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "status"
+    t.integer  "delivery_cycle_id"
   end
 
   create_table "producer_account_requests", :force => true do |t|

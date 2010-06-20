@@ -21,8 +21,8 @@
   <h4>Filter Products</h4>
   <b>By Status:</b>
   <ul>
-    <li><%= link_to "Available for Order (#{@facets[:statuses][:available]})", products_url(:search => @search.conditions.merge(:orderables_id_greater_than => 0)) %></li>
-    <li><%= link_to "Any Product", products_url(:search => @search.conditions.reject{|k,v| k == :orderables_id_greater_than }) %></li>
+    <li><%= link_to "Available for Order (#{@facets[:statuses][:available]})", products_url(:search => @search.conditions.merge(:available_orderables_id_greater_than => 0)) %></li>
+    <li><%= link_to "Any Product", products_url(:search => @search.conditions.reject{|k,v| k == :available_orderables_id_greater_than }) %></li>
   </ul>
   
   <b>By Category:</b>
@@ -30,8 +30,8 @@
   
   <b>By Producer:</b>
   <ul>
-    <% @facets[:accounts].each_pair do |acct_id, cnt| %>
-    <li><%= link_to "#{acct_id} (#{cnt})", products_url(:search => @search.conditions.merge(:account_id_equals => acct_id)) %></li>
+    <% @facets[:accounts].each_pair do |acct, cnt| %>
+    <li><%= link_to "#{acct.name} (#{cnt})", products_url(:search => @search.conditions.merge(:account_id_equals => acct.id)) %></li>
     <% end %>
     <li><%= link_to "Any Producer", products_url(:search => @search.conditions.reject{|k,v| k == :account_id_equals }) %></li>
   </ul>

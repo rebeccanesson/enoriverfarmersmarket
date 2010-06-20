@@ -1,0 +1,11 @@
+<h1>New delivery_cycle</h1>
+
+<% form_for([:admin, @delivery_cycle]) do |f| %>
+  <%= f.error_messages %>
+  <%= render :partial => 'form', :object => f %>
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', admin_delivery_cycles_path %>

@@ -6,7 +6,7 @@ class Account < ActiveRecord::Base
   has_many :products, :dependent => :destroy
   
   validates_uniqueness_of :producer_name, :on => :update
-  validates_presence_of :producer_name, :street, :state, :zipcode, :on => :update
+  validates_presence_of :producer_name, :city, :state, :zipcode, :on => :update
   validates_presence_of :user_id
   
   def managers 

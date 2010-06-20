@@ -5,6 +5,14 @@ module ApplicationHelper
     "Online Market"
   end
   
+  def date_format(date)
+    date.strftime("%a %b %d %Y, %l%p")
+  end
+  
+  def date_fmt(date)
+    date.strftime("%a %b %d, %l%p")
+  end
+  
   def can_edit(item)
     res = false
     if item.is_a?(Product) and current_user and (current_user.admin or current_user.managed_accounts.include?(item.account))
@@ -49,6 +57,15 @@ module ApplicationHelper
       res = "<img src='/images/logo.jpg' />"
     end
     res
+  end
+  
+  def present_cycle(c)
+    ret = '<b>Current Ordering Cycle: ' + c.current_phase + '</b><table>'
+    ret += '<tr><td>Set Up:</td><td>'   + date_format(c.edit_open)     + '</td><td>-</td><td>' + date_format(c.edit_close)     + '</td></tr>'
+    ret += '<tr><td>Ordering:</td><td>' + date_format(c.order_open)    + '</td><td>-</td><td>' + date_format(c.order_close)    + '</td></tr>'
+    ret += '<tr><td>Delivery:</td><td>' + date_format(c.delivery_open) + '</td><td>-</td><td>' + date_format(c.delivery_close) + '</td></tr>'
+    ret += '</table>'
+    ret
   end
   
   def expand_tree_into_select_field(categories)
@@ -106,7 +123,7 @@ module ApplicationHelper
   end
   
   def make_title(search_params)
-    ret = (search_params[:orderables_id_greater_than] ? 'Currently available products ' : 'All products ')
+    ret = (search_params[:available_orderables_id_greater_than] ? 'Currently available products ' : 'All products ')
     ret += "from #{Account.find(search_params[:account_id_equals]).producer_name} " if search_params[:account_id_equals]
     ret += "in category #{Category.find(search_params[:category_id_equals]).name} " if search_params[:category_id_equals]
     ret

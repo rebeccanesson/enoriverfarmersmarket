@@ -1,0 +1,29 @@
+<h2>Listing Delivery Cycles</h2>
+
+<table>
+  <tr>
+    <th>Edit open</th>
+    <th>Edit close</th>
+    <th>Order open</th>
+    <th>Order close</th>
+    <th>Delivery open</th>
+    <th>Delivery close</th>
+  </tr>
+
+<% @delivery_cycles.each do |delivery_cycle| %>
+  <tr <%= "style='background-color:yellow;'" if delivery_cycle.edit_open <= Time.now and delivery_cycle.delivery_close >= Time.now %>>
+    <td><%=h date_format(delivery_cycle.edit_open) %></td>
+    <td><%=h date_format(delivery_cycle.edit_close) %></td>
+    <td><%=h date_format(delivery_cycle.order_open) %></td>
+    <td><%=h date_format(delivery_cycle.order_close) %></td>
+    <td><%=h date_format(delivery_cycle.delivery_open) %></td>
+    <td><%=h date_format(delivery_cycle.delivery_close) %></td>
+    <td><%= link_to 'Edit', edit_admin_delivery_cycle_path(delivery_cycle) %></td>
+    <td><%= link_to 'Destroy', admin_delivery_cycle_path(delivery_cycle), :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New delivery_cycle', new_admin_delivery_cycle_path %>

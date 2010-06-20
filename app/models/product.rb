@@ -19,7 +19,7 @@ class Product < ActiveRecord::Base
   def self.facet(products)
     facets = { :statuses => {:available => 0}, :categories => {}, :accounts => {} }
     Category.all.each { |c| facets[:categories][c.id] = 0 }
-    Account.all.each { |a| facets[:accounts][a.id] = 0 }
+    Account.all.each { |a| facets[:accounts][a] = 0 }
     
     products.each do |prod|
       facets[:statuses][:available] += 1 if prod.available_orderables.size > 0
@@ -27,7 +27,7 @@ class Product < ActiveRecord::Base
         cats = [prod.category] + prod.category.ancestors
         cats.each { |cat| facets[:categories][cat.id] += 1 }
       end
-      facets[:accounts][prod.account.id] += 1
+      facets[:accounts][prod.account] += 1
     end
     
     facets

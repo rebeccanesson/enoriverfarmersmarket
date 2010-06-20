@@ -13,7 +13,7 @@
     <div class="span-5 last">
       <p><%= product.formatted_price %> per <%= product.ordering_unit %><br />
          <%= product.available_orderables.count %> currently available for purchase<br />
-         <%= product.carted_orderables.count %> currently in shopper's carts<br />
+         <%= product.carted_orderables.count %> currently in shopping carts<br />
          <%= product.ordered_orderables.count %> currently in completed orders</p>
     </div>
   </div> 
@@ -22,7 +22,7 @@
     <ul>
       <% if can_edit(product) %>
         <li><%= link_to 'Edit', edit_account_product_path(product.account,product) %></li>
-        <li><%= link_to 'Delete', account_product_path(product.account,product,:method => :delete) %></li>
+        <li><%= link_to 'Delete', account_product_path(product.account,product), :method => :delete %></li>
         <li><% form_remote_tag :url => make_orderable_account_product_path(product.account,product) do -%>
            <div><%= text_field_tag 'number', 0, :size => 3 %> <%= submit_tag 'Add Inventory' %></div>
         <% end -%></li>

@@ -1,7 +1,4 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :orderables
-
-
   map.resources :products, :member => { :make_orderable => :post, :remove_orderable => :post }
 
   map.resources :accounts, :member => { :add_member => :post, :remove_member => :get } do |accounts|
@@ -10,6 +7,7 @@ ActionController::Routing::Routes.draw do |map|
   
   map.namespace :admin do |admin|
     admin.resources :categories
+    admin.resources :delivery_cycles
   end
   
   map.resources :password_resets
@@ -64,4 +62,7 @@ ActionController::Routing::Routes.draw do |map|
   
   map.connect ':controller/:action/:id'
   map.connect ':controller/:action/:id.:format'
+  
+  map.comatose_admin 
+  map.comatose_root ''
 end

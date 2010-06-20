@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   helper :all # include all helpers, all the time
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
   filter_parameter_logging :password, :password_confirmation
-  helper_method :current_user_session, :current_user
+  helper_method :current_user_session, :current_user, :current_delivery_cycle
   before_filter :load_session_variables
 
   private
@@ -17,6 +17,28 @@ class ApplicationController < ActionController::Base
     def current_user
       return @current_user if defined?(@current_user)
       @current_user = current_user_session && current_user_session.user
+    end
+    
+    def current_delivery_cycle
+      return @current_delivery_cycle if defined?(@current_delivery_cycle)
+      @current_delivery_cycle = DeliveryCycle.current
+      if @current_delivery_cycle.is_after_order
+        @current_delivery_cycle.orderables.available.each do |o|
+          o.status = 'Closed'
+          o.save
+        end
+        @current_delivery_cycle.orderables.in_cart.each do |o|
+          o.status = 'Ordered'
+          o.save
+        end
+      end
+      # not sure if this should be done because it erases the record of what was ordered....
+      # if @current_delivery_cycle.is_past
+      #   @current_delivery_cycle.orderables.ordered.each do |o|
+      #     o.status = 'Closed'
+      #     o.save
+      #   end
+      # end
     end
     
     def require_user
@@ -61,6 +83,7 @@ class ApplicationController < ActionController::Base
     def load_session_variables
       current_user_session
       current_user
+      current_delivery_cycle
     end
     
     def load_sidebar_variables

@@ -12,3 +12,12 @@ ul {
 ul li { 
 	padding-left:0px;
 }
+#logo {
+  color: transparent;
+  display:block;
+  margin: 0px 0px 0px 0px;
+  padding: 0px;
+  background: url('http://farm2.static.flickr.com/1279/4701170956_b02d725af7_m.jpg') no-repeat;
+  height: 165px;
+  text-indent: -9999px;
+}
