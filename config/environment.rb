@@ -46,7 +46,6 @@ Rails::Initializer.run do |config|
   # config.i18n.default_locale = :de
 end
 
-ActionController::Base.fragment_cache_store = :file_store, File.join(RAILS_ROOT, 'tmp', 'cache', 'fragments')
 Comatose.configure do |config|
   # Sets the text in the Admin UI's title area
   config.admin_title = "Online Market Site Content"
