@@ -50,4 +50,5 @@ Comatose.configure do |config|
   # Sets the text in the Admin UI's title area
   config.admin_title = "Online Market Site Content"
   config.admin_sub_title = "Substantive content for the site"
+  config.default_tree_level   = 5
 end

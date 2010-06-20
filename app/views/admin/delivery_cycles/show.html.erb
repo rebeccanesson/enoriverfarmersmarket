@@ -28,6 +28,15 @@
   <%=h @delivery_cycle.delivery_close %>
 </p>
 
+<p>
+  <b>Pickup Open:</b>
+  <%=h @delivery_cycle.pickup_open %>
+</p>
+
+<p>
+  <b>Pickup Close:</b>
+  <%=h @delivery_cycle.pickup_close %>
+</p>
 
 <%= link_to 'Edit', edit_admin_delivery_cycle_path(@delivery_cycle) %> |
 <%= link_to 'Back', admin_delivery_cycles_path %>

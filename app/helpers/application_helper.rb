@@ -60,12 +60,21 @@ module ApplicationHelper
   end
   
   def present_cycle(c)
-    ret = '<b>Current Ordering Cycle: ' + c.current_phase + '</b><table>'
-    ret += '<tr><td>Set Up:</td><td>'   + date_format(c.edit_open)     + '</td><td>-</td><td>' + date_format(c.edit_close)     + '</td></tr>'
-    ret += '<tr><td>Ordering:</td><td>' + date_format(c.order_open)    + '</td><td>-</td><td>' + date_format(c.order_close)    + '</td></tr>'
-    ret += '<tr><td>Delivery:</td><td>' + date_format(c.delivery_open) + '</td><td>-</td><td>' + date_format(c.delivery_close) + '</td></tr>'
-    ret += '</table>'
-    ret
+    if (@current_user and (@current_user.admin or @current_user.is_producer))
+      ret = '<b>Current Ordering Cycle: ' + DeliveryCycle.current_phase_name(true)   + '</b><table>'
+      ret += '<tr><td>Set Up:</td><td>'   + date_format(c.edit_open)     + '</td><td>-</td><td>' + date_format(c.edit_close)     + '</td></tr>'
+      ret += '<tr><td>Ordering:</td><td>' + date_format(c.order_open)    + '</td><td>-</td><td>' + date_format(c.order_close)    + '</td></tr>'
+      ret += '<tr><td>Delivery:</td><td>' + date_format(c.delivery_open) + '</td><td>-</td><td>' + date_format(c.delivery_close) + '</td></tr>'
+      ret += '<tr><td>Pick Up:</td><td>'  + date_format(c.pickup_open)   + '</td><td>-</td><td>' + date_format(c.pickup_close)   + '</td></tr>'
+      ret += '</table>'
+      ret
+    else 
+      ret = '<b>Current Ordering Cycle: ' + DeliveryCycle.current_phase_name         + '</b><table>'
+      ret += '<tr><td>Ordering:</td><td>' + date_format(c.order_open)    + '</td><td>-</td><td>' + date_format(c.order_close)    + '</td></tr>'
+      ret += '<tr><td>Pick Up:</td><td>'  + date_format(c.pickup_open)   + '</td><td>-</td><td>' + date_format(c.pickup_close)   + '</td></tr>'
+      ret += '</table>'
+      ret    
+    end
   end
   
   def expand_tree_into_select_field(categories)

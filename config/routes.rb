@@ -7,7 +7,7 @@ ActionController::Routing::Routes.draw do |map|
   
   map.namespace :admin do |admin|
     admin.resources :categories
-    admin.resources :delivery_cycles
+    admin.resources :delivery_cycles, :member => { :duplicate => :post }
   end
   
   map.resources :password_resets
@@ -58,7 +58,7 @@ ActionController::Routing::Routes.draw do |map|
   
   map.resources :users, :member => {:request_producer_account => :get}
   map.resource :user_session
-  map.root :controller => "products", :action => "index" # optional, this just sets the root route
+  map.root :controller => "home", :action => "index" # optional, this just sets the root route
   
   map.connect ':controller/:action/:id'
   map.connect ':controller/:action/:id.:format'
