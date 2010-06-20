@@ -34,10 +34,12 @@
 
 <h5>Duplicate the final delivery cycle</h5>
 <p>Clicking duplicate will use the spacing between the dates of the final delivery cycle to generate a new delivery cycle beginning at the date and time selected here.  If you have a recurring market, you can use this by defining a single cycle and using this button to generate all of the following cycles.</p>
+<% if @delivery_cycles.size > 0 %>
 <p><% form_tag duplicate_admin_delivery_cycle_path(@delivery_cycles.first) do -%>
     <div>Start date: <%= datetime_select 'delivery_cycle', 'start_date', :default => @delivery_cycles.first.pickup_close %>
     <%= submit_tag 'Duplicate' %></div>
   <% end -%>
 </p>
+<% end %>
 
 <%= link_to 'New delivery cycle', new_admin_delivery_cycle_path %>
