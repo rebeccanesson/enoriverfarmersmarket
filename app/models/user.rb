@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
   has_many :account_memberships, :dependent => :destroy
   has_many :managed_account_memberships, :through => :account_memberships, :source => :account
   has_many :producer_account_requests, :dependent => :destroy, :order => 'created_at DESC'
+  has_many :orders, :order => 'created_at DESC'
   
   validates_presence_of :first_name, :last_name, :phone
   
@@ -28,5 +29,8 @@ class User < ActiveRecord::Base
     reset_perishable_token!  
     Notifier.deliver_password_reset_instructions(self)  
   end
-
+  
+  def current_order
+    Order.find(:first, :conditions => ["user_id = ? and delivery_cycle_id = ?", self.id, DeliveryCycle.current.id])
+  end
 end

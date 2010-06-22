@@ -35,12 +35,12 @@ class DeliveryCycle < ActiveRecord::Base
  cattr_accessor :phases, :phase_names, :user_phase_names
   
   def self.current 
-    cycle = DeliveryCycle.find(:first, :conditions => ["edit_open <= ? and pickup_close > ?", Time.now, Time.now])
+    cycle = DeliveryCycle.find(:first, :conditions => ["edit_open <= ? and pickup_close > ?", Time.zone.now, Time.zone.now])
     unless cycle
-      cycle = DeliveryCycle.find(:first, :conditions => ["edit_open >= ?", Time.now], :order => "edit_open ASC")
+      cycle = DeliveryCycle.find(:first, :conditions => ["edit_open >= ?", Time.zone.now], :order => "edit_open ASC")
     end
     unless cycle
-      cycle = DeliveryCycle.find(:first, :conditions => ["pickup_close > ?", Time.now], :order => "pickup_close DESC")
+      cycle = DeliveryCycle.find(:first, :conditions => ["pickup_close > ?", Time.zone.now], :order => "pickup_close DESC")
     end
     cycle
   end
@@ -102,21 +102,22 @@ class DeliveryCycle < ActiveRecord::Base
   def current_phase
     if Time.now < self.edit_open
       DeliveryCycle.phases[0]
-    elsif self.edit_open <= Time.now and Time.now <= self.edit_close
+    elsif self.edit_open <= Time.zone.now and Time.zone.now <= self.edit_close
       DeliveryCycle.phases[1]
-    elsif self.edit_close <= Time.now and Time.now <= self.order_open
+    elsif self.edit_close <= Time.zone.now and Time.zone.now <= self.order_open
       DeliveryCycle.phases[2]
-    elsif self.order_open <= Time.now and Time.now <= self.order_close
+    elsif self.order_open <= Time.zone.now and Time.zone.now <= self.order_close
+      logger.debug("Time now is #{Time.now} and self.order_open is #{self.order_open} and self.order_close is #{self.order_close}")
       DeliveryCycle.phases[3]
-    elsif self.order_close <= Time.now and Time.now <= self.delivery_open
+    elsif self.order_close <= Time.zone.now and Time.zone.now <= self.delivery_open
       DeliveryCycle.phases[4]
-    elsif self.delivery_open <= Time.now and Time.now <= self.delivery_close
+    elsif self.delivery_open <= Time.zone.now and Time.zone.now <= self.delivery_close
       DeliveryCycle.phases[5]
-    elsif self.delivery_close <= Time.now and Time.now <= self.pickup_open
+    elsif self.delivery_close <= Time.zone.now and Time.zone.now <= self.pickup_open
       DeliveryCycle.phases[6]
-    elsif self.pickup_open <= Time.now and Time.now <= self.pickup_close
+    elsif self.pickup_open <= Time.zone.now and Time.zone.now <= self.pickup_close
       DeliveryCycle.phases[7]
-    elsif self.pickup_close < Time.now
+    elsif self.pickup_close < Time.zone.now
       DeliveryCycle.phases[8]
     else
       DeliveryCycle.phases[8]

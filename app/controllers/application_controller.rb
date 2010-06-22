@@ -20,7 +20,7 @@ class ApplicationController < ActionController::Base
     end
     
     def current_delivery_cycle
-      return @current_delivery_cycle if defined?(@current_delivery_cycle)
+      # return @current_delivery_cycle if defined?(@current_delivery_cycle)
       @current_delivery_cycle = DeliveryCycle.current
       return nil unless @current_delivery_cycle
       if @current_delivery_cycle.is_after_order

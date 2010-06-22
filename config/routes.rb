@@ -1,4 +1,7 @@
 ActionController::Routing::Routes.draw do |map|
+
+  map.resources :orders
+
   map.resources :products, :member => { :make_orderable => :post, :remove_orderable => :post }
 
   map.resources :accounts, :member => { :add_member => :post, :remove_member => :get } do |accounts|
@@ -7,7 +10,9 @@ ActionController::Routing::Routes.draw do |map|
   
   map.namespace :admin do |admin|
     admin.resources :categories
-    admin.resources :delivery_cycles, :member => { :duplicate => :post }
+    admin.resources :delivery_cycles, :member => { :duplicate => :post } do |delivery_cycles|
+      delivery_cycles.resources :orders
+    end
   end
   
   map.resources :password_resets
@@ -56,7 +61,13 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :producer_account_requests, :controller => 'admin/producer_account_requests', 
                 :member => {:approve => :get, :deny => :get }
   
-  map.resources :users, :member => {:request_producer_account => :get}
+  map.resources :users, :member => {:request_producer_account => :get, 
+                                    :add_to_cart => :get, 
+                                    :remove_from_cart => :get, 
+                                    :remove_all_from_cart => :get } do |users|
+    users.resources :orders
+  end
+  
   map.resource :user_session
   map.root :controller => "home", :action => "index" # optional, this just sets the root route
   

@@ -1,31 +1,39 @@
 <div class="span-24 last">
   <div id="header">
-    <div class="span-7">
-      <span id="logo" name="logo"></span>
+    <div class="span-24 last">
+      <div class="span-7">
+        <span id="logo" name="logo"></span>
+      </div>
+      <div class="span-17 last">
+        <div class="span-17 last" style="margin-top:25px;">
+          <h2>Welcome to the Online Market<%= (@current_user ? ", #{@current_user.first_name}" : "" )%></h2>
+        </div>
+        <% if @current_delivery_cycle %>
+        <div class="span-17 last">
+          <%= date_format(Time.now) %><br />
+          <%= present_cycle(@current_delivery_cycle) %></div>
+        <% end %>
+      </div>
     </div>
-    <div class="span-17 last">
-     <div class="span-17 last" style="margin-top:25px;">
-       <h2>Welcome to the Online Market<%= (@current_user ? ", #{@current_user.first_name}" : "" )%></h2>
-     </div>
-     <div class="span-7">
+    <div class="span-24 last">
       <%= link_to 'Home', root_path %> |
       <%= link_to 'Shop', products_path %> |
+      <% if @current_user and @current_user.current_order %>
+       <%= link_to (@current_user.current_order.final ? 'View My Invoice' : 'View My Cart'), user_order_path(@current_user,@current_user.current_order) %> |
+      <% end %>
       <% if @current_user_session %>
-          <%= link_to 'My Profile', user_path(@current_user) %> | 
+         <%= link_to 'My Profile', user_path(@current_user) %> | 
       <% end %>
       <% if @current_user and @current_user.admin %>
-          <%= link_to 'Administer Site', '/admin' %> | 
+         <%= link_to 'Administer Site', '/admin' %> | 
       <% end %>
       <% if @current_user_session %>
-          <%= link_to 'Log Out',  user_session_path, :method => :delete %>
+         <%= link_to 'Log Out',  user_session_path, :method => :delete %>
       <% else %>
-          <%= link_to 'Log In', new_user_session_path %> |
-          <%= link_to 'Sign Up', new_user_path %>
+         <%= link_to 'Log In', new_user_session_path %> |
+         <%= link_to 'Sign Up', new_user_path %>
       <% end %> 
-     </div>
-     <% if @current_delivery_cycle %>
-      <div class="span-10 last"><%= present_cycle(@current_delivery_cycle) %></div>
-     <% end %>
+    </div>
   </div>
   <hr />
 </div>

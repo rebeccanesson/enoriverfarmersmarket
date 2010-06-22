@@ -5,6 +5,18 @@
 <li><%= @user.phone %></li>
 </ul>
 
+<% order = @user.current_order %>
+<h3>Your Order <%= (order ? " for #{date_format(order.delivery_cycle.pickup_open)}" : '') %></h3>
+  <ul>
+  <% if order %>
+    <li>You have <%= order.orderables.size %> items in your order.</li>
+    <li><%= (order.final ? 'Your order is finalized.' : 'Your order is not yet finalized.') %></li>
+    <li><%= link_to 'View my order', user_order_url(@user,order) %></li>
+  <% else %>
+    <li>You have no items in your cart.</li>
+  <% end %>
+  </ul>
+
 <h3>Your Producer Accounts</h3>
 <% if @user.managed_accounts.size > 0 %>
   <ul>
@@ -29,5 +41,8 @@
     <li><%= link_to 'Request a producer account', request_producer_account_user_path(@user) %></li>
   </ul>
 <% end %>
+
+<h3>Order History</h3>
+<%= render :partial => '/common/order', :collection => @user.orders %>
 
 <%= link_to 'Edit', edit_user_path %>

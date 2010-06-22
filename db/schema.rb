@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100620005935) do
+ActiveRecord::Schema.define(:version => 20100622030937) do
 
   create_table "account_memberships", :force => true do |t|
     t.integer  "account_id"
@@ -85,13 +85,28 @@ ActiveRecord::Schema.define(:version => 20100620005935) do
     t.datetime "pickup_close"
   end
 
+  create_table "line_items", :force => true do |t|
+    t.integer  "order_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "product_id"
+  end
+
   create_table "orderables", :force => true do |t|
     t.integer  "product_id"
-    t.integer  "order_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "status"
     t.integer  "delivery_cycle_id"
+    t.integer  "line_item_id"
+  end
+
+  create_table "orders", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "delivery_cycle_id"
+    t.boolean  "final"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "producer_account_requests", :force => true do |t|

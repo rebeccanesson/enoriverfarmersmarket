@@ -16,6 +16,7 @@
           <span id="flash-content"><%= flash[:notice] %></span>
         </div>
         <h5><%= Comatose.config.admin_sub_title %></h5>
+        <h5><%= link_to 'Back to Main Site', admin_url %></h5>
       </div>
       <div id="content">
         <%= yield %>

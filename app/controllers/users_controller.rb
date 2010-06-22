@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_filter :require_no_user, :only => [:new, :create]
-  before_filter :require_user, :only => [:show, :edit, :update]
+  before_filter :require_user, :only => [:show, :edit, :update, :add_to_cart, :remove_from_cart]
+  before_filter :ordering_is_open, :only => [:add_to_cart, :remove_from_cart]
   
   def new
     @user = User.new
@@ -44,4 +45,110 @@ class UsersController < ApplicationController
       redirect_to user_url(@user)
     end
   end
+  
+  def add_to_cart
+    success = false
+    @user = User.find(params[:id])
+    @product = Product.find(params[:product_id])
+    @orderable = @product.available_orderables.first
+    if @orderable
+      @order = @user.current_order
+      if !@order
+        @order = Order.create(:user_id => @user.id, :delivery_cycle => @current_delivery_cycle)
+      end
+      if @order
+        @line_item = @order.line_item_for_product(@product) || LineItem.create(:order_id => @order.id, :product_id => @product.id)
+        if @line_item.save
+          @orderable.update_attributes(:status => 'In Cart', :line_item_id => @line_item.id)
+          if @orderable.save
+            success = true
+          end
+        end
+      end
+    end
+    respond_to do |format|
+      if success
+        format.html { 
+          flash[:notice] = "The item has been added to your cart."
+          redirect_to products_url
+        }
+      else
+        format.html { 
+          flash[:notice] = "The item could not be added to the cart."
+          redirect_to products_url 
+        }
+      end
+    end
+  end
+  
+  def remove_from_cart
+    result = false
+    @user = User.find(params[:id])
+    @line_item = LineItem.find(params[:line_item_id])
+    if @line_item and @line_item.orderables.size > 0
+      @orderable = @line_item.orderables.first
+      @orderable.update_attributes(:status => 'Available', :line_item_id => nil)
+      result = @orderable.save
+      if @line_item.orderables.size == 0
+        @line_item.destroy
+      end
+    end
+    respond_to do |format|
+      if result
+        format.html { 
+          flash[:notice] = "Item removed from cart."
+          redirect_to user_order_url(@user, @user.current_order)
+        }
+      else
+        format.html { 
+          flash[:notice] = "Could not remove item from cart."
+          redirect_to user_order_url(@user, @user.current_order)
+        }
+      end
+    end
+  end
+  
+  def remove_all_from_cart
+    result = false
+    @user = User.find(params[:id])
+    @line_item = LineItem.find(params[:line_item_id])
+    if @line_item and @line_item.orderables.size > 0
+      @line_item.orderables.each do |orderable|
+        orderable.update_attributes(:status => 'Available', :line_item_id => nil)
+        result = result and orderable.save
+      end
+      @line_item.destroy 
+    end
+    respond_to do |format|
+      if result
+        format.html { 
+          flash[:notice] = "The items have been removed from your cart."
+          redirect_to user_order_url(@user, @user.current_order)
+        }
+      else 
+        format.html { 
+          flash[:notice] = "There was an error removing items from your cart."
+          redirect_to user_order_url(@user,@user.current_order)
+        }
+      end
+    end
+  end
+        
+    
+  def ordering_is_open
+    current_delivery_cycle
+    logger.debug("#{@current_delivery_cycle} #{@current_delivery_cycle.is_order}")
+    unless @current_delivery_cycle and @current_delivery_cycle.is_order
+      respond_to do |format|
+        format.html { 
+          flash[:notice] = "Products can only be added to or removed from your cart when ordering is open."
+          redirect_to products_url(@user)
+        }
+        format.js { 
+          render :action => :error
+        }
+      end
+    end
+  end
+  
 end

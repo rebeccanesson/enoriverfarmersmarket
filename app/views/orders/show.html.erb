@@ -1,0 +1,42 @@
+<h3>Order for <%=h @order.user.name %></h3>
+
+<p>
+  Order period from <%= date_format(@order.delivery_cycle.order_open) %> to 
+                    <%= date_format(@order.delivery_cycle.order_close) %><br />
+  Pick up from <%= date_format(@order.delivery_cycle.pickup_open) %> 
+            to <%= date_format(@order.delivery_cycle.pickup_close) %>
+</p>
+
+<% if @order.final %>
+  <p><b>This order is final.</b></p>
+<% else %>
+  <p><b>This order is not yet final.</b></p>
+<% end %>
+
+<h3>Line Items</h3>
+<table>
+  <tr>
+    <th>Product</th>
+    <th>Quantity</th>
+    <th>Ordering Unit</th>
+    <th>Unit Price</th>
+    <th>Total Price</th>
+    <th>Remove One</th>
+    <th>Remove All</th>
+    <th>
+  </tr>
+<% @order.line_items.each do |line_item| %> 
+  <tr>
+    <td><%= line_item.product.title %></td>
+    <td><%= line_item.item_count %></td>
+    <td><%= line_item.product.ordering_unit %></td>
+    <td><%= line_item.product.price_per_unit %></td>
+    <td><%= line_item.total_price %></td>
+    <td><%= link_to 'remove one', remove_from_cart_user_path(@order.user, :line_item_id => line_item) %></td>
+    <td><%= link_to 'remove all', remove_all_from_cart_user_path(@order.user, :line_item_id => line_item) %></td>
+  </tr>
+<% end %>
+</table>
+
+<%= link_to 'Edit', edit_order_path(@order) %> |
+<%= link_to 'Back', orders_path %>

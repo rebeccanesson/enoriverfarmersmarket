@@ -5,6 +5,7 @@ class Product < ActiveRecord::Base
   has_many :available_orderables, :class_name => 'Orderable', :conditions => "status='Available'"
   has_many :carted_orderables, :class_name => 'Orderable', :conditions => "status='In Cart'"
   has_many :ordered_orderables, :class_name => 'Orderable', :conditions => "status='Ordered'"
+  has_many :line_items
   
   validates_presence_of :account_id
   
