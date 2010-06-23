@@ -61,19 +61,17 @@ module ApplicationHelper
   
   def present_cycle(c)
     if (@current_user and (@current_user.admin or @current_user.is_producer))
-      ret = '<b>Current Ordering Cycle: ' + DeliveryCycle.current_phase_name(true)   + '</b><table>'
-      ret += '<tr><td>Set Up:</td><td>'   + date_format(c.edit_open)     + '</td><td>-</td><td>' + date_format(c.edit_close)     + '</td></tr>'
-      ret += '<tr><td>Ordering:</td><td>' + date_format(c.order_open)    + '</td><td>-</td><td>' + date_format(c.order_close)    + '</td></tr>'
-      ret += '<tr><td>Delivery:</td><td>' + date_format(c.delivery_open) + '</td><td>-</td><td>' + date_format(c.delivery_close) + '</td></tr>'
-      ret += '<tr><td>Pick Up:</td><td>'  + date_format(c.pickup_open)   + '</td><td>-</td><td>' + date_format(c.pickup_close)   + '</td></tr>'
-      ret += '</table>'
+      ret = '<b>Current Ordering Cycle: ' + DeliveryCycle.current_phase_name(true)   + '</b><br />'
+      ret += '<b>Set Up:</b> '   + date_format(c.edit_open)     + ' to ' + date_format(c.edit_close)     + '<br />'
+      ret += '<b>Ordering:</b> ' + date_format(c.order_open)    + ' to ' + date_format(c.order_close)    + '<br />'
+      ret += '<b>Delivery:</b> ' + date_format(c.delivery_open) + ' to ' + date_format(c.delivery_close) + '<br />'
+      ret += '<b>Pick Up:</b> '  + date_format(c.pickup_open)   + ' to ' + date_format(c.pickup_close)
       ret
     else 
-      ret = '<b>Current Ordering Cycle: ' + DeliveryCycle.current_phase_name         + '</b><table>'
-      ret += '<tr><td>Ordering:</td><td>' + date_format(c.order_open)    + '</td><td>-</td><td>' + date_format(c.order_close)    + '</td></tr>'
-      ret += '<tr><td>Pick Up:</td><td>'  + date_format(c.pickup_open)   + '</td><td>-</td><td>' + date_format(c.pickup_close)   + '</td></tr>'
-      ret += '</table>'
-      ret    
+      ret = '<b>Current Ordering Cycle: ' + DeliveryCycle.current_phase_name(true)   + '</b><br />'
+      ret += '<b>Ordering:</b> ' + date_format(c.order_open)    + ' to ' + date_format(c.order_close)    + '<br />'
+      ret += '<b>Pick Up:</b> '  + date_format(c.pickup_open)   + ' to ' + date_format(c.pickup_close) 
+      ret  
     end
   end
   

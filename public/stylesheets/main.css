@@ -1,6 +1,7 @@
 #sidebar { 
-	border-left: 1px solid blue;
+	border-left: 1px dashed white;
 	padding-left: 10px;
+	padding-top:10px;
 	min-height: 450px;
 }
 
@@ -17,12 +18,50 @@ ul li {
   display:block;
   margin: 0px 0px 0px 0px;
   padding: 0px;
-  background: url('http://farm2.static.flickr.com/1279/4701170956_b02d725af7_m.jpg') no-repeat;
-  height: 165px;
+  background: url('http://www.order.enoriverfarmersmarket.com/images/logo-small.png') no-repeat;
+  height: 155px;
   text-indent: -9999px;
 }
 
 th { 
 	font-weight:bold;
   border-bottom:1px solid black;	
+}
+
+body { 
+	background: url('http://www.order.enoriverfarmersmarket.com/images/background.jpg');
+}
+
+.main-content { 
+	background-color:#53D03F;
+}
+
+
+.nav-buttons {
+	background-color:#0E6800;
+	border-bottom:1px dashed #FFFFFF;
+	height:1.8em;
+	padding-top:3px;
+}
+
+.left-column { 
+	padding:15px;
+}
+
+.nav-buttons a { 
+	color:white;
+	font-weight:bold;
+	margin-left:10px;
+	margin-right:10px;
+}
+
+a {
+	color:#D90010;
+	font-weight:500;
+	text-decoration:none;
+}
+
+a:hover, a:active { 
+	color:#D90010;
+	text-decoration:underline;
 }

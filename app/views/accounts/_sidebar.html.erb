@@ -1,5 +1,10 @@
 <div class="span-6 last">
   <div id="sidebar">
-    <h3>Account Sidebar</h3>
+    <h3>Actions</h3>
+    <ul>
+      <% if can_edit(@account) %>
+        <li><%= link_to 'Edit account', edit_account_path(@account) %></li>
+        <li><%= link_to 'Add a new product', new_account_product_path(@account,@product) %></li>
+      <% end %>
   </div>
 </div>

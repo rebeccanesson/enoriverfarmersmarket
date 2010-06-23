@@ -12,13 +12,20 @@ class UserInvoiceReport < Ruport::Controller
       :joins => "inner join orders on orders.id = line_items.order_id",
       :conditions =>["orders.delivery_cycle_id = ? and orders.user_id = ?", delivery_cycle_id, user_id], 
       :methods=>[:total_price, :item_count], 
-      :include => { :product=>{:only=>[:price_per_unit,:ordering_unit,:title] } }
+      :include => { :product=>{:only=>[:price_per_unit,:ordering_unit,:title] } }, 
+      :transforms => lambda { |r|
+        r['Product ID'] = r['product_id']
+        r['Product Name'] = r['product.title']
+        r['Item Count'] = r['item_count']
+        r['Ordering Unit'] = r['product.ordering_unit'] 
+        r['Price per Unit'] = r['product.price_per_unit']
+        r['Total Price'] = r['total_price']
+      }
     )
     
     return if raw_data.data.empty?
 
-    # raw_data.rename_columns({
-    # })
+    raw_data = raw_data.sub_table(['Product ID', 'Product Name', 'Item Count', 'Ordering Unit', 'Price per Unit', 'Total Price'])
     
     # totals = Ruport::Data::Table.new :data => [["Subtotal", nil, nil, nil, nil, raw_data.sum('PRX Cut'), raw_data.sum('Discount'), raw_data.sum('Subsidy'), raw_data.sum('Unspent Point Value') ]], 
     #                                   :column_names => ["Event", "Date", "Account Name", "Path", "List Price", "PRX Cut", "Discount", "Subsidy", "Unspent Point Value"]
