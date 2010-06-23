@@ -1,0 +1,4 @@
+<%= render :comatose => '/views/orders/terms' %>
+<p>
+  <%= link_to 'Agree', finalize_user_order_url(@order.user,@order) %> or <%= link_to 'Cancel', user_order_url(@order.user,@order) %>
+</p>

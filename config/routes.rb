@@ -65,7 +65,7 @@ ActionController::Routing::Routes.draw do |map|
                                     :add_to_cart => :get, 
                                     :remove_from_cart => :get, 
                                     :remove_all_from_cart => :get } do |users|
-    users.resources :orders
+    users.resources :orders, :member => { :terms => :get, :finalize => :get }
   end
   
   map.resource :user_session

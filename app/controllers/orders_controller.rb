@@ -3,10 +3,10 @@ class OrdersController < ApplicationController
   # GET /orders.xml
   def index
     @user = User.find(params[:user_id]) if params[:user_id]
-    @delivery_cycle = DeliveryCycle.find(params[:delivery_cycle_id])
+    @delivery_cycle = DeliveryCycle.find(params[:delivery_cycle_id]) if params[:delivery_cycle_id]
     if @user
       @orders = @user.orders
-    elsif    
+    elsif @delivery_cycle  
       @orders = Order.find(:all, :conditions => ["delivery_cycle_id = ?", @delivery_cycle.id], :order => 'updated_at DESC') 
     else
       @orders = Order.find(:all, :order => "updated_at DESC")
@@ -90,5 +90,20 @@ class OrdersController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
+  def terms
+    @order = Order.find(params[:id])
+  end
+  
+  def finalize
+    @order = Order.find(params[:id])
+    @order.final = true
+    if @order.save
+      flash[:notice] = 'Your order is now final.'
+    else
+      flash[:notice] = 'Your order could not be finalized.'
+    end
+    redirect_to user_order_url(@order.user,@order)
+  end      
   
 end

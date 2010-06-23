@@ -7,10 +7,17 @@
             to <%= date_format(@order.delivery_cycle.pickup_close) %>
 </p>
 
+<h3>Order Status</h3>
 <% if @order.final %>
-  <p><b>This order is final.</b></p>
+  <ul>
+    <li><b>This order is final.</b></li>
+    <li>View your invoice</li>
+  </ul>
 <% else %>
-  <p><b>This order is not yet final.</b></p>
+ <ul>
+   <li><b>This order is not yet final.</b></li>
+   <li><%= link_to 'Commit to Order', terms_user_order_url(@order.user,@order) %>
+ </ul>
 <% end %>
 
 <h3>Line Items</h3>
@@ -37,6 +44,3 @@
   </tr>
 <% end %>
 </table>
-
-<%= link_to 'Edit', edit_order_path(@order) %> |
-<%= link_to 'Back', orders_path %>
