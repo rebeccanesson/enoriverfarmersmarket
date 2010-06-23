@@ -1,5 +1,5 @@
 #sidebar { 
-	border-left: 1px dashed white;
+	border-left: 1px dashed #53D03F;
 	padding-left: 10px;
 	padding-top:10px;
 	min-height: 450px;
@@ -33,13 +33,16 @@ body {
 }
 
 .main-content { 
-	background-color:#53D03F;
+	background-color:white;
 }
 
+.foo { 
+	color:#53D03F;
+}
 
 .nav-buttons {
 	background-color:#0E6800;
-	border-bottom:1px dashed #FFFFFF;
+	border-bottom:1px solid #53D03F;
 	height:1.8em;
 	padding-top:3px;
 }
@@ -61,6 +64,12 @@ a {
 	text-decoration:none;
 }
 
+.delivery-cycle { 
+	color:white;
+	background-color:#53D03F;
+	padding:5px;
+	border:1px #0E6800 solid;	
+}
 a:hover, a:active { 
 	color:#D90010;
 	text-decoration:underline;

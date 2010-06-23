@@ -49,6 +49,10 @@ module ApplicationHelper
       if cat_image and !cat_image.blank? 
         res = "<img src='#{cat_image}' />"
       end
+    elsif item.is_a?(Account)
+      if item.logo_url and !item.logo_url.blank?
+        res = "<img src='#{item.logo_url}' />"
+      end
     end
     res
   end

@@ -1,10 +1,15 @@
 <div class="column span-17 left-column">
+<div class="span-3" style="margin-bottom:15px;">
+  <%= image_for(@account) %>
+</div>
+<div class="span-14 last">
 <h2><%= @account.producer_name %>
     <% if can_edit(@account) %>
       (<%= link_to 'edit', edit_account_path(@account) %>) 
     <% end %>
 </h2>
-
+</div>
+<div class="span-17 last">
 <p><%= @account.description %></p>
 
 <p><%=h @account.street %><br />
@@ -21,5 +26,6 @@
   </div>
 
 <p><%= link_to 'Add a new product', new_account_product_path(@account,@product) %></p>
+</div>
 </div>
 <%= render :partial => 'sidebar' %>

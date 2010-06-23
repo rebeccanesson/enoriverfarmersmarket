@@ -9,7 +9,7 @@
           <h3 style="color:white;">Welcome to the Eno River Farmers Market<%= (@current_user ? ", #{@current_user.first_name}" : "" )%></h3>
         </div>
         <% if @current_delivery_cycle %>
-        <div class="span-14 last" style="color:white;background-color:#53D03F;padding:5px;border:1px white dashed;">
+        <div class="span-14 last delivery-cycle">
           <%= present_cycle(@current_delivery_cycle) %></div>
         <% end %>
       </div>
