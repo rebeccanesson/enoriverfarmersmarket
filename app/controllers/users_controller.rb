@@ -135,7 +135,7 @@ class UsersController < ApplicationController
     end
   end
   
-  def order_not_final
+  def require_order_not_final
     @order = Order.find(params[:id])
     if @order.final
       flash[:notice] = 'Invoices may only be viewed before the order is final.'

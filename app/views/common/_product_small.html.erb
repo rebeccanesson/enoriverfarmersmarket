@@ -1,10 +1,10 @@
 <% product = product_small %>
 <div id="<%=dom_id(product)%>" class="span-17" style="margin-bottom:10px;border:1px white dashed;padding:5px;">
-  <div class="span-13">
+  <div class="span-12">
     <div class="span-2">
       <%= image_for(product) %>
     </div>
-    <div class="span-6">
+    <div class="span-5">
       <p><b><%= link_to product.title, account_product_path(product.account,product) %></b><br />
          From <%= link_to product.account.name, account_path(product.account) %><br />
          <%= product.description %><br />
