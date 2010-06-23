@@ -32,7 +32,7 @@ module ApplicationHelper
   end
   
   def image_for(item)
-    res = ''
+    res = "<img src='/images/logo.jpg' />"
     if item.is_a?(Product)
       if item.image_url and !item.image_url.blank?
         res = "<img src='#{item.image_url}' />"
@@ -43,18 +43,12 @@ module ApplicationHelper
         if cat_image and !cat_image.blank? 
           res = "<img src='#{cat_image}' />"
         end
-      else
-        res = "<img src='/images/logo.jpg' />"
       end
     elsif item.is_a?(Category)
       cat_image = item.image
       if cat_image and !cat_image.blank? 
         res = "<img src='#{cat_image}' />"
-      else
-        res = "<img src='/images/logo.jpg' />"
       end
-    else
-      res = "<img src='/images/logo.jpg' />"
     end
     res
   end
