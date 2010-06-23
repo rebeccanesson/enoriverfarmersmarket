@@ -42,6 +42,22 @@ class ApplicationController < ActionController::Base
       # end
     end
     
+    def require_ordering_is_open
+      current_delivery_cycle
+      logger.debug("#{@current_delivery_cycle} #{@current_delivery_cycle.is_order}")
+      unless @current_delivery_cycle and @current_delivery_cycle.is_order
+        respond_to do |format|
+          format.html { 
+            flash[:notice] = "This action can only be taken when ordering is open."
+            redirect_to products_url(@user)
+          }
+          format.js { 
+            render :action => :error
+          }
+        end
+      end
+    end
+    
     def require_user
       unless current_user
         store_location

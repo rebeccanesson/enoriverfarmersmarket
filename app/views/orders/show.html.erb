@@ -11,12 +11,14 @@
 <% if @order.final %>
   <ul>
     <li><b>This order is final.</b></li>
-    <li>View your invoice</li>
+    <li><%= link_to 'View your invoice', invoice_user_order_url(@order.user, @order) %></li>
   </ul>
 <% else %>
  <ul>
    <li><b>This order is not yet final.</b></li>
-   <li><%= link_to 'Commit to Order', terms_user_order_url(@order.user,@order) %>
+   <% if @current_delivery_cycle and @current_delivery_cycle.is_order %>
+    <li><%= link_to 'Commit to Order', terms_user_order_url(@order.user,@order) %>
+   <% end %>
  </ul>
 <% end %>
 
@@ -43,4 +45,31 @@
     <td><%= link_to 'remove all', remove_all_from_cart_user_path(@order.user, :line_item_id => line_item) %></td>
   </tr>
 <% end %>
+   <tr>
+     <td style="border-top:1px solid black;"></td>
+     <td style="border-top:1px solid black;"></td>
+     <td style="border-top:1px solid black;"></td>
+    <td style="border-top:1px solid black;">SubTotal:</td>
+     <td style="border-top:1px solid black;"><%= @order.subtotal %></td>
+     <td style="border-top:1px solid black;"></td>
+     <td style="border-top:1px solid black;"></td> 
+   </tr>
+   <tr>
+     <td></td>
+     <td></td>
+     <td></td>
+    <td>Market Fee:</td>
+     <td><%= @order.member_surcharge %></td>
+     <td></td>
+     <td></td>
+   </tr>
+   <tr>
+     <td></td>
+     <td></td>
+     <td></td>
+     <td>Total:</td>
+     <td><%= @order.total %></td>
+      <td></td>
+      <td></td>
+   </tr>    
 </table>

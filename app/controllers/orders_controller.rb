@@ -1,4 +1,7 @@
 class OrdersController < ApplicationController
+  before_filter :require_ordering_is_open, :only => [:add_to_cart, :remove_from_cart]
+  before_filter :order_is_final, :only => [:invoice]
+  
   # GET /orders
   # GET /orders.xml
   def index
@@ -104,6 +107,28 @@ class OrdersController < ApplicationController
       flash[:notice] = 'Your order could not be finalized.'
     end
     redirect_to user_order_url(@order.user,@order)
-  end      
+  end    
+  
+  def invoice
+    @order = Order.find(params[:id])
+    
+    respond_to do |format|
+      format.html { 
+        @report = UserInvoiceReport.render_html(:user_id=>@order.user.id, :delivery_cycle_id=>@order.delivery_cycle.id)
+      }
+      format.pdf {
+        pdf = UserInvoiceReport.render_pdf(:user_id=>@order.user.id, :delivery_cycle_id=>@order.delivery_cycle.id)
+        send_data pdf, :type => "application/pdf", :filename => "#{@order.user.last_name}_invoice.pdf"
+      }
+    end
+  end  
+  
+  def order_is_final
+    @order = Order.find(params[:id])
+    unless @order.final
+      flash[:notice] = 'Invoices may only be viewed after the order is final'
+      redirect_to user_order_url(@order.user,@order)
+    end
+  end
   
 end

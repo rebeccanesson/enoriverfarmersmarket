@@ -9,6 +9,8 @@ class User < ActiveRecord::Base
   
   validates_presence_of :first_name, :last_name, :phone
   
+  acts_as_reportable
+  
   def name
     "#{self.first_name} #{self.last_name}"
   end

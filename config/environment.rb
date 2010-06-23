@@ -13,6 +13,7 @@ Rails::Initializer.run do |config|
 
   # Add additional load paths for your own custom dirs
   # config.load_paths += %W( #{RAILS_ROOT}/extras )
+  config.load_paths += %W( #{RAILS_ROOT}/app/reports )
 
   # Specify gems that this application depends on and have them installed with rake gems:install
   # config.gem "bj"
@@ -24,7 +25,8 @@ Rails::Initializer.run do |config|
   config.gem "searchlogic"
   config.gem "jrails"
   config.gem "acts_as_list", "~>0.1"
-  
+  config.gem "acts_as_reportable", :lib => 'ruport/acts_as_reportable'
+  config.gem "ruport"
 
   # Only load the plugins named here, in the order given (default is alphabetical).
   # :all can be used as a placeholder for all plugins not explicitly named
@@ -52,3 +54,8 @@ Comatose.configure do |config|
   config.admin_sub_title = "Substantive content for the site"
   config.default_tree_level   = 5
 end
+
+MEMBER_SURCHARGE = 0.0
+PRODUCER_SURCHARGE = 0.0
+
+Mime::Type.register 'application/pdf', :pdf

@@ -48837,3 +48837,1925 @@ Time now is Tue Jun 22 20:23:25 -0400 2010 and self.order_open is 2010-06-21 23:
 Rendered layouts/_header (31.3ms)
 Rendered layouts/_footer (0.3ms)
 Completed in 310ms (View: 131, DB: 30) | 200 OK [http://localhost/users/2/orders/1]
+  [4;36;1mSQL (1.6ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing HomeController#index (for 127.0.0.1 at 2010-06-22 20:24:43) [GET]
+  Parameters: {"action"=>"index", "controller"=>"home"}
+  [4;35;1mUser Columns (2.3ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '2') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Update (0.3ms)[0m   [0;1mUPDATE `users` SET `updated_at` = '2010-06-23 00:24:43', `perishable_token` = 'Imh4wAwoJcZQbKKfI2qe', `last_request_at` = '2010-06-23 00:24:43' WHERE `id` = 2[0m
+  [4;35;1mSQL (1.5ms)[0m   [0mCOMMIT[0m
+  [4;36;1mDeliveryCycle Load (2.0ms)[0m   [0;1mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 00:24:44' and pickup_close > '2010-06-23 00:24:44') LIMIT 1[0m
+  [4;35;1mDeliveryCycle Columns (3.8ms)[0m   [0mSHOW FIELDS FROM `delivery_cycles`[0m
+Time now is Tue Jun 22 20:24:44 -0400 2010 and self.order_open is 2010-06-21 23:01:00 -0400 and self.order_close is 2010-06-22 20:44:00 -0400
+Rendering template within layouts/application
+Rendering home/index
+  [4;36;1mComatosePage Load (0.7ms)[0m   [0;1mSELECT * FROM `comatose_pages` WHERE (full_path = 'views/home/index') LIMIT 1[0m
+Rendered home/_sidebar (0.3ms)
+Rendered layouts/_head_tag (7.0ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 00:24:44' and pickup_close > '2010-06-23 00:24:44') LIMIT 1[0m
+Time now is Tue Jun 22 20:24:44 -0400 2010 and self.order_open is 2010-06-21 23:01:00 -0400 and self.order_close is 2010-06-22 20:44:00 -0400
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 00:24:44' and pickup_close > '2010-06-23 00:24:44') LIMIT 1[0m
+  [4;35;1mOrder Load (0.4ms)[0m   [0mSELECT * FROM `orders` WHERE (user_id = 2 and delivery_cycle_id = 3) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 00:24:44' and pickup_close > '2010-06-23 00:24:44') LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `orders` WHERE (user_id = 2 and delivery_cycle_id = 3) LIMIT 1[0m
+  [4;36;1mOrder Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `orders`[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 00:24:44' and pickup_close > '2010-06-23 00:24:44') LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `orders` WHERE (user_id = 2 and delivery_cycle_id = 3) LIMIT 1[0m
+Rendered layouts/_header (51.0ms)
+Rendered layouts/_footer (0.3ms)
+Completed in 325ms (View: 66, DB: 15) | 200 OK [http://localhost/]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing OrdersController#show (for 127.0.0.1 at 2010-06-22 20:28:19) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "user_id"=>"2", "controller"=>"orders"}
+  [4;36;1mUser Columns (2.1ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '2') LIMIT 1[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Update (0.3ms)[0m   [0mUPDATE `users` SET `updated_at` = '2010-06-23 00:28:19', `perishable_token` = '-JyC3rXjR8cBDqHLXoHl', `last_request_at` = '2010-06-23 00:28:19' WHERE `id` = 2[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mDeliveryCycle Load (0.3ms)[0m   [0mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 00:28:19' and pickup_close > '2010-06-23 00:28:19') LIMIT 1[0m
+  [4;36;1mDeliveryCycle Columns (1.7ms)[0m   [0;1mSHOW FIELDS FROM `delivery_cycles`[0m
+Time now is Tue Jun 22 20:28:19 -0400 2010 and self.order_open is 2010-06-21 23:01:00 -0400 and self.order_close is 2010-06-22 20:44:00 -0400
+  [4;35;1mOrder Columns (1.7ms)[0m   [0mSHOW FIELDS FROM `orders`[0m
+  [4;36;1mOrder Load (0.3ms)[0m   [0;1mSELECT * FROM `orders` WHERE (`orders`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering orders/show
+  [4;35;1mUser Load (0.8ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+  [4;36;1mDeliveryCycle Load (0.2ms)[0m   [0;1mSELECT * FROM `delivery_cycles` WHERE (`delivery_cycles`.`id` = 3) [0m
+  [4;35;1mLineItem Load (0.3ms)[0m   [0mSELECT * FROM `line_items` WHERE (`line_items`.order_id = 1) [0m
+  [4;36;1mLineItem Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `line_items`[0m
+  [4;35;1mProduct Columns (1.7ms)[0m   [0mSHOW FIELDS FROM `products`[0m
+  [4;36;1mProduct Load (0.3ms)[0m   [0;1mSELECT * FROM `products` WHERE (`products`.`id` = 1) [0m
+  [4;35;1mOrderable Columns (1.8ms)[0m   [0mSHOW FIELDS FROM `orderables`[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.line_item_id = 3) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.line_item_id = 3) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.line_item_id = 3) [0m
+Rendered layouts/_head_tag (5.8ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 00:28:19' and pickup_close > '2010-06-23 00:28:19') LIMIT 1[0m
+Time now is Tue Jun 22 20:28:19 -0400 2010 and self.order_open is 2010-06-21 23:01:00 -0400 and self.order_close is 2010-06-22 20:44:00 -0400
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 00:28:19' and pickup_close > '2010-06-23 00:28:19') LIMIT 1[0m
+  [4;35;1mOrder Load (0.4ms)[0m   [0mSELECT * FROM `orders` WHERE (user_id = 2 and delivery_cycle_id = 3) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 00:28:19' and pickup_close > '2010-06-23 00:28:19') LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `orders` WHERE (user_id = 2 and delivery_cycle_id = 3) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 00:28:19' and pickup_close > '2010-06-23 00:28:19') LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `orders` WHERE (user_id = 2 and delivery_cycle_id = 3) LIMIT 1[0m
+Rendered layouts/_header (30.2ms)
+Rendered layouts/_footer (0.3ms)
+Completed in 312ms (View: 154, DB: 15) | 200 OK [http://localhost/users/2/orders/1]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing OrdersController#show (for 127.0.0.1 at 2010-06-22 20:28:21) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "user_id"=>"2", "controller"=>"orders"}
+  [4;35;1mUser Columns (2.2ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '2') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Update (0.3ms)[0m   [0;1mUPDATE `users` SET `updated_at` = '2010-06-23 00:28:21', `perishable_token` = 'TmztBjqNeK3TIkPoS6FS', `last_request_at` = '2010-06-23 00:28:21' WHERE `id` = 2[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCOMMIT[0m
+  [4;36;1mDeliveryCycle Load (0.3ms)[0m   [0;1mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 00:28:21' and pickup_close > '2010-06-23 00:28:21') LIMIT 1[0m
+  [4;35;1mDeliveryCycle Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `delivery_cycles`[0m
+Time now is Tue Jun 22 20:28:21 -0400 2010 and self.order_open is 2010-06-21 23:01:00 -0400 and self.order_close is 2010-06-22 20:44:00 -0400
+  [4;36;1mOrder Columns (2.0ms)[0m   [0;1mSHOW FIELDS FROM `orders`[0m
+  [4;35;1mOrder Load (0.3ms)[0m   [0mSELECT * FROM `orders` WHERE (`orders`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering orders/show
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+  [4;35;1mDeliveryCycle Load (0.5ms)[0m   [0mSELECT * FROM `delivery_cycles` WHERE (`delivery_cycles`.`id` = 3) [0m
+  [4;36;1mLineItem Load (0.4ms)[0m   [0;1mSELECT * FROM `line_items` WHERE (`line_items`.order_id = 1) [0m
+  [4;35;1mLineItem Columns (1.8ms)[0m   [0mSHOW FIELDS FROM `line_items`[0m
+  [4;36;1mProduct Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `products`[0m
+  [4;35;1mProduct Load (0.4ms)[0m   [0mSELECT * FROM `products` WHERE (`products`.`id` = 1) [0m
+  [4;36;1mOrderable Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `orderables`[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.line_item_id = 3) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.line_item_id = 3) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.line_item_id = 3) [0m
+Rendered layouts/_head_tag (7.2ms)
+  [4;36;1mDeliveryCycle Load (0.4ms)[0m   [0;1mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 00:28:22' and pickup_close > '2010-06-23 00:28:22') LIMIT 1[0m
+Time now is Tue Jun 22 20:28:22 -0400 2010 and self.order_open is 2010-06-21 23:01:00 -0400 and self.order_close is 2010-06-22 20:44:00 -0400
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 00:28:22' and pickup_close > '2010-06-23 00:28:22') LIMIT 1[0m
+  [4;36;1mOrder Load (0.3ms)[0m   [0;1mSELECT * FROM `orders` WHERE (user_id = 2 and delivery_cycle_id = 3) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 00:28:22' and pickup_close > '2010-06-23 00:28:22') LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `orders` WHERE (user_id = 2 and delivery_cycle_id = 3) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 00:28:22' and pickup_close > '2010-06-23 00:28:22') LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `orders` WHERE (user_id = 2 and delivery_cycle_id = 3) LIMIT 1[0m
+Rendered layouts/_header (25.9ms)
+Rendered layouts/_footer (0.3ms)
+Completed in 285ms (View: 126, DB: 15) | 200 OK [http://localhost/users/2/orders/1]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing OrdersController#show (for 127.0.0.1 at 2010-06-22 20:28:48) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "user_id"=>"2", "controller"=>"orders"}
+  [4;36;1mUser Columns (9.7ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (267.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '2') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Update (0.3ms)[0m   [0mUPDATE `users` SET `updated_at` = '2010-06-23 00:28:48', `perishable_token` = 'v8EfGABCUNrDJNl6p1LS', `last_request_at` = '2010-06-23 00:28:48' WHERE `id` = 2[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mDeliveryCycle Load (0.4ms)[0m   [0mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 00:28:49' and pickup_close > '2010-06-23 00:28:49') LIMIT 1[0m
+  [4;36;1mDeliveryCycle Columns (3.5ms)[0m   [0;1mSHOW FIELDS FROM `delivery_cycles`[0m
+Time now is Tue Jun 22 20:28:49 -0400 2010 and self.order_open is 2010-06-21 23:01:00 -0400 and self.order_close is 2010-06-22 20:44:00 -0400
+  [4;35;1mOrder Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `orders`[0m
+  [4;36;1mOrder Load (0.3ms)[0m   [0;1mSELECT * FROM `orders` WHERE (`orders`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering orders/show
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+  [4;36;1mDeliveryCycle Load (0.2ms)[0m   [0;1mSELECT * FROM `delivery_cycles` WHERE (`delivery_cycles`.`id` = 3) [0m
+  [4;35;1mLineItem Load (0.5ms)[0m   [0mSELECT * FROM `line_items` WHERE (`line_items`.order_id = 1) [0m
+  [4;36;1mLineItem Columns (4.9ms)[0m   [0;1mSHOW FIELDS FROM `line_items`[0m
+  [4;35;1mProduct Columns (1.7ms)[0m   [0mSHOW FIELDS FROM `products`[0m
+  [4;36;1mProduct Load (0.4ms)[0m   [0;1mSELECT * FROM `products` WHERE (`products`.`id` = 1) [0m
+  [4;35;1mOrderable Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `orderables`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.line_item_id = 3) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.line_item_id = 3) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.line_item_id = 3) [0m
+Rendered layouts/_head_tag (6.1ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 00:28:49' and pickup_close > '2010-06-23 00:28:49') LIMIT 1[0m
+Time now is Tue Jun 22 20:28:49 -0400 2010 and self.order_open is 2010-06-21 23:01:00 -0400 and self.order_close is 2010-06-22 20:44:00 -0400
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 00:28:49' and pickup_close > '2010-06-23 00:28:49') LIMIT 1[0m
+  [4;35;1mOrder Load (2.5ms)[0m   [0mSELECT * FROM `orders` WHERE (user_id = 2 and delivery_cycle_id = 3) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 00:28:49' and pickup_close > '2010-06-23 00:28:49') LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `orders` WHERE (user_id = 2 and delivery_cycle_id = 3) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 00:28:49' and pickup_close > '2010-06-23 00:28:49') LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `orders` WHERE (user_id = 2 and delivery_cycle_id = 3) LIMIT 1[0m
+Rendered layouts/_header (31.7ms)
+Rendered layouts/_footer (0.3ms)
+Completed in 747ms (View: 148, DB: 296) | 200 OK [http://localhost/users/2/orders/1]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing OrdersController#show (for 127.0.0.1 at 2010-06-22 20:32:54) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "user_id"=>"2", "controller"=>"orders"}
+  [4;35;1mUser Columns (2.8ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '2') LIMIT 1[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Update (0.3ms)[0m   [0;1mUPDATE `users` SET `updated_at` = '2010-06-23 00:32:54', `perishable_token` = 'ltq9WsBFpJgaKTx2yE5x', `last_request_at` = '2010-06-23 00:32:54' WHERE `id` = 2[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCOMMIT[0m
+  [4;36;1mDeliveryCycle Load (0.4ms)[0m   [0;1mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 00:32:54' and pickup_close > '2010-06-23 00:32:54') LIMIT 1[0m
+  [4;35;1mDeliveryCycle Columns (6.0ms)[0m   [0mSHOW FIELDS FROM `delivery_cycles`[0m
+Time now is Tue Jun 22 20:32:54 -0400 2010 and self.order_open is 2010-06-21 23:01:00 -0400 and self.order_close is 2010-06-22 20:44:00 -0400
+  [4;36;1mOrder Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `orders`[0m
+  [4;35;1mOrder Load (0.2ms)[0m   [0mSELECT * FROM `orders` WHERE (`orders`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering orders/show
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+  [4;35;1mDeliveryCycle Load (0.2ms)[0m   [0mSELECT * FROM `delivery_cycles` WHERE (`delivery_cycles`.`id` = 3) [0m
+  [4;36;1mLineItem Load (0.3ms)[0m   [0;1mSELECT * FROM `line_items` WHERE (`line_items`.order_id = 1) [0m
+  [4;35;1mLineItem Columns (2.4ms)[0m   [0mSHOW FIELDS FROM `line_items`[0m
+  [4;36;1mProduct Columns (1.8ms)[0m   [0;1mSHOW FIELDS FROM `products`[0m
+  [4;35;1mProduct Load (0.3ms)[0m   [0mSELECT * FROM `products` WHERE (`products`.`id` = 1) [0m
+  [4;36;1mOrderable Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `orderables`[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.line_item_id = 3) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.line_item_id = 3) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.line_item_id = 3) [0m
+Rendered layouts/_head_tag (7.5ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 00:32:54' and pickup_close > '2010-06-23 00:32:54') LIMIT 1[0m
+Time now is Tue Jun 22 20:32:54 -0400 2010 and self.order_open is 2010-06-21 23:01:00 -0400 and self.order_close is 2010-06-22 20:44:00 -0400
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 00:32:54' and pickup_close > '2010-06-23 00:32:54') LIMIT 1[0m
+  [4;36;1mOrder Load (0.3ms)[0m   [0;1mSELECT * FROM `orders` WHERE (user_id = 2 and delivery_cycle_id = 3) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 00:32:54' and pickup_close > '2010-06-23 00:32:54') LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `orders` WHERE (user_id = 2 and delivery_cycle_id = 3) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 00:32:54' and pickup_close > '2010-06-23 00:32:54') LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `orders` WHERE (user_id = 2 and delivery_cycle_id = 3) LIMIT 1[0m
+Rendered layouts/_header (26.2ms)
+Rendered layouts/_footer (0.5ms)
+Completed in 412ms (View: 252, DB: 20) | 200 OK [http://localhost/users/2/orders/1]
+  [4;35;1mSQL (1.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing OrdersController#show (for 127.0.0.1 at 2010-06-22 20:39:38) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "user_id"=>"2", "controller"=>"orders"}
+  [4;36;1mUser Columns (2.3ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '2') LIMIT 1[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Update (0.3ms)[0m   [0mUPDATE `users` SET `updated_at` = '2010-06-23 00:39:38', `perishable_token` = 'WXUcXiRULM1ZOgzgR7mX', `last_request_at` = '2010-06-23 00:39:38' WHERE `id` = 2[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mDeliveryCycle Load (0.3ms)[0m   [0mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 00:39:38' and pickup_close > '2010-06-23 00:39:38') LIMIT 1[0m
+  [4;36;1mDeliveryCycle Columns (4.4ms)[0m   [0;1mSHOW FIELDS FROM `delivery_cycles`[0m
+Time now is Tue Jun 22 20:39:38 -0400 2010 and self.order_open is 2010-06-21 23:01:00 -0400 and self.order_close is 2010-06-22 20:44:00 -0400
+  [4;35;1mOrder Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `orders`[0m
+  [4;36;1mOrder Load (0.2ms)[0m   [0;1mSELECT * FROM `orders` WHERE (`orders`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering orders/show
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+  [4;36;1mDeliveryCycle Load (0.2ms)[0m   [0;1mSELECT * FROM `delivery_cycles` WHERE (`delivery_cycles`.`id` = 3) [0m
+  [4;35;1mLineItem Load (0.3ms)[0m   [0mSELECT * FROM `line_items` WHERE (`line_items`.order_id = 1) [0m
+  [4;36;1mLineItem Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `line_items`[0m
+  [4;35;1mProduct Columns (3.0ms)[0m   [0mSHOW FIELDS FROM `products`[0m
+  [4;36;1mProduct Load (0.9ms)[0m   [0;1mSELECT * FROM `products` WHERE (`products`.`id` = 1) [0m
+  [4;35;1mOrderable Columns (3.1ms)[0m   [0mSHOW FIELDS FROM `orderables`[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.line_item_id = 3) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.line_item_id = 3) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.line_item_id = 3) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.line_item_id = 3) [0m
+
+ActionView::TemplateError (uninitialized constant Order::MEMBER_SURCHARGE) on line #60 of app/views/orders/show.html.erb:
+57:      <td></td>
+58:      <td></td>
+59:      <td></td>
+60:      <td><%= @order.member_surcharge %></td>
+61:      <td></td>
+62:      <td></td>
+63:    </tr>
+
+    app/models/order.rb:25:in `member_surcharge'
+    app/views/orders/show.html.erb:60
+    app/controllers/orders_controller.rb:26:in `show'
+
+Rendered rescues/_trace (239.4ms)
+Rendered rescues/_request_and_response (0.8ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing OrdersController#show (for 127.0.0.1 at 2010-06-22 20:40:03) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "user_id"=>"2", "controller"=>"orders"}
+  [4;35;1mUser Columns (3.1ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '2') LIMIT 1[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Update (0.3ms)[0m   [0;1mUPDATE `users` SET `updated_at` = '2010-06-23 00:40:03', `perishable_token` = 'QVUXoI5YgH0OW8u9ssC9', `last_request_at` = '2010-06-23 00:40:03' WHERE `id` = 2[0m
+  [4;35;1mSQL (1.4ms)[0m   [0mCOMMIT[0m
+  [4;36;1mDeliveryCycle Load (0.9ms)[0m   [0;1mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 00:40:03' and pickup_close > '2010-06-23 00:40:03') LIMIT 1[0m
+  [4;35;1mDeliveryCycle Columns (1.8ms)[0m   [0mSHOW FIELDS FROM `delivery_cycles`[0m
+Time now is Tue Jun 22 20:40:03 -0400 2010 and self.order_open is 2010-06-21 23:01:00 -0400 and self.order_close is 2010-06-22 20:44:00 -0400
+  [4;36;1mOrder Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `orders`[0m
+  [4;35;1mOrder Load (0.4ms)[0m   [0mSELECT * FROM `orders` WHERE (`orders`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering orders/show
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+  [4;35;1mDeliveryCycle Load (0.2ms)[0m   [0mSELECT * FROM `delivery_cycles` WHERE (`delivery_cycles`.`id` = 3) [0m
+  [4;36;1mLineItem Load (0.3ms)[0m   [0;1mSELECT * FROM `line_items` WHERE (`line_items`.order_id = 1) [0m
+  [4;35;1mLineItem Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `line_items`[0m
+  [4;36;1mProduct Columns (1.9ms)[0m   [0;1mSHOW FIELDS FROM `products`[0m
+  [4;35;1mProduct Load (2.8ms)[0m   [0mSELECT * FROM `products` WHERE (`products`.`id` = 1) [0m
+  [4;36;1mOrderable Columns (1.7ms)[0m   [0;1mSHOW FIELDS FROM `orderables`[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.line_item_id = 3) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.line_item_id = 3) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.line_item_id = 3) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.line_item_id = 3) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.line_item_id = 3) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.line_item_id = 3) [0m
+Rendered layouts/_head_tag (9.1ms)
+  [4;35;1mDeliveryCycle Load (0.4ms)[0m   [0mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 00:40:04' and pickup_close > '2010-06-23 00:40:04') LIMIT 1[0m
+Time now is Tue Jun 22 20:40:04 -0400 2010 and self.order_open is 2010-06-21 23:01:00 -0400 and self.order_close is 2010-06-22 20:44:00 -0400
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 00:40:04' and pickup_close > '2010-06-23 00:40:04') LIMIT 1[0m
+  [4;35;1mOrder Load (0.3ms)[0m   [0mSELECT * FROM `orders` WHERE (user_id = 2 and delivery_cycle_id = 3) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 00:40:04' and pickup_close > '2010-06-23 00:40:04') LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `orders` WHERE (user_id = 2 and delivery_cycle_id = 3) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 00:40:04' and pickup_close > '2010-06-23 00:40:04') LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `orders` WHERE (user_id = 2 and delivery_cycle_id = 3) LIMIT 1[0m
+Rendered layouts/_header (32.9ms)
+Rendered layouts/_footer (13.7ms)
+Completed in 920ms (View: 229, DB: 21) | 200 OK [http://localhost/users/2/orders/1]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing OrdersController#show (for 127.0.0.1 at 2010-06-22 20:41:07) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "user_id"=>"2", "controller"=>"orders"}
+  [4;35;1mUser Columns (3.8ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '2') LIMIT 1[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Update (0.3ms)[0m   [0;1mUPDATE `users` SET `updated_at` = '2010-06-23 00:41:07', `perishable_token` = 'rGvNIWdJUvEWE2eLpVkg', `last_request_at` = '2010-06-23 00:41:07' WHERE `id` = 2[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mCOMMIT[0m
+  [4;36;1mDeliveryCycle Load (0.3ms)[0m   [0;1mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 00:41:07' and pickup_close > '2010-06-23 00:41:07') LIMIT 1[0m
+  [4;35;1mDeliveryCycle Columns (1.7ms)[0m   [0mSHOW FIELDS FROM `delivery_cycles`[0m
+Time now is Tue Jun 22 20:41:07 -0400 2010 and self.order_open is 2010-06-21 23:01:00 -0400 and self.order_close is 2010-06-22 20:44:00 -0400
+  [4;36;1mOrder Columns (1.7ms)[0m   [0;1mSHOW FIELDS FROM `orders`[0m
+  [4;35;1mOrder Load (0.2ms)[0m   [0mSELECT * FROM `orders` WHERE (`orders`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering orders/show
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+  [4;35;1mDeliveryCycle Load (0.2ms)[0m   [0mSELECT * FROM `delivery_cycles` WHERE (`delivery_cycles`.`id` = 3) [0m
+  [4;36;1mLineItem Load (0.3ms)[0m   [0;1mSELECT * FROM `line_items` WHERE (`line_items`.order_id = 1) [0m
+  [4;35;1mLineItem Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `line_items`[0m
+  [4;36;1mProduct Columns (3.5ms)[0m   [0;1mSHOW FIELDS FROM `products`[0m
+  [4;35;1mProduct Load (0.3ms)[0m   [0mSELECT * FROM `products` WHERE (`products`.`id` = 1) [0m
+  [4;36;1mOrderable Columns (2.8ms)[0m   [0;1mSHOW FIELDS FROM `orderables`[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.line_item_id = 3) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.line_item_id = 3) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.line_item_id = 3) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.line_item_id = 3) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.line_item_id = 3) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.line_item_id = 3) [0m
+Rendered layouts/_head_tag (6.0ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 00:41:07' and pickup_close > '2010-06-23 00:41:07') LIMIT 1[0m
+Time now is Tue Jun 22 20:41:07 -0400 2010 and self.order_open is 2010-06-21 23:01:00 -0400 and self.order_close is 2010-06-22 20:44:00 -0400
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 00:41:07' and pickup_close > '2010-06-23 00:41:07') LIMIT 1[0m
+  [4;35;1mOrder Load (0.9ms)[0m   [0mSELECT * FROM `orders` WHERE (user_id = 2 and delivery_cycle_id = 3) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 00:41:07' and pickup_close > '2010-06-23 00:41:07') LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `orders` WHERE (user_id = 2 and delivery_cycle_id = 3) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 00:41:07' and pickup_close > '2010-06-23 00:41:07') LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `orders` WHERE (user_id = 2 and delivery_cycle_id = 3) LIMIT 1[0m
+Rendered layouts/_header (25.5ms)
+Rendered layouts/_footer (0.3ms)
+Completed in 284ms (View: 136, DB: 20) | 200 OK [http://localhost/users/2/orders/1]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing OrdersController#show (for 127.0.0.1 at 2010-06-22 20:42:01) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "user_id"=>"2", "controller"=>"orders"}
+  [4;35;1mUser Columns (2.6ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '2') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Update (0.3ms)[0m   [0;1mUPDATE `users` SET `updated_at` = '2010-06-23 00:42:01', `perishable_token` = 'BVGTgWv14uH3PwoSzO_0', `last_request_at` = '2010-06-23 00:42:01' WHERE `id` = 2[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mCOMMIT[0m
+  [4;36;1mDeliveryCycle Load (0.3ms)[0m   [0;1mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 00:42:01' and pickup_close > '2010-06-23 00:42:01') LIMIT 1[0m
+  [4;35;1mDeliveryCycle Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `delivery_cycles`[0m
+Time now is Tue Jun 22 20:42:01 -0400 2010 and self.order_open is 2010-06-21 23:01:00 -0400 and self.order_close is 2010-06-22 20:44:00 -0400
+  [4;36;1mOrder Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `orders`[0m
+  [4;35;1mOrder Load (0.5ms)[0m   [0mSELECT * FROM `orders` WHERE (`orders`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering orders/show
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+  [4;35;1mDeliveryCycle Load (2.3ms)[0m   [0mSELECT * FROM `delivery_cycles` WHERE (`delivery_cycles`.`id` = 3) [0m
+  [4;36;1mLineItem Load (0.3ms)[0m   [0;1mSELECT * FROM `line_items` WHERE (`line_items`.order_id = 1) [0m
+  [4;35;1mLineItem Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `line_items`[0m
+  [4;36;1mProduct Columns (2.9ms)[0m   [0;1mSHOW FIELDS FROM `products`[0m
+  [4;35;1mProduct Load (0.5ms)[0m   [0mSELECT * FROM `products` WHERE (`products`.`id` = 1) [0m
+  [4;36;1mOrderable Columns (1.7ms)[0m   [0;1mSHOW FIELDS FROM `orderables`[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.line_item_id = 3) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.line_item_id = 3) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.line_item_id = 3) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.line_item_id = 3) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.line_item_id = 3) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.line_item_id = 3) [0m
+Rendered layouts/_head_tag (5.9ms)
+  [4;35;1mDeliveryCycle Load (1.1ms)[0m   [0mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 00:42:02' and pickup_close > '2010-06-23 00:42:02') LIMIT 1[0m
+Time now is Tue Jun 22 20:42:02 -0400 2010 and self.order_open is 2010-06-21 23:01:00 -0400 and self.order_close is 2010-06-22 20:44:00 -0400
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 00:42:02' and pickup_close > '2010-06-23 00:42:02') LIMIT 1[0m
+  [4;35;1mOrder Load (0.3ms)[0m   [0mSELECT * FROM `orders` WHERE (user_id = 2 and delivery_cycle_id = 3) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 00:42:02' and pickup_close > '2010-06-23 00:42:02') LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `orders` WHERE (user_id = 2 and delivery_cycle_id = 3) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 00:42:02' and pickup_close > '2010-06-23 00:42:02') LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `orders` WHERE (user_id = 2 and delivery_cycle_id = 3) LIMIT 1[0m
+Rendered layouts/_header (29.8ms)
+Rendered layouts/_footer (0.3ms)
+Completed in 400ms (View: 164, DB: 20) | 200 OK [http://localhost/users/2/orders/1]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing OrdersController#show (for 127.0.0.1 at 2010-06-22 20:42:39) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "user_id"=>"2", "controller"=>"orders"}
+  [4;35;1mUser Columns (2.7ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '2') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Update (0.3ms)[0m   [0;1mUPDATE `users` SET `updated_at` = '2010-06-23 00:42:39', `perishable_token` = 'yUa4v7AeYFs2yla685LP', `last_request_at` = '2010-06-23 00:42:39' WHERE `id` = 2[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mCOMMIT[0m
+  [4;36;1mDeliveryCycle Load (0.3ms)[0m   [0;1mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 00:42:39' and pickup_close > '2010-06-23 00:42:39') LIMIT 1[0m
+  [4;35;1mDeliveryCycle Columns (2.0ms)[0m   [0mSHOW FIELDS FROM `delivery_cycles`[0m
+Time now is Tue Jun 22 20:42:39 -0400 2010 and self.order_open is 2010-06-21 23:01:00 -0400 and self.order_close is 2010-06-22 20:44:00 -0400
+  [4;36;1mOrder Columns (1.9ms)[0m   [0;1mSHOW FIELDS FROM `orders`[0m
+  [4;35;1mOrder Load (0.2ms)[0m   [0mSELECT * FROM `orders` WHERE (`orders`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering orders/show
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+  [4;35;1mDeliveryCycle Load (0.2ms)[0m   [0mSELECT * FROM `delivery_cycles` WHERE (`delivery_cycles`.`id` = 3) [0m
+  [4;36;1mLineItem Load (0.9ms)[0m   [0;1mSELECT * FROM `line_items` WHERE (`line_items`.order_id = 1) [0m
+  [4;35;1mLineItem Columns (1.9ms)[0m   [0mSHOW FIELDS FROM `line_items`[0m
+  [4;36;1mProduct Columns (1.8ms)[0m   [0;1mSHOW FIELDS FROM `products`[0m
+  [4;35;1mProduct Load (0.3ms)[0m   [0mSELECT * FROM `products` WHERE (`products`.`id` = 1) [0m
+  [4;36;1mOrderable Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `orderables`[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.line_item_id = 3) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.line_item_id = 3) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.line_item_id = 3) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.line_item_id = 3) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.line_item_id = 3) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.line_item_id = 3) [0m
+Rendered layouts/_head_tag (7.6ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 00:42:39' and pickup_close > '2010-06-23 00:42:39') LIMIT 1[0m
+Time now is Tue Jun 22 20:42:39 -0400 2010 and self.order_open is 2010-06-21 23:01:00 -0400 and self.order_close is 2010-06-22 20:44:00 -0400
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 00:42:39' and pickup_close > '2010-06-23 00:42:39') LIMIT 1[0m
+  [4;35;1mOrder Load (0.8ms)[0m   [0mSELECT * FROM `orders` WHERE (user_id = 2 and delivery_cycle_id = 3) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 00:42:39' and pickup_close > '2010-06-23 00:42:39') LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `orders` WHERE (user_id = 2 and delivery_cycle_id = 3) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 00:42:39' and pickup_close > '2010-06-23 00:42:39') LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `orders` WHERE (user_id = 2 and delivery_cycle_id = 3) LIMIT 1[0m
+Rendered layouts/_header (35.5ms)
+Rendered layouts/_footer (0.3ms)
+Completed in 409ms (View: 250, DB: 17) | 200 OK [http://localhost/users/2/orders/1]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing OrdersController#show (for 127.0.0.1 at 2010-06-22 20:43:41) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "user_id"=>"2", "controller"=>"orders"}
+  [4;35;1mUser Columns (2.5ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '2') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Update (0.3ms)[0m   [0;1mUPDATE `users` SET `updated_at` = '2010-06-23 00:43:41', `perishable_token` = 'hrvZxUnyg-aJUlPs-xC6', `last_request_at` = '2010-06-23 00:43:41' WHERE `id` = 2[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mCOMMIT[0m
+  [4;36;1mDeliveryCycle Load (0.3ms)[0m   [0;1mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 00:43:41' and pickup_close > '2010-06-23 00:43:41') LIMIT 1[0m
+  [4;35;1mDeliveryCycle Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `delivery_cycles`[0m
+Time now is Tue Jun 22 20:43:41 -0400 2010 and self.order_open is 2010-06-21 23:01:00 -0400 and self.order_close is 2010-06-22 20:44:00 -0400
+  [4;36;1mOrder Columns (2.5ms)[0m   [0;1mSHOW FIELDS FROM `orders`[0m
+  [4;35;1mOrder Load (3.8ms)[0m   [0mSELECT * FROM `orders` WHERE (`orders`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering orders/show
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+  [4;35;1mDeliveryCycle Load (0.2ms)[0m   [0mSELECT * FROM `delivery_cycles` WHERE (`delivery_cycles`.`id` = 3) [0m
+  [4;36;1mLineItem Load (0.3ms)[0m   [0;1mSELECT * FROM `line_items` WHERE (`line_items`.order_id = 1) [0m
+  [4;35;1mLineItem Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `line_items`[0m
+  [4;36;1mProduct Columns (1.8ms)[0m   [0;1mSHOW FIELDS FROM `products`[0m
+  [4;35;1mProduct Load (0.3ms)[0m   [0mSELECT * FROM `products` WHERE (`products`.`id` = 1) [0m
+  [4;36;1mOrderable Columns (3.9ms)[0m   [0;1mSHOW FIELDS FROM `orderables`[0m
+  [4;35;1mSQL (8.7ms)[0m   [0mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.line_item_id = 3) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.line_item_id = 3) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.line_item_id = 3) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.line_item_id = 3) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.line_item_id = 3) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.line_item_id = 3) [0m
+Rendered layouts/_head_tag (5.6ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 00:43:41' and pickup_close > '2010-06-23 00:43:41') LIMIT 1[0m
+Time now is Tue Jun 22 20:43:42 -0400 2010 and self.order_open is 2010-06-21 23:01:00 -0400 and self.order_close is 2010-06-22 20:44:00 -0400
+  [4;36;1mDeliveryCycle Load (0.4ms)[0m   [0;1mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 00:43:42' and pickup_close > '2010-06-23 00:43:42') LIMIT 1[0m
+  [4;35;1mOrder Load (0.2ms)[0m   [0mSELECT * FROM `orders` WHERE (user_id = 2 and delivery_cycle_id = 3) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 00:43:42' and pickup_close > '2010-06-23 00:43:42') LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `orders` WHERE (user_id = 2 and delivery_cycle_id = 3) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 00:43:42' and pickup_close > '2010-06-23 00:43:42') LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `orders` WHERE (user_id = 2 and delivery_cycle_id = 3) LIMIT 1[0m
+Rendered layouts/_header (24.8ms)
+Rendered layouts/_footer (0.3ms)
+Completed in 311ms (View: 142, DB: 30) | 200 OK [http://localhost/users/2/orders/1]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing OrdersController#show (for 127.0.0.1 at 2010-06-22 20:43:52) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "user_id"=>"2", "controller"=>"orders"}
+  [4;35;1mUser Columns (2.4ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '2') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Update (0.3ms)[0m   [0;1mUPDATE `users` SET `updated_at` = '2010-06-23 00:43:52', `perishable_token` = 'nCjaiF8VM9qunOg9Bb_1', `last_request_at` = '2010-06-23 00:43:52' WHERE `id` = 2[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mCOMMIT[0m
+  [4;36;1mDeliveryCycle Load (0.4ms)[0m   [0;1mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 00:43:52' and pickup_close > '2010-06-23 00:43:52') LIMIT 1[0m
+  [4;35;1mDeliveryCycle Columns (2.4ms)[0m   [0mSHOW FIELDS FROM `delivery_cycles`[0m
+Time now is Tue Jun 22 20:43:52 -0400 2010 and self.order_open is 2010-06-21 23:01:00 -0400 and self.order_close is 2010-06-22 20:44:00 -0400
+  [4;36;1mOrder Columns (2.1ms)[0m   [0;1mSHOW FIELDS FROM `orders`[0m
+  [4;35;1mOrder Load (0.2ms)[0m   [0mSELECT * FROM `orders` WHERE (`orders`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering orders/show
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+  [4;35;1mDeliveryCycle Load (0.2ms)[0m   [0mSELECT * FROM `delivery_cycles` WHERE (`delivery_cycles`.`id` = 3) [0m
+  [4;36;1mLineItem Load (0.3ms)[0m   [0;1mSELECT * FROM `line_items` WHERE (`line_items`.order_id = 1) [0m
+  [4;35;1mLineItem Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `line_items`[0m
+  [4;36;1mProduct Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `products`[0m
+  [4;35;1mProduct Load (0.4ms)[0m   [0mSELECT * FROM `products` WHERE (`products`.`id` = 1) [0m
+  [4;36;1mOrderable Columns (2.4ms)[0m   [0;1mSHOW FIELDS FROM `orderables`[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.line_item_id = 3) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.line_item_id = 3) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.line_item_id = 3) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.line_item_id = 3) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.line_item_id = 3) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.line_item_id = 3) [0m
+Rendered layouts/_head_tag (6.5ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 00:43:52' and pickup_close > '2010-06-23 00:43:52') LIMIT 1[0m
+Time now is Tue Jun 22 20:43:52 -0400 2010 and self.order_open is 2010-06-21 23:01:00 -0400 and self.order_close is 2010-06-22 20:44:00 -0400
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 00:43:52' and pickup_close > '2010-06-23 00:43:52') LIMIT 1[0m
+  [4;35;1mOrder Load (0.3ms)[0m   [0mSELECT * FROM `orders` WHERE (user_id = 2 and delivery_cycle_id = 3) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 00:43:52' and pickup_close > '2010-06-23 00:43:52') LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `orders` WHERE (user_id = 2 and delivery_cycle_id = 3) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 00:43:52' and pickup_close > '2010-06-23 00:43:52') LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `orders` WHERE (user_id = 2 and delivery_cycle_id = 3) LIMIT 1[0m
+Rendered layouts/_header (27.2ms)
+Rendered layouts/_footer (0.3ms)
+Completed in 294ms (View: 143, DB: 16) | 200 OK [http://localhost/users/2/orders/1]
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing OrdersController#show (for 127.0.0.1 at 2010-06-22 20:46:09) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "user_id"=>"2", "controller"=>"orders"}
+  [4;35;1mUser Columns (2.7ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '2') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Update (0.3ms)[0m   [0;1mUPDATE `users` SET `updated_at` = '2010-06-23 00:46:09', `perishable_token` = 'nsWYaw2qTeXj6SArbLJ0', `last_request_at` = '2010-06-23 00:46:09' WHERE `id` = 2[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mCOMMIT[0m
+  [4;36;1mDeliveryCycle Load (0.8ms)[0m   [0;1mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 00:46:09' and pickup_close > '2010-06-23 00:46:09') LIMIT 1[0m
+  [4;35;1mDeliveryCycle Columns (2.1ms)[0m   [0mSHOW FIELDS FROM `delivery_cycles`[0m
+  [4;36;1mOrderable Load (0.4ms)[0m   [0;1mSELECT * FROM `orderables` WHERE (`orderables`.delivery_cycle_id = 3) AND ((status = 'Available') AND (`orderables`.delivery_cycle_id = 3)) [0m
+  [4;35;1mOrderable Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `orderables`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mOrderable Update (1.6ms)[0m   [0mUPDATE `orderables` SET `updated_at` = '2010-06-23 00:46:09', `status` = 'Closed' WHERE `id` = 113[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mOrderable Update (0.3ms)[0m   [0;1mUPDATE `orderables` SET `updated_at` = '2010-06-23 00:46:09', `status` = 'Closed' WHERE `id` = 114[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mOrderable Update (0.3ms)[0m   [0mUPDATE `orderables` SET `updated_at` = '2010-06-23 00:46:09', `status` = 'Closed' WHERE `id` = 115[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mOrderable Update (0.3ms)[0m   [0;1mUPDATE `orderables` SET `updated_at` = '2010-06-23 00:46:09', `status` = 'Closed' WHERE `id` = 116[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mOrderable Update (0.3ms)[0m   [0mUPDATE `orderables` SET `updated_at` = '2010-06-23 00:46:09', `status` = 'Closed' WHERE `id` = 117[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mOrderable Update (0.3ms)[0m   [0;1mUPDATE `orderables` SET `updated_at` = '2010-06-23 00:46:09', `status` = 'Closed' WHERE `id` = 118[0m
+  [4;35;1mSQL (1.4ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mOrderable Update (0.3ms)[0m   [0mUPDATE `orderables` SET `updated_at` = '2010-06-23 00:46:09', `status` = 'Closed' WHERE `id` = 119[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mOrderable Update (0.3ms)[0m   [0;1mUPDATE `orderables` SET `updated_at` = '2010-06-23 00:46:09', `status` = 'Closed' WHERE `id` = 120[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mCOMMIT[0m
+  [4;36;1mOrderable Load (1.5ms)[0m   [0;1mSELECT * FROM `orderables` WHERE (`orderables`.delivery_cycle_id = 3) AND ((status = 'In Cart') AND (`orderables`.delivery_cycle_id = 3)) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mOrderable Update (0.3ms)[0m   [0;1mUPDATE `orderables` SET `updated_at` = '2010-06-23 00:46:09', `status` = 'Ordered' WHERE `id` = 111[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mOrderable Update (0.2ms)[0m   [0mUPDATE `orderables` SET `updated_at` = '2010-06-23 00:46:09', `status` = 'Ordered' WHERE `id` = 112[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mOrder Columns (2.6ms)[0m   [0mSHOW FIELDS FROM `orders`[0m
+  [4;36;1mOrder Load (0.5ms)[0m   [0;1mSELECT * FROM `orders` WHERE (`orders`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering orders/show
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+  [4;36;1mDeliveryCycle Load (0.2ms)[0m   [0;1mSELECT * FROM `delivery_cycles` WHERE (`delivery_cycles`.`id` = 3) [0m
+  [4;35;1mLineItem Load (0.3ms)[0m   [0mSELECT * FROM `line_items` WHERE (`line_items`.order_id = 1) [0m
+  [4;36;1mLineItem Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `line_items`[0m
+  [4;35;1mProduct Columns (2.0ms)[0m   [0mSHOW FIELDS FROM `products`[0m
+  [4;36;1mProduct Load (0.4ms)[0m   [0;1mSELECT * FROM `products` WHERE (`products`.`id` = 1) [0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.line_item_id = 3) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.line_item_id = 3) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.line_item_id = 3) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.line_item_id = 3) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.line_item_id = 3) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.line_item_id = 3) [0m
+Rendered layouts/_head_tag (9.6ms)
+  [4;35;1mDeliveryCycle Load (0.3ms)[0m   [0mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 00:46:09' and pickup_close > '2010-06-23 00:46:09') LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 00:46:09' and pickup_close > '2010-06-23 00:46:09') LIMIT 1[0m
+  [4;35;1mOrder Load (1.8ms)[0m   [0mSELECT * FROM `orders` WHERE (user_id = 2 and delivery_cycle_id = 3) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 00:46:09' and pickup_close > '2010-06-23 00:46:09') LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `orders` WHERE (user_id = 2 and delivery_cycle_id = 3) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 00:46:09' and pickup_close > '2010-06-23 00:46:09') LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `orders` WHERE (user_id = 2 and delivery_cycle_id = 3) LIMIT 1[0m
+Rendered layouts/_header (34.6ms)
+Rendered layouts/_footer (1.0ms)
+Completed in 876ms (View: 262, DB: 33) | 200 OK [http://localhost/users/2/orders/1]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Admin::HomeController#index (for 127.0.0.1 at 2010-06-22 20:46:32) [GET]
+  Parameters: {"action"=>"index", "controller"=>"admin/home"}
+  [4;35;1mUser Columns (2.2ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '2') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Update (0.5ms)[0m   [0;1mUPDATE `users` SET `updated_at` = '2010-06-23 00:46:32', `perishable_token` = 'pQwBY1JIx7cO03sZOE3v', `last_request_at` = '2010-06-23 00:46:32' WHERE `id` = 2[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mCOMMIT[0m
+  [4;36;1mDeliveryCycle Load (0.4ms)[0m   [0;1mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 00:46:32' and pickup_close > '2010-06-23 00:46:32') LIMIT 1[0m
+  [4;35;1mDeliveryCycle Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `delivery_cycles`[0m
+  [4;36;1mOrderable Load (0.5ms)[0m   [0;1mSELECT * FROM `orderables` WHERE (`orderables`.delivery_cycle_id = 3) AND ((status = 'Available') AND (`orderables`.delivery_cycle_id = 3)) [0m
+  [4;35;1mOrderable Load (0.3ms)[0m   [0mSELECT * FROM `orderables` WHERE (`orderables`.delivery_cycle_id = 3) AND ((status = 'In Cart') AND (`orderables`.delivery_cycle_id = 3)) [0m
+Rendering template within layouts/application
+Rendering admin/home/index
+Rendered layouts/_head_tag (6.4ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 00:46:32' and pickup_close > '2010-06-23 00:46:32') LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 00:46:32' and pickup_close > '2010-06-23 00:46:32') LIMIT 1[0m
+  [4;36;1mOrder Load (0.3ms)[0m   [0;1mSELECT * FROM `orders` WHERE (user_id = 2 and delivery_cycle_id = 3) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 00:46:32' and pickup_close > '2010-06-23 00:46:32') LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `orders` WHERE (user_id = 2 and delivery_cycle_id = 3) LIMIT 1[0m
+  [4;35;1mOrder Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `orders`[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 00:46:32' and pickup_close > '2010-06-23 00:46:32') LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `orders` WHERE (user_id = 2 and delivery_cycle_id = 3) LIMIT 1[0m
+Rendered layouts/_header (59.9ms)
+Rendered layouts/_footer (0.3ms)
+Completed in 266ms (View: 121, DB: 9) | 200 OK [http://localhost/admin]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ComatoseAdminController#index (for 127.0.0.1 at 2010-06-22 20:46:36) [GET]
+  [4;35;1mComatosePage Load (0.5ms)[0m   [0mSELECT * FROM `comatose_pages` WHERE (parent_id IS NULL) ORDER BY position, title LIMIT 1[0m
+  [4;36;1mComatosePage Columns (3.4ms)[0m   [0;1mSHOW FIELDS FROM `comatose_pages`[0m
+Rendering template within layouts/comatose_admin
+Rendering comatose_admin/index
+  [4;35;1mComatosePage::Version Load (0.4ms)[0m   [0mSELECT * FROM `comatose_page_versions` WHERE (`comatose_page_versions`.comatose_page_id = 1) ORDER BY version[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM `comatose_pages` WHERE (`comatose_pages`.parent_id = 1) [0m
+  [4;35;1mComatosePage Load (0.5ms)[0m   [0mSELECT * FROM `comatose_pages` WHERE (`comatose_pages`.parent_id = 1) ORDER BY position, title[0m
+  [4;36;1mComatosePage::Version Load (0.7ms)[0m   [0;1mSELECT * FROM `comatose_page_versions` WHERE (`comatose_page_versions`.comatose_page_id = 2) ORDER BY version[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM `comatose_pages` WHERE (`comatose_pages`.parent_id = 2) [0m
+  [4;36;1mComatosePage Load (0.4ms)[0m   [0;1mSELECT * FROM `comatose_pages` WHERE (`comatose_pages`.parent_id = 2) ORDER BY position, title[0m
+  [4;35;1mComatosePage::Version Load (0.5ms)[0m   [0mSELECT * FROM `comatose_page_versions` WHERE (`comatose_page_versions`.comatose_page_id = 3) ORDER BY version[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSELECT count(*) AS count_all FROM `comatose_pages` WHERE (`comatose_pages`.parent_id = 3) [0m
+  [4;35;1mComatosePage Load (0.3ms)[0m   [0mSELECT * FROM `comatose_pages` WHERE (`comatose_pages`.parent_id = 3) ORDER BY position, title[0m
+  [4;36;1mComatosePage::Version Load (0.8ms)[0m   [0;1mSELECT * FROM `comatose_page_versions` WHERE (`comatose_page_versions`.comatose_page_id = 4) ORDER BY version[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM `comatose_pages` WHERE (`comatose_pages`.parent_id = 4) [0m
+Rendered comatose_admin/_page_list_item (25.8ms)
+Rendered comatose_admin/_page_list_item (58.3ms)
+  [4;36;1mComatosePage::Version Load (0.4ms)[0m   [0;1mSELECT * FROM `comatose_page_versions` WHERE (`comatose_page_versions`.comatose_page_id = 5) ORDER BY version[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM `comatose_pages` WHERE (`comatose_pages`.parent_id = 5) [0m
+  [4;36;1mComatosePage Load (0.3ms)[0m   [0;1mSELECT * FROM `comatose_pages` WHERE (`comatose_pages`.parent_id = 5) ORDER BY position, title[0m
+  [4;35;1mComatosePage::Version Load (0.5ms)[0m   [0mSELECT * FROM `comatose_page_versions` WHERE (`comatose_page_versions`.comatose_page_id = 6) ORDER BY version[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM `comatose_pages` WHERE (`comatose_pages`.parent_id = 6) [0m
+Rendered comatose_admin/_page_list_item (22.1ms)
+Rendered comatose_admin/_page_list_item (49.7ms)
+Rendered comatose_admin/_page_list_item (147.2ms)
+Rendered comatose_admin/_page_list_item (181.5ms)
+Completed in 332ms (View: 252, DB: 11) | 200 OK [http://localhost/comatose_admin]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Admin::HomeController#index (for 127.0.0.1 at 2010-06-22 20:58:30) [GET]
+  Parameters: {"action"=>"index", "controller"=>"admin/home"}
+  [4;36;1mUser Columns (19.4ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.7ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '2') LIMIT 1[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Update (0.4ms)[0m   [0mUPDATE `users` SET `updated_at` = '2010-06-23 00:58:30', `perishable_token` = 'ELqX61x-c3wRPCwuKcvt', `last_request_at` = '2010-06-23 00:58:30' WHERE `id` = 2[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mDeliveryCycle Load (0.3ms)[0m   [0mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 00:58:30' and pickup_close > '2010-06-23 00:58:30') LIMIT 1[0m
+  [4;36;1mDeliveryCycle Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `delivery_cycles`[0m
+  [4;35;1mOrderable Load (0.3ms)[0m   [0mSELECT * FROM `orderables` WHERE (`orderables`.delivery_cycle_id = 3) AND ((status = 'Available') AND (`orderables`.delivery_cycle_id = 3)) [0m
+  [4;36;1mOrderable Load (0.2ms)[0m   [0;1mSELECT * FROM `orderables` WHERE (`orderables`.delivery_cycle_id = 3) AND ((status = 'In Cart') AND (`orderables`.delivery_cycle_id = 3)) [0m
+Rendering template within layouts/application
+Rendering admin/home/index
+Rendered layouts/_head_tag (7.1ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 00:58:30' and pickup_close > '2010-06-23 00:58:30') LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 00:58:30' and pickup_close > '2010-06-23 00:58:30') LIMIT 1[0m
+  [4;35;1mOrder Load (0.3ms)[0m   [0mSELECT * FROM `orders` WHERE (user_id = 2 and delivery_cycle_id = 3) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 00:58:30' and pickup_close > '2010-06-23 00:58:30') LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `orders` WHERE (user_id = 2 and delivery_cycle_id = 3) LIMIT 1[0m
+  [4;36;1mOrder Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `orders`[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 00:58:30' and pickup_close > '2010-06-23 00:58:30') LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `orders` WHERE (user_id = 2 and delivery_cycle_id = 3) LIMIT 1[0m
+Rendered layouts/_header (132.6ms)
+Rendered layouts/_footer (0.3ms)
+Completed in 317ms (View: 146, DB: 25) | 200 OK [http://localhost/admin]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing OrdersController#show (for 127.0.0.1 at 2010-06-22 20:58:33) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "user_id"=>"2", "controller"=>"orders"}
+  [4;36;1mUser Columns (2.8ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (1.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '2') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Update (0.4ms)[0m   [0mUPDATE `users` SET `updated_at` = '2010-06-23 00:58:33', `perishable_token` = '9I7Pt52673TWC_nnZ4ST', `last_request_at` = '2010-06-23 00:58:33' WHERE `id` = 2[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mDeliveryCycle Load (0.4ms)[0m   [0mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 00:58:33' and pickup_close > '2010-06-23 00:58:33') LIMIT 1[0m
+  [4;36;1mDeliveryCycle Columns (1.7ms)[0m   [0;1mSHOW FIELDS FROM `delivery_cycles`[0m
+  [4;35;1mOrderable Load (0.3ms)[0m   [0mSELECT * FROM `orderables` WHERE (`orderables`.delivery_cycle_id = 3) AND ((status = 'Available') AND (`orderables`.delivery_cycle_id = 3)) [0m
+  [4;36;1mOrderable Load (0.4ms)[0m   [0;1mSELECT * FROM `orderables` WHERE (`orderables`.delivery_cycle_id = 3) AND ((status = 'In Cart') AND (`orderables`.delivery_cycle_id = 3)) [0m
+  [4;35;1mOrder Columns (2.2ms)[0m   [0mSHOW FIELDS FROM `orders`[0m
+  [4;36;1mOrder Load (1.0ms)[0m   [0;1mSELECT * FROM `orders` WHERE (`orders`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering orders/show
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+  [4;36;1mDeliveryCycle Load (0.2ms)[0m   [0;1mSELECT * FROM `delivery_cycles` WHERE (`delivery_cycles`.`id` = 3) [0m
+  [4;35;1mLineItem Load (0.4ms)[0m   [0mSELECT * FROM `line_items` WHERE (`line_items`.order_id = 1) [0m
+  [4;36;1mLineItem Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `line_items`[0m
+  [4;35;1mProduct Columns (2.9ms)[0m   [0mSHOW FIELDS FROM `products`[0m
+  [4;36;1mProduct Load (0.4ms)[0m   [0;1mSELECT * FROM `products` WHERE (`products`.`id` = 1) [0m
+  [4;35;1mOrderable Columns (1.7ms)[0m   [0mSHOW FIELDS FROM `orderables`[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.line_item_id = 3) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.line_item_id = 3) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.line_item_id = 3) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.line_item_id = 3) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.line_item_id = 3) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.line_item_id = 3) [0m
+Rendered layouts/_head_tag (5.6ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 00:58:33' and pickup_close > '2010-06-23 00:58:33') LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 00:58:33' and pickup_close > '2010-06-23 00:58:33') LIMIT 1[0m
+  [4;36;1mOrder Load (0.3ms)[0m   [0;1mSELECT * FROM `orders` WHERE (user_id = 2 and delivery_cycle_id = 3) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 00:58:33' and pickup_close > '2010-06-23 00:58:33') LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `orders` WHERE (user_id = 2 and delivery_cycle_id = 3) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 00:58:33' and pickup_close > '2010-06-23 00:58:33') LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `orders` WHERE (user_id = 2 and delivery_cycle_id = 3) LIMIT 1[0m
+Rendered layouts/_header (24.8ms)
+Rendered layouts/_footer (0.3ms)
+Completed in 323ms (View: 126, DB: 19) | 200 OK [http://localhost/users/2/orders/1]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Admin::HomeController#index (for 127.0.0.1 at 2010-06-22 20:58:38) [GET]
+  Parameters: {"action"=>"index", "controller"=>"admin/home"}
+  [4;36;1mUser Columns (3.5ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '2') LIMIT 1[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Update (0.3ms)[0m   [0mUPDATE `users` SET `updated_at` = '2010-06-23 00:58:39', `perishable_token` = 'wFd1DbAhcKADJIhz-ag6', `last_request_at` = '2010-06-23 00:58:39' WHERE `id` = 2[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mDeliveryCycle Load (0.3ms)[0m   [0mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 00:58:39' and pickup_close > '2010-06-23 00:58:39') LIMIT 1[0m
+  [4;36;1mDeliveryCycle Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `delivery_cycles`[0m
+  [4;35;1mOrderable Load (0.3ms)[0m   [0mSELECT * FROM `orderables` WHERE (`orderables`.delivery_cycle_id = 3) AND ((status = 'Available') AND (`orderables`.delivery_cycle_id = 3)) [0m
+  [4;36;1mOrderable Load (0.3ms)[0m   [0;1mSELECT * FROM `orderables` WHERE (`orderables`.delivery_cycle_id = 3) AND ((status = 'In Cart') AND (`orderables`.delivery_cycle_id = 3)) [0m
+Rendering template within layouts/application
+Rendering admin/home/index
+Rendered layouts/_head_tag (6.1ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 00:58:39' and pickup_close > '2010-06-23 00:58:39') LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 00:58:39' and pickup_close > '2010-06-23 00:58:39') LIMIT 1[0m
+  [4;35;1mOrder Load (0.4ms)[0m   [0mSELECT * FROM `orders` WHERE (user_id = 2 and delivery_cycle_id = 3) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 00:58:39' and pickup_close > '2010-06-23 00:58:39') LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `orders` WHERE (user_id = 2 and delivery_cycle_id = 3) LIMIT 1[0m
+  [4;36;1mOrder Columns (2.5ms)[0m   [0;1mSHOW FIELDS FROM `orders`[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 00:58:39' and pickup_close > '2010-06-23 00:58:39') LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `orders` WHERE (user_id = 2 and delivery_cycle_id = 3) LIMIT 1[0m
+Rendered layouts/_header (52.6ms)
+Rendered layouts/_footer (0.3ms)
+Completed in 227ms (View: 66, DB: 11) | 200 OK [http://localhost/admin]
+  [4;35;1mSQL (1.6ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Admin::DeliveryCyclesController#index (for 127.0.0.1 at 2010-06-22 20:58:41) [GET]
+  Parameters: {"action"=>"index", "controller"=>"admin/delivery_cycles"}
+  [4;36;1mUser Columns (2.3ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '2') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Update (0.9ms)[0m   [0mUPDATE `users` SET `updated_at` = '2010-06-23 00:58:41', `perishable_token` = 'fUa9CiXC8eF0mG_DVIjg', `last_request_at` = '2010-06-23 00:58:41' WHERE `id` = 2[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mDeliveryCycle Load (0.4ms)[0m   [0mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 00:58:41' and pickup_close > '2010-06-23 00:58:41') LIMIT 1[0m
+  [4;36;1mDeliveryCycle Columns (1.9ms)[0m   [0;1mSHOW FIELDS FROM `delivery_cycles`[0m
+  [4;35;1mOrderable Load (0.3ms)[0m   [0mSELECT * FROM `orderables` WHERE (`orderables`.delivery_cycle_id = 3) AND ((status = 'Available') AND (`orderables`.delivery_cycle_id = 3)) [0m
+  [4;36;1mOrderable Load (0.5ms)[0m   [0;1mSELECT * FROM `orderables` WHERE (`orderables`.delivery_cycle_id = 3) AND ((status = 'In Cart') AND (`orderables`.delivery_cycle_id = 3)) [0m
+  [4;35;1mDeliveryCycle Load (0.3ms)[0m   [0mSELECT * FROM `delivery_cycles` ORDER BY pickup_close DESC[0m
+Rendering template within layouts/application
+Rendering admin/delivery_cycles/index
+Rendered layouts/_head_tag (6.1ms)
+  [4;36;1mDeliveryCycle Load (3.8ms)[0m   [0;1mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 00:58:42' and pickup_close > '2010-06-23 00:58:42') LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 00:58:42' and pickup_close > '2010-06-23 00:58:42') LIMIT 1[0m
+  [4;36;1mOrder Load (0.3ms)[0m   [0;1mSELECT * FROM `orders` WHERE (user_id = 2 and delivery_cycle_id = 3) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 00:58:42' and pickup_close > '2010-06-23 00:58:42') LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `orders` WHERE (user_id = 2 and delivery_cycle_id = 3) LIMIT 1[0m
+  [4;35;1mOrder Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `orders`[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 00:58:42' and pickup_close > '2010-06-23 00:58:42') LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `orders` WHERE (user_id = 2 and delivery_cycle_id = 3) LIMIT 1[0m
+Rendered layouts/_header (60.1ms)
+Rendered layouts/_footer (0.3ms)
+Completed in 439ms (View: 280, DB: 15) | 200 OK [http://localhost/admin/delivery_cycles]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Admin::DeliveryCyclesController#edit (for 127.0.0.1 at 2010-06-22 20:58:46) [GET]
+  Parameters: {"action"=>"edit", "id"=>"3", "controller"=>"admin/delivery_cycles"}
+  [4;35;1mUser Columns (3.4ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '2') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Update (0.3ms)[0m   [0;1mUPDATE `users` SET `updated_at` = '2010-06-23 00:58:46', `perishable_token` = 'IEQixVZfqF5PFHcwcsdF', `last_request_at` = '2010-06-23 00:58:46' WHERE `id` = 2[0m
+  [4;35;1mSQL (1.2ms)[0m   [0mCOMMIT[0m
+  [4;36;1mDeliveryCycle Load (0.4ms)[0m   [0;1mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 00:58:46' and pickup_close > '2010-06-23 00:58:46') LIMIT 1[0m
+  [4;35;1mDeliveryCycle Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `delivery_cycles`[0m
+  [4;36;1mOrderable Load (0.4ms)[0m   [0;1mSELECT * FROM `orderables` WHERE (`orderables`.delivery_cycle_id = 3) AND ((status = 'Available') AND (`orderables`.delivery_cycle_id = 3)) [0m
+  [4;35;1mOrderable Load (0.2ms)[0m   [0mSELECT * FROM `orderables` WHERE (`orderables`.delivery_cycle_id = 3) AND ((status = 'In Cart') AND (`orderables`.delivery_cycle_id = 3)) [0m
+  [4;36;1mDeliveryCycle Load (0.4ms)[0m   [0;1mSELECT * FROM `delivery_cycles` WHERE (`delivery_cycles`.`id` = 3) [0m
+Rendering template within layouts/application
+Rendering admin/delivery_cycles/edit
+Rendered admin/delivery_cycles/_form (306.5ms)
+Rendered layouts/_head_tag (7.1ms)
+  [4;35;1mDeliveryCycle Load (0.3ms)[0m   [0mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 00:58:47' and pickup_close > '2010-06-23 00:58:47') LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 00:58:47' and pickup_close > '2010-06-23 00:58:47') LIMIT 1[0m
+  [4;35;1mOrder Load (0.4ms)[0m   [0mSELECT * FROM `orders` WHERE (user_id = 2 and delivery_cycle_id = 3) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 00:58:47' and pickup_close > '2010-06-23 00:58:47') LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `orders` WHERE (user_id = 2 and delivery_cycle_id = 3) LIMIT 1[0m
+  [4;36;1mOrder Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `orders`[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 00:58:47' and pickup_close > '2010-06-23 00:58:47') LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `orders` WHERE (user_id = 2 and delivery_cycle_id = 3) LIMIT 1[0m
+Rendered layouts/_header (58.2ms)
+Rendered layouts/_footer (0.3ms)
+Completed in 588ms (View: 418, DB: 11) | 200 OK [http://localhost/admin/delivery_cycles/3/edit]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Admin::DeliveryCyclesController#update (for 127.0.0.1 at 2010-06-22 20:59:00) [PUT]
+  Parameters: {"commit"=>"Update", "action"=>"update", "_method"=>"put", "authenticity_token"=>"zP1aTnZPNGLGqTHuEhcB1We4VIZVvpu0c7dr0U+WzeU=", "id"=>"3", "delivery_cycle"=>{"delivery_close(1i)"=>"2010", "order_close(3i)"=>"23", "edit_open(2i)"=>"6", "pickup_close(1i)"=>"2010", "delivery_close(2i)"=>"6", "delivery_open(1i)"=>"2010", "edit_close(1i)"=>"2010", "edit_open(3i)"=>"19", "pickup_close(2i)"=>"6", "pickup_open(1i)"=>"2010", "delivery_close(3i)"=>"24", "delivery_open(2i)"=>"6", "edit_close(2i)"=>"6", "edit_open(4i)"=>"20", "pickup_open(2i)"=>"6", "delivery_close(4i)"=>"20", "edit_close(3i)"=>"21", "edit_open(5i)"=>"44", "pickup_close(3i)"=>"27", "pickup_open(3i)"=>"25", "delivery_close(5i)"=>"44", "delivery_open(3i)"=>"23", "edit_close(4i)"=>"23", "pickup_close(4i)"=>"01", "pickup_open(4i)"=>"21", "delivery_open(4i)"=>"20", "edit_close(5i)"=>"00", "pickup_close(5i)"=>"32", "pickup_open(5i)"=>"32", "delivery_open(5i)"=>"44", "order_open(1i)"=>"2010", "order_open(2i)"=>"6", "order_close(4i)"=>"20", "order_open(3i)"=>"21", "order_close(5i)"=>"44", "order_close(1i)"=>"2010", "order_open(4i)"=>"23", "order_close(2i)"=>"6", "order_open(5i)"=>"01", "edit_open(1i)"=>"2010"}, "controller"=>"admin/delivery_cycles"}
+  [4;36;1mUser Columns (3.0ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '2') LIMIT 1[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Update (0.3ms)[0m   [0mUPDATE `users` SET `updated_at` = '2010-06-23 00:59:00', `perishable_token` = 'z9XoZCag1ROQvARz-_3z', `last_request_at` = '2010-06-23 00:59:00' WHERE `id` = 2[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mDeliveryCycle Load (0.3ms)[0m   [0mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 00:59:00' and pickup_close > '2010-06-23 00:59:00') LIMIT 1[0m
+  [4;36;1mDeliveryCycle Columns (6.1ms)[0m   [0;1mSHOW FIELDS FROM `delivery_cycles`[0m
+  [4;35;1mOrderable Load (0.4ms)[0m   [0mSELECT * FROM `orderables` WHERE (`orderables`.delivery_cycle_id = 3) AND ((status = 'Available') AND (`orderables`.delivery_cycle_id = 3)) [0m
+  [4;36;1mOrderable Load (0.2ms)[0m   [0;1mSELECT * FROM `orderables` WHERE (`orderables`.delivery_cycle_id = 3) AND ((status = 'In Cart') AND (`orderables`.delivery_cycle_id = 3)) [0m
+  [4;35;1mDeliveryCycle Load (0.3ms)[0m   [0mSELECT * FROM `delivery_cycles` WHERE (`delivery_cycles`.`id` = 3) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mDeliveryCycle Load (0.3ms)[0m   [0mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-20 00:44:00' and pickup_close > '2010-06-20 00:44:00') [0m
+  [4;36;1mDeliveryCycle Load (0.6ms)[0m   [0;1mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-27 05:32:00' and pickup_close > '2010-06-27 05:32:00') [0m
+  [4;35;1mDeliveryCycle Load (0.5ms)[0m   [0mSELECT * FROM `delivery_cycles` WHERE (edit_open >= '2010-06-20 00:44:00' and pickup_close < '2010-06-27 05:32:00') [0m
+  [4;36;1mDeliveryCycle Load (0.2ms)[0m   [0;1mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-20 00:44:00' and pickup_close > '2010-06-27 05:32:00') [0m
+  [4;35;1mDeliveryCycle Update (0.3ms)[0m   [0mUPDATE `delivery_cycles` SET `updated_at` = '2010-06-23 00:59:00', `order_close` = '2010-06-24 00:44:00' WHERE `id` = 3[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mCOMMIT[0m
+Redirected to http://localhost:3000/admin/delivery_cycles/3
+Completed in 205ms (DB: 14) | 302 Found [http://localhost/admin/delivery_cycles/3]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Admin::DeliveryCyclesController#show (for 127.0.0.1 at 2010-06-22 20:59:00) [GET]
+  Parameters: {"action"=>"show", "id"=>"3", "controller"=>"admin/delivery_cycles"}
+  [4;36;1mUser Columns (2.1ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '2') LIMIT 1[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Update (0.3ms)[0m   [0mUPDATE `users` SET `updated_at` = '2010-06-23 00:59:00', `perishable_token` = 'oKNjjqJcN3itFUiBsawZ', `last_request_at` = '2010-06-23 00:59:00' WHERE `id` = 2[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mDeliveryCycle Load (0.4ms)[0m   [0mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 00:59:00' and pickup_close > '2010-06-23 00:59:00') LIMIT 1[0m
+  [4;36;1mDeliveryCycle Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `delivery_cycles`[0m
+Time now is Tue Jun 22 20:59:00 -0400 2010 and self.order_open is 2010-06-21 23:01:00 -0400 and self.order_close is 2010-06-23 20:44:00 -0400
+  [4;35;1mDeliveryCycle Load (1.7ms)[0m   [0mSELECT * FROM `delivery_cycles` WHERE (`delivery_cycles`.`id` = 3) [0m
+Rendering template within layouts/application
+Rendering admin/delivery_cycles/show
+Rendered layouts/_head_tag (6.0ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 00:59:00' and pickup_close > '2010-06-23 00:59:00') LIMIT 1[0m
+Time now is Tue Jun 22 20:59:01 -0400 2010 and self.order_open is 2010-06-21 23:01:00 -0400 and self.order_close is 2010-06-23 20:44:00 -0400
+  [4;35;1mDeliveryCycle Load (0.4ms)[0m   [0mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 00:59:01' and pickup_close > '2010-06-23 00:59:01') LIMIT 1[0m
+  [4;36;1mOrder Load (0.2ms)[0m   [0;1mSELECT * FROM `orders` WHERE (user_id = 2 and delivery_cycle_id = 3) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 00:59:01' and pickup_close > '2010-06-23 00:59:01') LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `orders` WHERE (user_id = 2 and delivery_cycle_id = 3) LIMIT 1[0m
+  [4;35;1mOrder Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `orders`[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 00:59:01' and pickup_close > '2010-06-23 00:59:01') LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `orders` WHERE (user_id = 2 and delivery_cycle_id = 3) LIMIT 1[0m
+Rendered layouts/_header (54.7ms)
+Rendered layouts/_footer (0.3ms)
+Completed in 340ms (View: 107, DB: 9) | 200 OK [http://localhost/admin/delivery_cycles/3]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing HomeController#index (for 127.0.0.1 at 2010-06-22 20:59:03) [GET]
+  Parameters: {"action"=>"index", "controller"=>"home"}
+  [4;35;1mUser Columns (2.2ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (3.9ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '2') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Update (0.3ms)[0m   [0;1mUPDATE `users` SET `updated_at` = '2010-06-23 00:59:03', `perishable_token` = 'UsLZmR4cfB1DbHh8csnw', `last_request_at` = '2010-06-23 00:59:03' WHERE `id` = 2[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCOMMIT[0m
+  [4;36;1mDeliveryCycle Load (0.4ms)[0m   [0;1mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 00:59:03' and pickup_close > '2010-06-23 00:59:03') LIMIT 1[0m
+  [4;35;1mDeliveryCycle Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `delivery_cycles`[0m
+Time now is Tue Jun 22 20:59:03 -0400 2010 and self.order_open is 2010-06-21 23:01:00 -0400 and self.order_close is 2010-06-23 20:44:00 -0400
+Rendering template within layouts/application
+Rendering home/index
+  [4;36;1mComatosePage Load (0.4ms)[0m   [0;1mSELECT * FROM `comatose_pages` WHERE (full_path = 'views/home/index') LIMIT 1[0m
+Rendered home/_sidebar (15.1ms)
+Rendered layouts/_head_tag (6.0ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 00:59:03' and pickup_close > '2010-06-23 00:59:03') LIMIT 1[0m
+Time now is Tue Jun 22 20:59:03 -0400 2010 and self.order_open is 2010-06-21 23:01:00 -0400 and self.order_close is 2010-06-23 20:44:00 -0400
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 00:59:03' and pickup_close > '2010-06-23 00:59:03') LIMIT 1[0m
+  [4;35;1mOrder Load (0.3ms)[0m   [0mSELECT * FROM `orders` WHERE (user_id = 2 and delivery_cycle_id = 3) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 00:59:03' and pickup_close > '2010-06-23 00:59:03') LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `orders` WHERE (user_id = 2 and delivery_cycle_id = 3) LIMIT 1[0m
+  [4;36;1mOrder Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `orders`[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 00:59:03' and pickup_close > '2010-06-23 00:59:03') LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `orders` WHERE (user_id = 2 and delivery_cycle_id = 3) LIMIT 1[0m
+Rendered layouts/_header (50.1ms)
+Rendered layouts/_footer (0.3ms)
+Completed in 237ms (View: 109, DB: 11) | 200 OK [http://localhost/]
+  [4;35;1mSQL (0.8ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing OrdersController#show (for 127.0.0.1 at 2010-06-22 21:01:26) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "user_id"=>"2", "controller"=>"orders"}
+  [4;36;1mUser Columns (3.9ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '2') LIMIT 1[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Update (0.3ms)[0m   [0mUPDATE `users` SET `updated_at` = '2010-06-23 01:01:26', `perishable_token` = 'W0kdnYZ5I-v-kU1HWxHc', `last_request_at` = '2010-06-23 01:01:26' WHERE `id` = 2[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mDeliveryCycle Load (0.3ms)[0m   [0mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 01:01:26' and pickup_close > '2010-06-23 01:01:26') LIMIT 1[0m
+  [4;36;1mDeliveryCycle Columns (2.8ms)[0m   [0;1mSHOW FIELDS FROM `delivery_cycles`[0m
+Time now is Tue Jun 22 21:01:26 -0400 2010 and self.order_open is 2010-06-21 23:01:00 -0400 and self.order_close is 2010-06-23 20:44:00 -0400
+  [4;35;1mOrder Columns (4.2ms)[0m   [0mSHOW FIELDS FROM `orders`[0m
+  [4;36;1mOrder Load (0.4ms)[0m   [0;1mSELECT * FROM `orders` WHERE (`orders`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering orders/show
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+  [4;36;1mDeliveryCycle Load (0.3ms)[0m   [0;1mSELECT * FROM `delivery_cycles` WHERE (`delivery_cycles`.`id` = 3) [0m
+  [4;35;1mLineItem Load (0.3ms)[0m   [0mSELECT * FROM `line_items` WHERE (`line_items`.order_id = 1) [0m
+  [4;36;1mLineItem Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `line_items`[0m
+  [4;35;1mProduct Columns (1.8ms)[0m   [0mSHOW FIELDS FROM `products`[0m
+  [4;36;1mProduct Load (0.4ms)[0m   [0;1mSELECT * FROM `products` WHERE (`products`.`id` = 1) [0m
+  [4;35;1mOrderable Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `orderables`[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.line_item_id = 3) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.line_item_id = 3) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.line_item_id = 3) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.line_item_id = 3) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.line_item_id = 3) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.line_item_id = 3) [0m
+Rendered layouts/_head_tag (6.3ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 01:01:26' and pickup_close > '2010-06-23 01:01:26') LIMIT 1[0m
+Time now is Tue Jun 22 21:01:26 -0400 2010 and self.order_open is 2010-06-21 23:01:00 -0400 and self.order_close is 2010-06-23 20:44:00 -0400
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 01:01:26' and pickup_close > '2010-06-23 01:01:26') LIMIT 1[0m
+  [4;36;1mOrder Load (0.3ms)[0m   [0;1mSELECT * FROM `orders` WHERE (user_id = 2 and delivery_cycle_id = 3) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 01:01:26' and pickup_close > '2010-06-23 01:01:26') LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `orders` WHERE (user_id = 2 and delivery_cycle_id = 3) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 01:01:26' and pickup_close > '2010-06-23 01:01:26') LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `orders` WHERE (user_id = 2 and delivery_cycle_id = 3) LIMIT 1[0m
+Rendered layouts/_header (26.4ms)
+Rendered layouts/_footer (0.3ms)
+Completed in 303ms (View: 134, DB: 21) | 200 OK [http://localhost/users/2/orders/1]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProductsController#index (for 127.0.0.1 at 2010-06-22 21:01:56) [GET]
+  Parameters: {"action"=>"index", "controller"=>"products"}
+  [4;36;1mUser Columns (2.3ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '2') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Update (0.3ms)[0m   [0mUPDATE `users` SET `updated_at` = '2010-06-23 01:01:56', `perishable_token` = 'xwyyFgF9O8L0SmTHVJ-O', `last_request_at` = '2010-06-23 01:01:56' WHERE `id` = 2[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mDeliveryCycle Load (0.3ms)[0m   [0mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 01:01:56' and pickup_close > '2010-06-23 01:01:56') LIMIT 1[0m
+  [4;36;1mDeliveryCycle Columns (1.8ms)[0m   [0;1mSHOW FIELDS FROM `delivery_cycles`[0m
+Time now is Tue Jun 22 21:01:56 -0400 2010 and self.order_open is 2010-06-21 23:01:00 -0400 and self.order_close is 2010-06-23 20:44:00 -0400
+  [4;35;1mAccount Load (1.7ms)[0m   [0mSELECT * FROM `accounts` ORDER BY producer_name ASC[0m
+  [4;36;1mProduct Columns (1.7ms)[0m   [0;1mSHOW FIELDS FROM `products`[0m
+  [4;35;1mProduct Load (0.3ms)[0m   [0mSELECT * FROM `products` [0m
+  [4;36;1mCategory Load (0.3ms)[0m   [0;1mSELECT * FROM `categories` [0m
+  [4;35;1mCategory Columns (1.7ms)[0m   [0mSHOW FIELDS FROM `categories`[0m
+  [4;36;1mAccount Load (0.4ms)[0m   [0;1mSELECT * FROM `accounts` [0m
+  [4;35;1mAccount Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `accounts`[0m
+  [4;36;1mOrderable Columns (3.0ms)[0m   [0;1mSHOW FIELDS FROM `orderables`[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.product_id = 1 AND (status='Available')) [0m
+  [4;36;1mCategory Load (0.2ms)[0m   [0;1mSELECT * FROM `categories` WHERE (`categories`.`id` = 3) [0m
+  [4;35;1mAccount Load (1.8ms)[0m   [0mSELECT * FROM `accounts` WHERE (`accounts`.`id` = 7) [0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.product_id = 2 AND (status='Available')) [0m
+  [4;35;1mCategory Load (0.2ms)[0m   [0mSELECT * FROM `categories` WHERE (`categories`.`id` = 4) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `accounts` WHERE (`accounts`.`id` = 7) [0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.product_id = 3 AND (status='Available')) [0m
+  [4;36;1mCategory Load (0.8ms)[0m   [0;1mSELECT * FROM `categories` WHERE (`categories`.`id` = 9) [0m
+  [4;35;1mCategory Load (0.2ms)[0m   [0mSELECT * FROM `categories` WHERE (`categories`.`id` = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `categories` WHERE (`categories`.`id` = 3) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `accounts` WHERE (`accounts`.`id` = 7) [0m
+  [4;36;1mCategory Load (0.2ms)[0m   [0;1mSELECT * FROM `categories` WHERE (parent_id is null) [0m
+Rendering template within layouts/application
+Rendering products/index
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.product_id = 1 AND (status='Available')) [0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.product_id = 1 AND (status='In Cart')) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.product_id = 1 AND (status='Ordered')) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 01:01:56' and pickup_close > '2010-06-23 01:01:56') LIMIT 1[0m
+  [4;35;1mOrder Load (0.3ms)[0m   [0mSELECT * FROM `orders` WHERE (user_id = 2 and delivery_cycle_id = 3) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 01:01:56' and pickup_close > '2010-06-23 01:01:56') LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `orders` WHERE (user_id = 2 and delivery_cycle_id = 3) LIMIT 1[0m
+  [4;36;1mOrder Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `orders`[0m
+  [4;35;1mLineItem Load (1.7ms)[0m   [0mSELECT * FROM `line_items` WHERE (`line_items`.order_id = 1 AND (line_items.product_id = 1)) LIMIT 1[0m
+  [4;36;1mLineItem Columns (2.1ms)[0m   [0;1mSHOW FIELDS FROM `line_items`[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.line_item_id = 3) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 01:01:56' and pickup_close > '2010-06-23 01:01:56') LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `orders` WHERE (user_id = 2 and delivery_cycle_id = 3) LIMIT 1[0m
+Time now is Tue Jun 22 21:01:56 -0400 2010 and self.order_open is 2010-06-21 23:01:00 -0400 and self.order_close is 2010-06-23 20:44:00 -0400
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.product_id = 1 AND (status='Available')) [0m
+Rendered common/_product_small (127.8ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.product_id = 2 AND (status='Available')) [0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.product_id = 2 AND (status='In Cart')) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.product_id = 2 AND (status='Ordered')) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 01:01:56' and pickup_close > '2010-06-23 01:01:56') LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `orders` WHERE (user_id = 2 and delivery_cycle_id = 3) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 01:01:56' and pickup_close > '2010-06-23 01:01:56') LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `orders` WHERE (user_id = 2 and delivery_cycle_id = 3) LIMIT 1[0m
+  [4;36;1mLineItem Load (0.3ms)[0m   [0;1mSELECT * FROM `line_items` WHERE (`line_items`.order_id = 1 AND (line_items.product_id = 2)) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 01:01:56' and pickup_close > '2010-06-23 01:01:56') LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `orders` WHERE (user_id = 2 and delivery_cycle_id = 3) LIMIT 1[0m
+Time now is Tue Jun 22 21:01:56 -0400 2010 and self.order_open is 2010-06-21 23:01:00 -0400 and self.order_close is 2010-06-23 20:44:00 -0400
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.product_id = 2 AND (status='Available')) [0m
+Rendered common/_product_small (46.2ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.product_id = 3 AND (status='Available')) [0m
+  [4;35;1mSQL (0.7ms)[0m   [0mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.product_id = 3 AND (status='In Cart')) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.product_id = 3 AND (status='Ordered')) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 01:01:56' and pickup_close > '2010-06-23 01:01:56') LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `orders` WHERE (user_id = 2 and delivery_cycle_id = 3) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 01:01:56' and pickup_close > '2010-06-23 01:01:56') LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `orders` WHERE (user_id = 2 and delivery_cycle_id = 3) LIMIT 1[0m
+  [4;35;1mLineItem Load (0.2ms)[0m   [0mSELECT * FROM `line_items` WHERE (`line_items`.order_id = 1 AND (line_items.product_id = 3)) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 01:01:56' and pickup_close > '2010-06-23 01:01:56') LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `orders` WHERE (user_id = 2 and delivery_cycle_id = 3) LIMIT 1[0m
+Time now is Tue Jun 22 21:01:56 -0400 2010 and self.order_open is 2010-06-21 23:01:00 -0400 and self.order_close is 2010-06-23 20:44:00 -0400
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.product_id = 3 AND (status='Available')) [0m
+Rendered common/_product_small (56.4ms)
+  [4;35;1mCategory Load (0.3ms)[0m   [0mSELECT * FROM `categories` WHERE (`categories`.parent_id = 3) [0m
+  [4;36;1mCategory Load (0.2ms)[0m   [0;1mSELECT * FROM `categories` WHERE (`categories`.parent_id = 6) [0m
+  [4;35;1mCategory Load (0.2ms)[0m   [0mSELECT * FROM `categories` WHERE (`categories`.parent_id = 8) [0m
+  [4;36;1mCategory Load (0.2ms)[0m   [0;1mSELECT * FROM `categories` WHERE (`categories`.parent_id = 9) [0m
+  [4;35;1mCategory Load (0.2ms)[0m   [0mSELECT * FROM `categories` WHERE (`categories`.parent_id = 7) [0m
+  [4;36;1mCategory Load (0.5ms)[0m   [0;1mSELECT * FROM `categories` WHERE (`categories`.parent_id = 4) [0m
+  [4;35;1mCategory Load (0.3ms)[0m   [0mSELECT * FROM `categories` WHERE (`categories`.parent_id = 5) [0m
+Rendered products/_sidebar (61.2ms)
+Rendered layouts/_head_tag (5.9ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 01:01:56' and pickup_close > '2010-06-23 01:01:56') LIMIT 1[0m
+Time now is Tue Jun 22 21:01:56 -0400 2010 and self.order_open is 2010-06-21 23:01:00 -0400 and self.order_close is 2010-06-23 20:44:00 -0400
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 01:01:56' and pickup_close > '2010-06-23 01:01:56') LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `orders` WHERE (user_id = 2 and delivery_cycle_id = 3) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 01:01:56' and pickup_close > '2010-06-23 01:01:56') LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `orders` WHERE (user_id = 2 and delivery_cycle_id = 3) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 01:01:56' and pickup_close > '2010-06-23 01:01:56') LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `orders` WHERE (user_id = 2 and delivery_cycle_id = 3) LIMIT 1[0m
+Rendered layouts/_header (42.3ms)
+Rendered layouts/_footer (0.3ms)
+Completed in 784ms (View: 364, DB: 32) | 200 OK [http://localhost/products]
+  [4;35;1mSQL (0.3ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProductsController#index (for 127.0.0.1 at 2010-06-22 21:04:35) [GET]
+  Parameters: {"action"=>"index", "controller"=>"products"}
+  [4;36;1mUser Columns (2.3ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.6ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '2') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Update (0.3ms)[0m   [0mUPDATE `users` SET `updated_at` = '2010-06-23 01:04:35', `perishable_token` = 'MEaE9RJBFKdFkcyJ4mSJ', `last_request_at` = '2010-06-23 01:04:35' WHERE `id` = 2[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mDeliveryCycle Load (0.4ms)[0m   [0mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 01:04:35' and pickup_close > '2010-06-23 01:04:35') LIMIT 1[0m
+  [4;36;1mDeliveryCycle Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `delivery_cycles`[0m
+Time now is Tue Jun 22 21:04:35 -0400 2010 and self.order_open is 2010-06-21 23:01:00 -0400 and self.order_close is 2010-06-23 20:44:00 -0400
+  [4;35;1mAccount Load (0.4ms)[0m   [0mSELECT * FROM `accounts` ORDER BY producer_name ASC[0m
+  [4;36;1mProduct Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `products`[0m
+  [4;35;1mProduct Load (0.3ms)[0m   [0mSELECT * FROM `products` [0m
+  [4;36;1mCategory Load (0.3ms)[0m   [0;1mSELECT * FROM `categories` [0m
+  [4;35;1mCategory Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `categories`[0m
+  [4;36;1mAccount Load (0.5ms)[0m   [0;1mSELECT * FROM `accounts` [0m
+  [4;35;1mAccount Columns (1.7ms)[0m   [0mSHOW FIELDS FROM `accounts`[0m
+  [4;36;1mOrderable Columns (1.8ms)[0m   [0;1mSHOW FIELDS FROM `orderables`[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.product_id = 1 AND (status='Available')) [0m
+  [4;36;1mCategory Load (0.2ms)[0m   [0;1mSELECT * FROM `categories` WHERE (`categories`.`id` = 3) [0m
+  [4;35;1mAccount Load (0.2ms)[0m   [0mSELECT * FROM `accounts` WHERE (`accounts`.`id` = 7) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.product_id = 2 AND (status='Available')) [0m
+  [4;35;1mCategory Load (0.2ms)[0m   [0mSELECT * FROM `categories` WHERE (`categories`.`id` = 4) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `accounts` WHERE (`accounts`.`id` = 7) [0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.product_id = 3 AND (status='Available')) [0m
+  [4;36;1mCategory Load (0.2ms)[0m   [0;1mSELECT * FROM `categories` WHERE (`categories`.`id` = 9) [0m
+  [4;35;1mCategory Load (0.2ms)[0m   [0mSELECT * FROM `categories` WHERE (`categories`.`id` = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `categories` WHERE (`categories`.`id` = 3) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `accounts` WHERE (`accounts`.`id` = 7) [0m
+  [4;36;1mCategory Load (0.2ms)[0m   [0;1mSELECT * FROM `categories` WHERE (parent_id is null) [0m
+Rendering template within layouts/application
+Rendering products/index
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.product_id = 1 AND (status='Available')) [0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.product_id = 1 AND (status='In Cart')) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.product_id = 1 AND (status='Ordered')) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 01:04:35' and pickup_close > '2010-06-23 01:04:35') LIMIT 1[0m
+  [4;35;1mOrder Load (0.3ms)[0m   [0mSELECT * FROM `orders` WHERE (user_id = 2 and delivery_cycle_id = 3) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 01:04:35' and pickup_close > '2010-06-23 01:04:35') LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `orders` WHERE (user_id = 2 and delivery_cycle_id = 3) LIMIT 1[0m
+  [4;36;1mOrder Columns (1.8ms)[0m   [0;1mSHOW FIELDS FROM `orders`[0m
+  [4;35;1mLineItem Load (0.4ms)[0m   [0mSELECT * FROM `line_items` WHERE (`line_items`.order_id = 1 AND (line_items.product_id = 1)) LIMIT 1[0m
+  [4;36;1mLineItem Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `line_items`[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.line_item_id = 3) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 01:04:35' and pickup_close > '2010-06-23 01:04:35') LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `orders` WHERE (user_id = 2 and delivery_cycle_id = 3) LIMIT 1[0m
+Time now is Tue Jun 22 21:04:35 -0400 2010 and self.order_open is 2010-06-21 23:01:00 -0400 and self.order_close is 2010-06-23 20:44:00 -0400
+Time now is Tue Jun 22 21:04:35 -0400 2010 and self.order_open is 2010-06-21 23:01:00 -0400 and self.order_close is 2010-06-23 20:44:00 -0400
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.product_id = 1 AND (status='Available')) [0m
+Rendered common/_product_small (100.4ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.product_id = 2 AND (status='Available')) [0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.product_id = 2 AND (status='In Cart')) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.product_id = 2 AND (status='Ordered')) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 01:04:35' and pickup_close > '2010-06-23 01:04:35') LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `orders` WHERE (user_id = 2 and delivery_cycle_id = 3) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 01:04:35' and pickup_close > '2010-06-23 01:04:35') LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `orders` WHERE (user_id = 2 and delivery_cycle_id = 3) LIMIT 1[0m
+  [4;36;1mLineItem Load (0.3ms)[0m   [0;1mSELECT * FROM `line_items` WHERE (`line_items`.order_id = 1 AND (line_items.product_id = 2)) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 01:04:35' and pickup_close > '2010-06-23 01:04:35') LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `orders` WHERE (user_id = 2 and delivery_cycle_id = 3) LIMIT 1[0m
+Time now is Tue Jun 22 21:04:35 -0400 2010 and self.order_open is 2010-06-21 23:01:00 -0400 and self.order_close is 2010-06-23 20:44:00 -0400
+Time now is Tue Jun 22 21:04:35 -0400 2010 and self.order_open is 2010-06-21 23:01:00 -0400 and self.order_close is 2010-06-23 20:44:00 -0400
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.product_id = 2 AND (status='Available')) [0m
+Rendered common/_product_small (30.2ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.product_id = 3 AND (status='Available')) [0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.product_id = 3 AND (status='In Cart')) [0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.product_id = 3 AND (status='Ordered')) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 01:04:35' and pickup_close > '2010-06-23 01:04:35') LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `orders` WHERE (user_id = 2 and delivery_cycle_id = 3) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 01:04:35' and pickup_close > '2010-06-23 01:04:35') LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `orders` WHERE (user_id = 2 and delivery_cycle_id = 3) LIMIT 1[0m
+  [4;35;1mLineItem Load (0.7ms)[0m   [0mSELECT * FROM `line_items` WHERE (`line_items`.order_id = 1 AND (line_items.product_id = 3)) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 01:04:35' and pickup_close > '2010-06-23 01:04:35') LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `orders` WHERE (user_id = 2 and delivery_cycle_id = 3) LIMIT 1[0m
+Time now is Tue Jun 22 21:04:35 -0400 2010 and self.order_open is 2010-06-21 23:01:00 -0400 and self.order_close is 2010-06-23 20:44:00 -0400
+Time now is Tue Jun 22 21:04:35 -0400 2010 and self.order_open is 2010-06-21 23:01:00 -0400 and self.order_close is 2010-06-23 20:44:00 -0400
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.product_id = 3 AND (status='Available')) [0m
+Rendered common/_product_small (33.6ms)
+  [4;35;1mCategory Load (0.3ms)[0m   [0mSELECT * FROM `categories` WHERE (`categories`.parent_id = 3) [0m
+  [4;36;1mCategory Load (0.2ms)[0m   [0;1mSELECT * FROM `categories` WHERE (`categories`.parent_id = 6) [0m
+  [4;35;1mCategory Load (0.2ms)[0m   [0mSELECT * FROM `categories` WHERE (`categories`.parent_id = 8) [0m
+  [4;36;1mCategory Load (0.2ms)[0m   [0;1mSELECT * FROM `categories` WHERE (`categories`.parent_id = 9) [0m
+  [4;35;1mCategory Load (0.2ms)[0m   [0mSELECT * FROM `categories` WHERE (`categories`.parent_id = 7) [0m
+  [4;36;1mCategory Load (0.3ms)[0m   [0;1mSELECT * FROM `categories` WHERE (`categories`.parent_id = 4) [0m
+  [4;35;1mCategory Load (0.2ms)[0m   [0mSELECT * FROM `categories` WHERE (`categories`.parent_id = 5) [0m
+Rendered products/_sidebar (55.2ms)
+Rendered layouts/_head_tag (5.8ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 01:04:35' and pickup_close > '2010-06-23 01:04:35') LIMIT 1[0m
+Time now is Tue Jun 22 21:04:35 -0400 2010 and self.order_open is 2010-06-21 23:01:00 -0400 and self.order_close is 2010-06-23 20:44:00 -0400
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 01:04:35' and pickup_close > '2010-06-23 01:04:35') LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `orders` WHERE (user_id = 2 and delivery_cycle_id = 3) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 01:04:35' and pickup_close > '2010-06-23 01:04:35') LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `orders` WHERE (user_id = 2 and delivery_cycle_id = 3) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 01:04:35' and pickup_close > '2010-06-23 01:04:35') LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `orders` WHERE (user_id = 2 and delivery_cycle_id = 3) LIMIT 1[0m
+Rendered layouts/_header (24.8ms)
+Rendered layouts/_footer (0.3ms)
+Completed in 505ms (View: 256, DB: 25) | 200 OK [http://localhost/products]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProductsController#index (for 127.0.0.1 at 2010-06-22 21:05:59) [GET]
+  Parameters: {"action"=>"index", "controller"=>"products"}
+  [4;36;1mUser Columns (36.1ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '2') LIMIT 1[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Update (0.4ms)[0m   [0mUPDATE `users` SET `updated_at` = '2010-06-23 01:05:59', `perishable_token` = 'ojEtFI5cXNj3yG0ejSBe', `last_request_at` = '2010-06-23 01:05:59' WHERE `id` = 2[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mDeliveryCycle Load (0.5ms)[0m   [0mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 01:05:59' and pickup_close > '2010-06-23 01:05:59') LIMIT 1[0m
+  [4;36;1mDeliveryCycle Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `delivery_cycles`[0m
+Time now is Tue Jun 22 21:05:59 -0400 2010 and self.order_open is 2010-06-21 23:01:00 -0400 and self.order_close is 2010-06-23 20:44:00 -0400
+  [4;35;1mAccount Load (0.4ms)[0m   [0mSELECT * FROM `accounts` ORDER BY producer_name ASC[0m
+  [4;36;1mProduct Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `products`[0m
+  [4;35;1mProduct Load (0.5ms)[0m   [0mSELECT * FROM `products` [0m
+  [4;36;1mCategory Load (0.6ms)[0m   [0;1mSELECT * FROM `categories` [0m
+  [4;35;1mCategory Columns (3.2ms)[0m   [0mSHOW FIELDS FROM `categories`[0m
+  [4;36;1mAccount Load (0.3ms)[0m   [0;1mSELECT * FROM `accounts` [0m
+  [4;35;1mAccount Columns (1.8ms)[0m   [0mSHOW FIELDS FROM `accounts`[0m
+  [4;36;1mOrderable Columns (4.4ms)[0m   [0;1mSHOW FIELDS FROM `orderables`[0m
+  [4;35;1mSQL (3.4ms)[0m   [0mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.product_id = 1 AND (status='Available')) [0m
+  [4;36;1mCategory Load (0.3ms)[0m   [0;1mSELECT * FROM `categories` WHERE (`categories`.`id` = 3) [0m
+  [4;35;1mAccount Load (0.3ms)[0m   [0mSELECT * FROM `accounts` WHERE (`accounts`.`id` = 7) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.product_id = 2 AND (status='Available')) [0m
+  [4;35;1mCategory Load (0.2ms)[0m   [0mSELECT * FROM `categories` WHERE (`categories`.`id` = 4) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `accounts` WHERE (`accounts`.`id` = 7) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.product_id = 3 AND (status='Available')) [0m
+  [4;36;1mCategory Load (0.2ms)[0m   [0;1mSELECT * FROM `categories` WHERE (`categories`.`id` = 9) [0m
+  [4;35;1mCategory Load (0.2ms)[0m   [0mSELECT * FROM `categories` WHERE (`categories`.`id` = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `categories` WHERE (`categories`.`id` = 3) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `accounts` WHERE (`accounts`.`id` = 7) [0m
+  [4;36;1mCategory Load (0.2ms)[0m   [0;1mSELECT * FROM `categories` WHERE (parent_id is null) [0m
+Rendering template within layouts/application
+Rendering products/index
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.product_id = 1 AND (status='Available')) [0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.product_id = 1 AND (status='In Cart')) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.product_id = 1 AND (status='Ordered')) [0m
+  [4;36;1mDeliveryCycle Load (0.4ms)[0m   [0;1mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 01:06:00' and pickup_close > '2010-06-23 01:06:00') LIMIT 1[0m
+  [4;35;1mOrder Load (0.2ms)[0m   [0mSELECT * FROM `orders` WHERE (user_id = 2 and delivery_cycle_id = 3) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 01:06:00' and pickup_close > '2010-06-23 01:06:00') LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `orders` WHERE (user_id = 2 and delivery_cycle_id = 3) LIMIT 1[0m
+  [4;36;1mOrder Columns (3.7ms)[0m   [0;1mSHOW FIELDS FROM `orders`[0m
+  [4;35;1mLineItem Load (0.3ms)[0m   [0mSELECT * FROM `line_items` WHERE (`line_items`.order_id = 1 AND (line_items.product_id = 1)) LIMIT 1[0m
+  [4;36;1mLineItem Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `line_items`[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.line_item_id = 3) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 01:06:00' and pickup_close > '2010-06-23 01:06:00') LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `orders` WHERE (user_id = 2 and delivery_cycle_id = 3) LIMIT 1[0m
+Time now is Tue Jun 22 21:06:00 -0400 2010 and self.order_open is 2010-06-21 23:01:00 -0400 and self.order_close is 2010-06-23 20:44:00 -0400
+Time now is Tue Jun 22 21:06:00 -0400 2010 and self.order_open is 2010-06-21 23:01:00 -0400 and self.order_close is 2010-06-23 20:44:00 -0400
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.product_id = 1 AND (status='Available')) [0m
+Rendered common/_product_small (94.6ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.product_id = 2 AND (status='Available')) [0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.product_id = 2 AND (status='In Cart')) [0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.product_id = 2 AND (status='Ordered')) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 01:06:00' and pickup_close > '2010-06-23 01:06:00') LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `orders` WHERE (user_id = 2 and delivery_cycle_id = 3) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 01:06:00' and pickup_close > '2010-06-23 01:06:00') LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `orders` WHERE (user_id = 2 and delivery_cycle_id = 3) LIMIT 1[0m
+  [4;36;1mLineItem Load (0.4ms)[0m   [0;1mSELECT * FROM `line_items` WHERE (`line_items`.order_id = 1 AND (line_items.product_id = 2)) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 01:06:00' and pickup_close > '2010-06-23 01:06:00') LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `orders` WHERE (user_id = 2 and delivery_cycle_id = 3) LIMIT 1[0m
+Time now is Tue Jun 22 21:06:00 -0400 2010 and self.order_open is 2010-06-21 23:01:00 -0400 and self.order_close is 2010-06-23 20:44:00 -0400
+Time now is Tue Jun 22 21:06:00 -0400 2010 and self.order_open is 2010-06-21 23:01:00 -0400 and self.order_close is 2010-06-23 20:44:00 -0400
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.product_id = 2 AND (status='Available')) [0m
+Rendered common/_product_small (21.2ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.product_id = 3 AND (status='Available')) [0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.product_id = 3 AND (status='In Cart')) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.product_id = 3 AND (status='Ordered')) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 01:06:00' and pickup_close > '2010-06-23 01:06:00') LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `orders` WHERE (user_id = 2 and delivery_cycle_id = 3) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 01:06:00' and pickup_close > '2010-06-23 01:06:00') LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `orders` WHERE (user_id = 2 and delivery_cycle_id = 3) LIMIT 1[0m
+  [4;35;1mLineItem Load (0.3ms)[0m   [0mSELECT * FROM `line_items` WHERE (`line_items`.order_id = 1 AND (line_items.product_id = 3)) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 01:06:00' and pickup_close > '2010-06-23 01:06:00') LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `orders` WHERE (user_id = 2 and delivery_cycle_id = 3) LIMIT 1[0m
+Time now is Tue Jun 22 21:06:00 -0400 2010 and self.order_open is 2010-06-21 23:01:00 -0400 and self.order_close is 2010-06-23 20:44:00 -0400
+Time now is Tue Jun 22 21:06:00 -0400 2010 and self.order_open is 2010-06-21 23:01:00 -0400 and self.order_close is 2010-06-23 20:44:00 -0400
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.product_id = 3 AND (status='Available')) [0m
+Rendered common/_product_small (21.8ms)
+  [4;35;1mCategory Load (0.3ms)[0m   [0mSELECT * FROM `categories` WHERE (`categories`.parent_id = 3) [0m
+  [4;36;1mCategory Load (0.2ms)[0m   [0;1mSELECT * FROM `categories` WHERE (`categories`.parent_id = 6) [0m
+  [4;35;1mCategory Load (0.3ms)[0m   [0mSELECT * FROM `categories` WHERE (`categories`.parent_id = 8) [0m
+  [4;36;1mCategory Load (0.2ms)[0m   [0;1mSELECT * FROM `categories` WHERE (`categories`.parent_id = 9) [0m
+  [4;35;1mCategory Load (0.2ms)[0m   [0mSELECT * FROM `categories` WHERE (`categories`.parent_id = 7) [0m
+  [4;36;1mCategory Load (0.3ms)[0m   [0;1mSELECT * FROM `categories` WHERE (`categories`.parent_id = 4) [0m
+  [4;35;1mCategory Load (0.2ms)[0m   [0mSELECT * FROM `categories` WHERE (`categories`.parent_id = 5) [0m
+Rendered products/_sidebar (137.8ms)
+Rendered layouts/_head_tag (5.9ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 01:06:00' and pickup_close > '2010-06-23 01:06:00') LIMIT 1[0m
+Time now is Tue Jun 22 21:06:00 -0400 2010 and self.order_open is 2010-06-21 23:01:00 -0400 and self.order_close is 2010-06-23 20:44:00 -0400
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 01:06:00' and pickup_close > '2010-06-23 01:06:00') LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `orders` WHERE (user_id = 2 and delivery_cycle_id = 3) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 01:06:00' and pickup_close > '2010-06-23 01:06:00') LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `orders` WHERE (user_id = 2 and delivery_cycle_id = 3) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 01:06:00' and pickup_close > '2010-06-23 01:06:00') LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `orders` WHERE (user_id = 2 and delivery_cycle_id = 3) LIMIT 1[0m
+Rendered layouts/_header (24.5ms)
+Rendered layouts/_footer (0.3ms)
+Completed in 616ms (View: 309, DB: 69) | 200 OK [http://localhost/products]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing OrdersController#show (for 127.0.0.1 at 2010-06-22 21:31:03) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "user_id"=>"2", "controller"=>"orders"}
+  [4;36;1mUser Columns (4.0ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '2') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Update (1.6ms)[0m   [0mUPDATE `users` SET `updated_at` = '2010-06-23 01:31:03', `perishable_token` = 'qzoHgTv2m0bMp1I91TsT', `last_request_at` = '2010-06-23 01:31:03' WHERE `id` = 2[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mDeliveryCycle Load (1.4ms)[0m   [0mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 01:31:03' and pickup_close > '2010-06-23 01:31:03') LIMIT 1[0m
+  [4;36;1mDeliveryCycle Columns (1.7ms)[0m   [0;1mSHOW FIELDS FROM `delivery_cycles`[0m
+Time now is Tue Jun 22 21:31:03 -0400 2010 and self.order_open is 2010-06-21 23:01:00 -0400 and self.order_close is 2010-06-23 20:44:00 -0400
+  [4;35;1mOrder Columns (2.5ms)[0m   [0mSHOW FIELDS FROM `orders`[0m
+  [4;36;1mOrder Load (0.6ms)[0m   [0;1mSELECT * FROM `orders` WHERE (`orders`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering orders/show
+  [4;35;1mUser Load (0.7ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+  [4;36;1mDeliveryCycle Load (1.0ms)[0m   [0;1mSELECT * FROM `delivery_cycles` WHERE (`delivery_cycles`.`id` = 3) [0m
+  [4;35;1mLineItem Load (0.3ms)[0m   [0mSELECT * FROM `line_items` WHERE (`line_items`.order_id = 1) [0m
+  [4;36;1mLineItem Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `line_items`[0m
+  [4;35;1mProduct Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `products`[0m
+  [4;36;1mProduct Load (0.5ms)[0m   [0;1mSELECT * FROM `products` WHERE (`products`.`id` = 1) [0m
+  [4;35;1mOrderable Columns (1.9ms)[0m   [0mSHOW FIELDS FROM `orderables`[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.line_item_id = 3) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.line_item_id = 3) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.line_item_id = 3) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.line_item_id = 3) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.line_item_id = 3) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.line_item_id = 3) [0m
+Rendered layouts/_head_tag (10.0ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 01:31:03' and pickup_close > '2010-06-23 01:31:03') LIMIT 1[0m
+Time now is Tue Jun 22 21:31:03 -0400 2010 and self.order_open is 2010-06-21 23:01:00 -0400 and self.order_close is 2010-06-23 20:44:00 -0400
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 01:31:03' and pickup_close > '2010-06-23 01:31:03') LIMIT 1[0m
+  [4;36;1mOrder Load (1.0ms)[0m   [0;1mSELECT * FROM `orders` WHERE (user_id = 2 and delivery_cycle_id = 3) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 01:31:03' and pickup_close > '2010-06-23 01:31:03') LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `orders` WHERE (user_id = 2 and delivery_cycle_id = 3) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 01:31:03' and pickup_close > '2010-06-23 01:31:03') LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `orders` WHERE (user_id = 2 and delivery_cycle_id = 3) LIMIT 1[0m
+Rendered layouts/_header (26.1ms)
+Rendered layouts/_footer (0.3ms)
+Completed in 309ms (View: 137, DB: 22) | 200 OK [http://localhost/users/2/orders/1]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing OrdersController#show (for 127.0.0.1 at 2010-06-22 21:32:13) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "user_id"=>"2", "controller"=>"orders"}
+  [4;36;1mUser Columns (2.3ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '2') LIMIT 1[0m
+  [4;36;1mSQL (2.7ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Update (0.3ms)[0m   [0mUPDATE `users` SET `updated_at` = '2010-06-23 01:32:13', `perishable_token` = 'bAAAp_kHSYAiwKYsC9Ee', `last_request_at` = '2010-06-23 01:32:13' WHERE `id` = 2[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mDeliveryCycle Load (0.3ms)[0m   [0mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 01:32:13' and pickup_close > '2010-06-23 01:32:13') LIMIT 1[0m
+  [4;36;1mDeliveryCycle Columns (1.8ms)[0m   [0;1mSHOW FIELDS FROM `delivery_cycles`[0m
+Time now is Tue Jun 22 21:32:13 -0400 2010 and self.order_open is 2010-06-21 23:01:00 -0400 and self.order_close is 2010-06-23 20:44:00 -0400
+  [4;35;1mOrder Columns (2.4ms)[0m   [0mSHOW FIELDS FROM `orders`[0m
+  [4;36;1mOrder Load (0.3ms)[0m   [0;1mSELECT * FROM `orders` WHERE (`orders`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering orders/show
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+  [4;36;1mDeliveryCycle Load (0.2ms)[0m   [0;1mSELECT * FROM `delivery_cycles` WHERE (`delivery_cycles`.`id` = 3) [0m
+  [4;35;1mLineItem Load (0.4ms)[0m   [0mSELECT * FROM `line_items` WHERE (`line_items`.order_id = 1) [0m
+  [4;36;1mLineItem Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `line_items`[0m
+  [4;35;1mProduct Columns (1.9ms)[0m   [0mSHOW FIELDS FROM `products`[0m
+  [4;36;1mProduct Load (0.3ms)[0m   [0;1mSELECT * FROM `products` WHERE (`products`.`id` = 1) [0m
+  [4;35;1mOrderable Columns (2.3ms)[0m   [0mSHOW FIELDS FROM `orderables`[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.line_item_id = 3) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.line_item_id = 3) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.line_item_id = 3) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.line_item_id = 3) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.line_item_id = 3) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.line_item_id = 3) [0m
+Rendered layouts/_head_tag (6.3ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 01:32:13' and pickup_close > '2010-06-23 01:32:13') LIMIT 1[0m
+Time now is Tue Jun 22 21:32:13 -0400 2010 and self.order_open is 2010-06-21 23:01:00 -0400 and self.order_close is 2010-06-23 20:44:00 -0400
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 01:32:13' and pickup_close > '2010-06-23 01:32:13') LIMIT 1[0m
+  [4;36;1mOrder Load (0.4ms)[0m   [0;1mSELECT * FROM `orders` WHERE (user_id = 2 and delivery_cycle_id = 3) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 01:32:13' and pickup_close > '2010-06-23 01:32:13') LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `orders` WHERE (user_id = 2 and delivery_cycle_id = 3) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 01:32:13' and pickup_close > '2010-06-23 01:32:13') LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `orders` WHERE (user_id = 2 and delivery_cycle_id = 3) LIMIT 1[0m
+Rendered layouts/_header (32.8ms)
+Rendered layouts/_footer (0.3ms)
+Completed in 415ms (View: 253, DB: 19) | 200 OK [http://localhost/users/2/orders/1]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing OrdersController#invoice (for 127.0.0.1 at 2010-06-22 21:32:16) [GET]
+  Parameters: {"action"=>"invoice", "id"=>"1", "user_id"=>"2", "controller"=>"orders"}
+  [4;36;1mUser Columns (2.7ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.6ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '2') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Update (0.6ms)[0m   [0mUPDATE `users` SET `updated_at` = '2010-06-23 01:32:16', `perishable_token` = 'x6qgTZZ-ul4HHlPaWNCt', `last_request_at` = '2010-06-23 01:32:16' WHERE `id` = 2[0m
+  [4;36;1mSQL (1.8ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mDeliveryCycle Load (0.4ms)[0m   [0mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 01:32:16' and pickup_close > '2010-06-23 01:32:16') LIMIT 1[0m
+  [4;36;1mDeliveryCycle Columns (6.3ms)[0m   [0;1mSHOW FIELDS FROM `delivery_cycles`[0m
+Time now is Tue Jun 22 21:32:16 -0400 2010 and self.order_open is 2010-06-21 23:01:00 -0400 and self.order_close is 2010-06-23 20:44:00 -0400
+  [4;35;1mOrder Columns (12.9ms)[0m   [0mSHOW FIELDS FROM `orders`[0m
+  [4;36;1mOrder Load (0.3ms)[0m   [0;1mSELECT * FROM `orders` WHERE (`orders`.`id` = 1) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Order without an ID):
+  app/controllers/orders_controller.rb:113:in `invoice'
+
+Rendered rescues/_trace (183.3ms)
+Rendered rescues/_request_and_response (3.6ms)
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing OrdersController#invoice (for 127.0.0.1 at 2010-06-22 21:32:39) [GET]
+  Parameters: {"action"=>"invoice", "id"=>"1", "user_id"=>"2", "controller"=>"orders"}
+  [4;36;1mUser Columns (2.8ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '2') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Update (0.3ms)[0m   [0mUPDATE `users` SET `updated_at` = '2010-06-23 01:32:39', `perishable_token` = 'CFCVWf0P6xUrnRAhI0Hj', `last_request_at` = '2010-06-23 01:32:39' WHERE `id` = 2[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mDeliveryCycle Load (0.3ms)[0m   [0mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 01:32:39' and pickup_close > '2010-06-23 01:32:39') LIMIT 1[0m
+  [4;36;1mDeliveryCycle Columns (1.7ms)[0m   [0;1mSHOW FIELDS FROM `delivery_cycles`[0m
+Time now is Tue Jun 22 21:32:39 -0400 2010 and self.order_open is 2010-06-21 23:01:00 -0400 and self.order_close is 2010-06-23 20:44:00 -0400
+  [4;35;1mOrder Columns (1.9ms)[0m   [0mSHOW FIELDS FROM `orders`[0m
+  [4;36;1mOrder Load (0.3ms)[0m   [0;1mSELECT * FROM `orders` WHERE (`orders`.`id` = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `orders` WHERE (`orders`.`id` = 1) [0m
+
+NameError (uninitialized constant Mime::PDF):
+  app/controllers/orders_controller.rb:119:in `invoice'
+  app/controllers/orders_controller.rb:115:in `invoice'
+
+Rendered rescues/_trace (95.3ms)
+Rendered rescues/_request_and_response (0.7ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing OrdersController#invoice (for 127.0.0.1 at 2010-06-22 21:39:49) [GET]
+  Parameters: {"action"=>"invoice", "id"=>"1", "user_id"=>"2", "controller"=>"orders"}
+  [4;35;1mUser Columns (2.2ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '2') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Update (0.3ms)[0m   [0;1mUPDATE `users` SET `updated_at` = '2010-06-23 01:39:50', `perishable_token` = 'jewtl8wNvBQK2D1CF0MR', `last_request_at` = '2010-06-23 01:39:50' WHERE `id` = 2[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCOMMIT[0m
+  [4;36;1mDeliveryCycle Load (0.4ms)[0m   [0;1mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 01:39:50' and pickup_close > '2010-06-23 01:39:50') LIMIT 1[0m
+  [4;35;1mDeliveryCycle Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `delivery_cycles`[0m
+Time now is Tue Jun 22 21:39:50 -0400 2010 and self.order_open is 2010-06-21 23:01:00 -0400 and self.order_close is 2010-06-23 20:44:00 -0400
+  [4;36;1mOrder Columns (1.8ms)[0m   [0;1mSHOW FIELDS FROM `orders`[0m
+  [4;35;1mOrder Load (0.2ms)[0m   [0mSELECT * FROM `orders` WHERE (`orders`.`id` = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `orders` WHERE (`orders`.`id` = 1) [0m
+
+NameError (uninitialized constant Mime::PDF):
+  app/controllers/orders_controller.rb:119:in `invoice'
+  app/controllers/orders_controller.rb:115:in `invoice'
+
+Rendered rescues/_trace (119.5ms)
+Rendered rescues/_request_and_response (0.8ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing OrdersController#invoice (for 127.0.0.1 at 2010-06-22 21:40:05) [GET]
+  Parameters: {"action"=>"invoice", "id"=>"1", "user_id"=>"2", "controller"=>"orders"}
+  [4;35;1mUser Columns (2.6ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '2') LIMIT 1[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Update (0.3ms)[0m   [0;1mUPDATE `users` SET `updated_at` = '2010-06-23 01:40:05', `perishable_token` = 'F_A8qhu8waJPVPsizc0y', `last_request_at` = '2010-06-23 01:40:05' WHERE `id` = 2[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCOMMIT[0m
+  [4;36;1mDeliveryCycle Load (0.4ms)[0m   [0;1mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 01:40:05' and pickup_close > '2010-06-23 01:40:05') LIMIT 1[0m
+  [4;35;1mDeliveryCycle Columns (1.7ms)[0m   [0mSHOW FIELDS FROM `delivery_cycles`[0m
+Time now is Tue Jun 22 21:40:05 -0400 2010 and self.order_open is 2010-06-21 23:01:00 -0400 and self.order_close is 2010-06-23 20:44:00 -0400
+  [4;36;1mOrder Columns (2.6ms)[0m   [0;1mSHOW FIELDS FROM `orders`[0m
+  [4;35;1mOrder Load (0.5ms)[0m   [0mSELECT * FROM `orders` WHERE (`orders`.`id` = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `orders` WHERE (`orders`.`id` = 1) [0m
+
+NameError (uninitialized constant OrdersController::UserInvoiceReport):
+  app/controllers/orders_controller.rb:117:in `invoice'
+  app/controllers/orders_controller.rb:115:in `invoice'
+
+Rendered rescues/_trace (210.9ms)
+Rendered rescues/_request_and_response (3.4ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.2ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing OrdersController#invoice (for 127.0.0.1 at 2010-06-22 21:47:34) [GET]
+  Parameters: {"action"=>"invoice", "id"=>"1", "user_id"=>"2", "controller"=>"orders"}
+  [4;36;1mUser Columns (7.0ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mSQL (204.2ms)[0m   [0mSHOW TABLES[0m
+
+NameError (undefined local variable or method `acts_as_reportable' for #<Class:0x256078c>):
+  searchlogic (2.4.19) [v] lib/searchlogic/named_scopes/conditions.rb:81:in `method_missing'
+  searchlogic (2.4.19) [v] lib/searchlogic/named_scopes/association_conditions.rb:19:in `method_missing'
+  searchlogic (2.4.19) [v] lib/searchlogic/named_scopes/association_ordering.rb:27:in `method_missing'
+  searchlogic (2.4.19) [v] lib/searchlogic/named_scopes/ordering.rb:30:in `method_missing'
+  searchlogic (2.4.19) [v] lib/searchlogic/named_scopes/or_conditions.rb:28:in `method_missing'
+  app/models/user.rb:12
+  authlogic (2.1.5) [v] lib/authlogic/session/klass.rb:33:in `klass'
+  authlogic (2.1.5) [v] lib/authlogic/session/password.rb:90:in `login_field'
+  authlogic (2.1.5) [v] lib/authlogic/session/password.rb:213:in `login_field'
+  authlogic (2.1.5) [v] lib/authlogic/session/password.rb:118:in `initialize'
+  authlogic (2.1.5) [v] lib/authlogic/session/activation.rb:48:in `initialize'
+  authlogic (2.1.5) [v] lib/authlogic/session/klass.rb:64:in `initialize'
+  authlogic (2.1.5) [v] lib/authlogic/session/scopes.rb:79:in `initialize'
+  authlogic (2.1.5) [v] lib/authlogic/session/persistence.rb:37:in `new'
+  authlogic (2.1.5) [v] lib/authlogic/session/persistence.rb:37:in `find'
+  app/controllers/application_controller.rb:14:in `current_user_session'
+  app/controllers/application_controller.rb:101:in `load_session_variables'
+
+Rendered rescues/_trace (127.1ms)
+Rendered rescues/_request_and_response (0.9ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing OrdersController#invoice (for 127.0.0.1 at 2010-06-22 21:47:59) [GET]
+  Parameters: {"action"=>"invoice", "id"=>"1", "user_id"=>"2", "controller"=>"orders"}
+  [4;35;1mUser Columns (2.3ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSHOW TABLES[0m
+
+NameError (undefined local variable or method `acts_as_reportable' for #<Class:0x2558c08>):
+  searchlogic (2.4.19) [v] lib/searchlogic/named_scopes/conditions.rb:81:in `method_missing'
+  searchlogic (2.4.19) [v] lib/searchlogic/named_scopes/association_conditions.rb:19:in `method_missing'
+  searchlogic (2.4.19) [v] lib/searchlogic/named_scopes/association_ordering.rb:27:in `method_missing'
+  searchlogic (2.4.19) [v] lib/searchlogic/named_scopes/ordering.rb:30:in `method_missing'
+  searchlogic (2.4.19) [v] lib/searchlogic/named_scopes/or_conditions.rb:28:in `method_missing'
+  app/models/user.rb:12
+  authlogic (2.1.5) [v] lib/authlogic/session/klass.rb:33:in `klass'
+  authlogic (2.1.5) [v] lib/authlogic/session/password.rb:90:in `login_field'
+  authlogic (2.1.5) [v] lib/authlogic/session/password.rb:213:in `login_field'
+  authlogic (2.1.5) [v] lib/authlogic/session/password.rb:118:in `initialize'
+  authlogic (2.1.5) [v] lib/authlogic/session/activation.rb:48:in `initialize'
+  authlogic (2.1.5) [v] lib/authlogic/session/klass.rb:64:in `initialize'
+  authlogic (2.1.5) [v] lib/authlogic/session/scopes.rb:79:in `initialize'
+  authlogic (2.1.5) [v] lib/authlogic/session/persistence.rb:37:in `new'
+  authlogic (2.1.5) [v] lib/authlogic/session/persistence.rb:37:in `find'
+  app/controllers/application_controller.rb:14:in `current_user_session'
+  app/controllers/application_controller.rb:101:in `load_session_variables'
+
+Rendered rescues/_trace (141.4ms)
+Rendered rescues/_request_and_response (3.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-06-22 21:48:05) [GET]
+  Parameters: {"action"=>"show", "id"=>"2", "controller"=>"users"}
+  [4;36;1mUser Columns (2.5ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mSQL (1.2ms)[0m   [0mSHOW TABLES[0m
+
+NameError (undefined local variable or method `acts_as_reportable' for #<Class:0x21a0638>):
+  searchlogic (2.4.19) [v] lib/searchlogic/named_scopes/conditions.rb:81:in `method_missing'
+  searchlogic (2.4.19) [v] lib/searchlogic/named_scopes/association_conditions.rb:19:in `method_missing'
+  searchlogic (2.4.19) [v] lib/searchlogic/named_scopes/association_ordering.rb:27:in `method_missing'
+  searchlogic (2.4.19) [v] lib/searchlogic/named_scopes/ordering.rb:30:in `method_missing'
+  searchlogic (2.4.19) [v] lib/searchlogic/named_scopes/or_conditions.rb:28:in `method_missing'
+  app/models/user.rb:12
+  authlogic (2.1.5) [v] lib/authlogic/session/klass.rb:33:in `klass'
+  authlogic (2.1.5) [v] lib/authlogic/session/password.rb:90:in `login_field'
+  authlogic (2.1.5) [v] lib/authlogic/session/password.rb:213:in `login_field'
+  authlogic (2.1.5) [v] lib/authlogic/session/password.rb:118:in `initialize'
+  authlogic (2.1.5) [v] lib/authlogic/session/activation.rb:48:in `initialize'
+  authlogic (2.1.5) [v] lib/authlogic/session/klass.rb:64:in `initialize'
+  authlogic (2.1.5) [v] lib/authlogic/session/scopes.rb:79:in `initialize'
+  authlogic (2.1.5) [v] lib/authlogic/session/persistence.rb:37:in `new'
+  authlogic (2.1.5) [v] lib/authlogic/session/persistence.rb:37:in `find'
+  app/controllers/application_controller.rb:14:in `current_user_session'
+  app/controllers/application_controller.rb:101:in `load_session_variables'
+
+Rendered rescues/_trace (129.8ms)
+Rendered rescues/_request_and_response (0.8ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-06-22 21:52:11) [GET]
+  Parameters: {"action"=>"show", "id"=>"2", "controller"=>"users"}
+  [4;35;1mUser Columns (2.3ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (1.2ms)[0m   [0;1mSHOW TABLES[0m
+
+NameError (undefined local variable or method `acts_as_reportable' for #<Class:0x22a7298>):
+  searchlogic (2.4.19) [v] lib/searchlogic/named_scopes/conditions.rb:81:in `method_missing'
+  searchlogic (2.4.19) [v] lib/searchlogic/named_scopes/association_conditions.rb:19:in `method_missing'
+  searchlogic (2.4.19) [v] lib/searchlogic/named_scopes/association_ordering.rb:27:in `method_missing'
+  searchlogic (2.4.19) [v] lib/searchlogic/named_scopes/ordering.rb:30:in `method_missing'
+  searchlogic (2.4.19) [v] lib/searchlogic/named_scopes/or_conditions.rb:28:in `method_missing'
+  app/models/user.rb:12
+  authlogic (2.1.5) [v] lib/authlogic/session/klass.rb:33:in `klass'
+  authlogic (2.1.5) [v] lib/authlogic/session/password.rb:90:in `login_field'
+  authlogic (2.1.5) [v] lib/authlogic/session/password.rb:213:in `login_field'
+  authlogic (2.1.5) [v] lib/authlogic/session/password.rb:118:in `initialize'
+  authlogic (2.1.5) [v] lib/authlogic/session/activation.rb:48:in `initialize'
+  authlogic (2.1.5) [v] lib/authlogic/session/klass.rb:64:in `initialize'
+  authlogic (2.1.5) [v] lib/authlogic/session/scopes.rb:79:in `initialize'
+  authlogic (2.1.5) [v] lib/authlogic/session/persistence.rb:37:in `new'
+  authlogic (2.1.5) [v] lib/authlogic/session/persistence.rb:37:in `find'
+  app/controllers/application_controller.rb:14:in `current_user_session'
+  app/controllers/application_controller.rb:101:in `load_session_variables'
+
+Rendered rescues/_trace (224.5ms)
+Rendered rescues/_request_and_response (0.8ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-06-22 21:52:26) [GET]
+  Parameters: {"action"=>"show", "id"=>"2", "controller"=>"users"}
+  [4;35;1mUser Columns (2.5ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '2') LIMIT 1[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Update (0.3ms)[0m   [0;1mUPDATE `users` SET `updated_at` = '2010-06-23 01:52:26', `perishable_token` = 'MKGNnaiA3Yq6ZmOBgrvY', `last_request_at` = '2010-06-23 01:52:26' WHERE `id` = 2[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mCOMMIT[0m
+  [4;36;1mDeliveryCycle Load (0.3ms)[0m   [0;1mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 01:52:26' and pickup_close > '2010-06-23 01:52:26') LIMIT 1[0m
+  [4;35;1mDeliveryCycle Columns (1.7ms)[0m   [0mSHOW FIELDS FROM `delivery_cycles`[0m
+Time now is Tue Jun 22 21:52:26 -0400 2010 and self.order_open is 2010-06-21 23:01:00 -0400 and self.order_close is 2010-06-23 20:44:00 -0400
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 01:52:26' and pickup_close > '2010-06-23 01:52:26') LIMIT 1[0m
+  [4;36;1mOrder Load (0.3ms)[0m   [0;1mSELECT * FROM `orders` WHERE (user_id = 2 and delivery_cycle_id = 3) LIMIT 1[0m
+  [4;35;1mOrder Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `orders`[0m
+  [4;36;1mDeliveryCycle Load (0.3ms)[0m   [0;1mSELECT * FROM `delivery_cycles` WHERE (`delivery_cycles`.`id` = 3) [0m
+  [4;35;1mOrderable Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `orderables`[0m
+  [4;36;1mSQL (1.6ms)[0m   [0;1mSELECT count(*) AS count_all FROM `orderables` INNER JOIN `line_items` ON `orderables`.line_item_id = `line_items`.id WHERE ((`line_items`.order_id = 1)) [0m
+  [4;35;1mAccount Load (0.4ms)[0m   [0mSELECT * FROM `accounts` WHERE (`accounts`.user_id = 2) [0m
+  [4;36;1mAccount Load (0.3ms)[0m   [0;1mSELECT `accounts`.* FROM `accounts` INNER JOIN `account_memberships` ON `accounts`.id = `account_memberships`.account_id WHERE ((`account_memberships`.user_id = 2)) [0m
+  [4;35;1mAccount Columns (1.8ms)[0m   [0mSHOW FIELDS FROM `accounts`[0m
+  [4;36;1mOrder Load (0.8ms)[0m   [0;1mSELECT * FROM `orders` WHERE (`orders`.user_id = 2) ORDER BY created_at DESC[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `delivery_cycles` WHERE (`delivery_cycles`.`id` = 3) [0m
+Rendered common/_order (7.7ms)
+Rendered layouts/_head_tag (8.5ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 01:52:26' and pickup_close > '2010-06-23 01:52:26') LIMIT 1[0m
+Time now is Tue Jun 22 21:52:26 -0400 2010 and self.order_open is 2010-06-21 23:01:00 -0400 and self.order_close is 2010-06-23 20:44:00 -0400
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 01:52:26' and pickup_close > '2010-06-23 01:52:26') LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `orders` WHERE (user_id = 2 and delivery_cycle_id = 3) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 01:52:26' and pickup_close > '2010-06-23 01:52:26') LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `orders` WHERE (user_id = 2 and delivery_cycle_id = 3) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 01:52:26' and pickup_close > '2010-06-23 01:52:26') LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `orders` WHERE (user_id = 2 and delivery_cycle_id = 3) LIMIT 1[0m
+Rendered layouts/_header (31.2ms)
+Rendered layouts/_footer (1.1ms)
+Completed in 893ms (View: 360, DB: 15) | 200 OK [http://localhost/users/2]
+  [4;35;1mSQL (2.5ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing OrdersController#show (for 127.0.0.1 at 2010-06-22 21:52:31) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "user_id"=>"2", "controller"=>"orders"}
+  [4;36;1mUser Columns (2.7ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (1.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '2') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Update (0.3ms)[0m   [0mUPDATE `users` SET `updated_at` = '2010-06-23 01:52:31', `perishable_token` = '80VO-gSm2UrR7L4ctK2r', `last_request_at` = '2010-06-23 01:52:31' WHERE `id` = 2[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mDeliveryCycle Load (0.7ms)[0m   [0mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 01:52:31' and pickup_close > '2010-06-23 01:52:31') LIMIT 1[0m
+  [4;36;1mDeliveryCycle Columns (2.0ms)[0m   [0;1mSHOW FIELDS FROM `delivery_cycles`[0m
+Time now is Tue Jun 22 21:52:31 -0400 2010 and self.order_open is 2010-06-21 23:01:00 -0400 and self.order_close is 2010-06-23 20:44:00 -0400
+  [4;35;1mOrder Columns (1.8ms)[0m   [0mSHOW FIELDS FROM `orders`[0m
+  [4;36;1mOrder Load (4.9ms)[0m   [0;1mSELECT * FROM `orders` WHERE (`orders`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering orders/show
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+  [4;36;1mDeliveryCycle Load (0.2ms)[0m   [0;1mSELECT * FROM `delivery_cycles` WHERE (`delivery_cycles`.`id` = 3) [0m
+  [4;35;1mLineItem Load (0.3ms)[0m   [0mSELECT * FROM `line_items` WHERE (`line_items`.order_id = 1) [0m
+  [4;36;1mLineItem Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `line_items`[0m
+  [4;35;1mProduct Columns (1.9ms)[0m   [0mSHOW FIELDS FROM `products`[0m
+  [4;36;1mProduct Load (0.6ms)[0m   [0;1mSELECT * FROM `products` WHERE (`products`.`id` = 1) [0m
+  [4;35;1mOrderable Columns (4.2ms)[0m   [0mSHOW FIELDS FROM `orderables`[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.line_item_id = 3) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.line_item_id = 3) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.line_item_id = 3) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.line_item_id = 3) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.line_item_id = 3) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.line_item_id = 3) [0m
+Rendered layouts/_head_tag (5.8ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 01:52:31' and pickup_close > '2010-06-23 01:52:31') LIMIT 1[0m
+Time now is Tue Jun 22 21:52:31 -0400 2010 and self.order_open is 2010-06-21 23:01:00 -0400 and self.order_close is 2010-06-23 20:44:00 -0400
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 01:52:31' and pickup_close > '2010-06-23 01:52:31') LIMIT 1[0m
+  [4;36;1mOrder Load (1.8ms)[0m   [0;1mSELECT * FROM `orders` WHERE (user_id = 2 and delivery_cycle_id = 3) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 01:52:31' and pickup_close > '2010-06-23 01:52:31') LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `orders` WHERE (user_id = 2 and delivery_cycle_id = 3) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 01:52:31' and pickup_close > '2010-06-23 01:52:31') LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `orders` WHERE (user_id = 2 and delivery_cycle_id = 3) LIMIT 1[0m
+Rendered layouts/_header (32.3ms)
+Rendered layouts/_footer (0.3ms)
+Completed in 446ms (View: 273, DB: 28) | 200 OK [http://localhost/users/2/orders/1]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing OrdersController#invoice (for 127.0.0.1 at 2010-06-22 21:52:36) [GET]
+  Parameters: {"action"=>"invoice", "id"=>"1", "user_id"=>"2", "controller"=>"orders"}
+  [4;36;1mUser Columns (5.9ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (2.7ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '2') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Update (0.3ms)[0m   [0mUPDATE `users` SET `updated_at` = '2010-06-23 01:52:37', `perishable_token` = 'oCIUTVIszsofOWbvmmC9', `last_request_at` = '2010-06-23 01:52:37' WHERE `id` = 2[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mDeliveryCycle Load (0.3ms)[0m   [0mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 01:52:37' and pickup_close > '2010-06-23 01:52:37') LIMIT 1[0m
+  [4;36;1mDeliveryCycle Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `delivery_cycles`[0m
+Time now is Tue Jun 22 21:52:37 -0400 2010 and self.order_open is 2010-06-21 23:01:00 -0400 and self.order_close is 2010-06-23 20:44:00 -0400
+  [4;35;1mOrder Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `orders`[0m
+  [4;36;1mOrder Load (0.3ms)[0m   [0;1mSELECT * FROM `orders` WHERE (`orders`.`id` = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `orders` WHERE (`orders`.`id` = 1) [0m
+
+NameError (uninitialized constant OrdersController::UserInvoiceReport):
+  app/controllers/orders_controller.rb:117:in `invoice'
+  app/controllers/orders_controller.rb:115:in `invoice'
+
+Rendered rescues/_trace (112.0ms)
+Rendered rescues/_request_and_response (3.8ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing OrdersController#invoice (for 127.0.0.1 at 2010-06-22 22:07:31) [GET]
+  Parameters: {"action"=>"invoice", "id"=>"1", "user_id"=>"2", "controller"=>"orders"}
+  [4;35;1mUser Columns (3.3ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '2') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Update (0.3ms)[0m   [0;1mUPDATE `users` SET `updated_at` = '2010-06-23 02:07:31', `perishable_token` = 'AMLbhFCwS0zoIxYBItfL', `last_request_at` = '2010-06-23 02:07:31' WHERE `id` = 2[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mCOMMIT[0m
+  [4;36;1mDeliveryCycle Load (0.4ms)[0m   [0;1mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 02:07:31' and pickup_close > '2010-06-23 02:07:31') LIMIT 1[0m
+  [4;35;1mDeliveryCycle Columns (1.7ms)[0m   [0mSHOW FIELDS FROM `delivery_cycles`[0m
+Time now is Tue Jun 22 22:07:31 -0400 2010 and self.order_open is 2010-06-21 23:01:00 -0400 and self.order_close is 2010-06-23 20:44:00 -0400
+  [4;36;1mOrder Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `orders`[0m
+  [4;35;1mOrder Load (0.4ms)[0m   [0mSELECT * FROM `orders` WHERE (`orders`.`id` = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `orders` WHERE (`orders`.`id` = 1) [0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+  [4;36;1mDeliveryCycle Load (0.2ms)[0m   [0;1mSELECT * FROM `delivery_cycles` WHERE (`delivery_cycles`.`id` = 3) [0m
+
+NameError (undefined local variable or method `user' for #<UserInvoiceReport:0x21b09e8>):
+  app/reports/user_invoice_report.rb:12:in `setup'
+  ruport (1.6.3) lib/ruport/controller.rb:434:in `render'
+  ruport (1.6.3) lib/ruport/controller.rb:476:in `build'
+  ruport (1.6.3) lib/ruport/controller.rb:432:in `render'
+  ruport (1.6.3) lib/ruport/controller.rb:548:in `method_missing'
+  app/controllers/orders_controller.rb:117:in `invoice'
+  app/controllers/orders_controller.rb:115:in `invoice'
+
+Rendered rescues/_trace (261.2ms)
+Rendered rescues/_request_and_response (3.7ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.2ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing OrdersController#invoice (for 127.0.0.1 at 2010-06-22 22:07:49) [GET]
+  Parameters: {"action"=>"invoice", "id"=>"1", "user_id"=>"2", "controller"=>"orders"}
+  [4;36;1mUser Columns (4.3ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '2') LIMIT 1[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Update (0.3ms)[0m   [0mUPDATE `users` SET `updated_at` = '2010-06-23 02:07:49', `perishable_token` = 'lxCPZnWO2d7BOcZdgNbi', `last_request_at` = '2010-06-23 02:07:49' WHERE `id` = 2[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mDeliveryCycle Load (0.3ms)[0m   [0mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 02:07:49' and pickup_close > '2010-06-23 02:07:49') LIMIT 1[0m
+  [4;36;1mDeliveryCycle Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `delivery_cycles`[0m
+Time now is Tue Jun 22 22:07:49 -0400 2010 and self.order_open is 2010-06-21 23:01:00 -0400 and self.order_close is 2010-06-23 20:44:00 -0400
+  [4;35;1mOrder Columns (2.5ms)[0m   [0mSHOW FIELDS FROM `orders`[0m
+  [4;36;1mOrder Load (1.2ms)[0m   [0;1mSELECT * FROM `orders` WHERE (`orders`.`id` = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `orders` WHERE (`orders`.`id` = 1) [0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+  [4;35;1mDeliveryCycle Load (0.2ms)[0m   [0mSELECT * FROM `delivery_cycles` WHERE (`delivery_cycles`.`id` = 3) [0m
+  [4;36;1mLineItem Load (0.4ms)[0m   [0;1mSELECT `line_items`.* FROM `line_items` inner join orders on orders.id = line_items.order_id WHERE (orders.delivery_cycle_id = 3 and orders.user_id = 2) [0m
+  [4;35;1mLineItem Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `line_items`[0m
+  [4;36;1mProduct Columns (3.4ms)[0m   [0;1mSHOW FIELDS FROM `products`[0m
+  [4;35;1mProduct Load (0.5ms)[0m   [0mSELECT * FROM `products` WHERE (`products`.`id` = 1) [0m
+  [4;36;1mOrderable Columns (3.0ms)[0m   [0;1mSHOW FIELDS FROM `orderables`[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.line_item_id = 3) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.line_item_id = 3) [0m
+Rendering template within layouts/application
+Rendering orders/invoice
+Rendered layouts/_head_tag (8.4ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 02:07:49' and pickup_close > '2010-06-23 02:07:49') LIMIT 1[0m
+Time now is Tue Jun 22 22:07:49 -0400 2010 and self.order_open is 2010-06-21 23:01:00 -0400 and self.order_close is 2010-06-23 20:44:00 -0400
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 02:07:49' and pickup_close > '2010-06-23 02:07:49') LIMIT 1[0m
+  [4;35;1mOrder Load (0.4ms)[0m   [0mSELECT * FROM `orders` WHERE (user_id = 2 and delivery_cycle_id = 3) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 02:07:49' and pickup_close > '2010-06-23 02:07:49') LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `orders` WHERE (user_id = 2 and delivery_cycle_id = 3) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 02:07:49' and pickup_close > '2010-06-23 02:07:49') LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `orders` WHERE (user_id = 2 and delivery_cycle_id = 3) LIMIT 1[0m
+Rendered layouts/_header (38.2ms)
+Rendered layouts/_footer (1.4ms)
+Completed in 494ms (View: 207, DB: 22) | 200 OK [http://localhost/users/2/orders/1/invoice]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing OrdersController#invoice (for 127.0.0.1 at 2010-06-22 22:09:13) [GET]
+  Parameters: {"action"=>"invoice", "id"=>"1", "user_id"=>"2", "controller"=>"orders"}
+  [4;35;1mUser Columns (2.5ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '2') LIMIT 1[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Update (0.3ms)[0m   [0;1mUPDATE `users` SET `updated_at` = '2010-06-23 02:09:13', `perishable_token` = 'IE6tZNDDOjbOo9dmieb-', `last_request_at` = '2010-06-23 02:09:13' WHERE `id` = 2[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mCOMMIT[0m
+  [4;36;1mDeliveryCycle Load (0.4ms)[0m   [0;1mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 02:09:13' and pickup_close > '2010-06-23 02:09:13') LIMIT 1[0m
+  [4;35;1mDeliveryCycle Columns (1.9ms)[0m   [0mSHOW FIELDS FROM `delivery_cycles`[0m
+Time now is Tue Jun 22 22:09:13 -0400 2010 and self.order_open is 2010-06-21 23:01:00 -0400 and self.order_close is 2010-06-23 20:44:00 -0400
+  [4;36;1mOrder Columns (2.4ms)[0m   [0;1mSHOW FIELDS FROM `orders`[0m
+  [4;35;1mOrder Load (0.4ms)[0m   [0mSELECT * FROM `orders` WHERE (`orders`.`id` = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `orders` WHERE (`orders`.`id` = 1) [0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+  [4;36;1mDeliveryCycle Load (0.2ms)[0m   [0;1mSELECT * FROM `delivery_cycles` WHERE (`delivery_cycles`.`id` = 3) [0m
+  [4;35;1mLineItem Load (3.0ms)[0m   [0mSELECT `line_items`.* FROM `line_items` inner join orders on orders.id = line_items.order_id WHERE (orders.delivery_cycle_id = 3 and orders.user_id = 2) [0m
+  [4;36;1mLineItem Columns (4.7ms)[0m   [0;1mSHOW FIELDS FROM `line_items`[0m
+  [4;35;1mProduct Columns (1.7ms)[0m   [0mSHOW FIELDS FROM `products`[0m
+  [4;36;1mProduct Load (0.4ms)[0m   [0;1mSELECT * FROM `products` WHERE (`products`.`id` = 1) [0m
+  [4;35;1mOrderable Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `orderables`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.line_item_id = 3) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.line_item_id = 3) [0m
+Rendering template within layouts/application
+Rendering orders/invoice
+Rendered layouts/_head_tag (5.8ms)
+  [4;36;1mDeliveryCycle Load (0.3ms)[0m   [0;1mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 02:09:14' and pickup_close > '2010-06-23 02:09:14') LIMIT 1[0m
+Time now is Tue Jun 22 22:09:14 -0400 2010 and self.order_open is 2010-06-21 23:01:00 -0400 and self.order_close is 2010-06-23 20:44:00 -0400
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 02:09:14' and pickup_close > '2010-06-23 02:09:14') LIMIT 1[0m
+  [4;36;1mOrder Load (0.3ms)[0m   [0;1mSELECT * FROM `orders` WHERE (user_id = 2 and delivery_cycle_id = 3) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 02:09:14' and pickup_close > '2010-06-23 02:09:14') LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `orders` WHERE (user_id = 2 and delivery_cycle_id = 3) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 02:09:14' and pickup_close > '2010-06-23 02:09:14') LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `orders` WHERE (user_id = 2 and delivery_cycle_id = 3) LIMIT 1[0m
+Rendered layouts/_header (24.7ms)
+Rendered layouts/_footer (0.3ms)
+Completed in 330ms (View: 36, DB: 23) | 200 OK [http://localhost/users/2/orders/1/invoice]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mLineItem Load (0.4ms)[0m   [0mSELECT `line_items`.* FROM `line_items` inner join orders on orders.id = line_items.order_id WHERE (orders.delivery_cycle_id = 3 and orders.user_id = 2) [0m
+  [4;36;1mLineItem Columns (1.8ms)[0m   [0;1mSHOW FIELDS FROM `line_items`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing OrdersController#invoice (for 127.0.0.1 at 2010-06-22 22:12:05) [GET]
+  Parameters: {"action"=>"invoice", "id"=>"1", "user_id"=>"2", "controller"=>"orders"}
+  [4;36;1mUser Columns (2.2ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '2') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Update (0.4ms)[0m   [0mUPDATE `users` SET `updated_at` = '2010-06-23 02:12:06', `perishable_token` = 'gBwcgRX9UONq5v2WtXSl', `last_request_at` = '2010-06-23 02:12:06' WHERE `id` = 2[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mDeliveryCycle Load (0.4ms)[0m   [0mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 02:12:06' and pickup_close > '2010-06-23 02:12:06') LIMIT 1[0m
+  [4;36;1mDeliveryCycle Columns (2.0ms)[0m   [0;1mSHOW FIELDS FROM `delivery_cycles`[0m
+Time now is Tue Jun 22 22:12:06 -0400 2010 and self.order_open is 2010-06-21 23:01:00 -0400 and self.order_close is 2010-06-23 20:44:00 -0400
+  [4;35;1mOrder Columns (1.9ms)[0m   [0mSHOW FIELDS FROM `orders`[0m
+  [4;36;1mOrder Load (0.3ms)[0m   [0;1mSELECT * FROM `orders` WHERE (`orders`.`id` = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `orders` WHERE (`orders`.`id` = 1) [0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+  [4;35;1mDeliveryCycle Load (0.3ms)[0m   [0mSELECT * FROM `delivery_cycles` WHERE (`delivery_cycles`.`id` = 3) [0m
+  [4;36;1mLineItem Load (0.4ms)[0m   [0;1mSELECT `line_items`.* FROM `line_items` inner join orders on orders.id = line_items.order_id WHERE (orders.delivery_cycle_id = 3 and orders.user_id = 2) [0m
+  [4;35;1mLineItem Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `line_items`[0m
+  [4;36;1mProduct Columns (1.7ms)[0m   [0;1mSHOW FIELDS FROM `products`[0m
+  [4;35;1mProduct Load (0.3ms)[0m   [0mSELECT * FROM `products` WHERE (`products`.`id` = 1) [0m
+  [4;36;1mOrderable Columns (3.0ms)[0m   [0;1mSHOW FIELDS FROM `orderables`[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.line_item_id = 3) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.line_item_id = 3) [0m
+Rendering template within layouts/application
+Rendering orders/invoice
+Rendered layouts/_head_tag (5.8ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 02:12:06' and pickup_close > '2010-06-23 02:12:06') LIMIT 1[0m
+Time now is Tue Jun 22 22:12:06 -0400 2010 and self.order_open is 2010-06-21 23:01:00 -0400 and self.order_close is 2010-06-23 20:44:00 -0400
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 02:12:06' and pickup_close > '2010-06-23 02:12:06') LIMIT 1[0m
+  [4;35;1mOrder Load (0.3ms)[0m   [0mSELECT * FROM `orders` WHERE (user_id = 2 and delivery_cycle_id = 3) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 02:12:06' and pickup_close > '2010-06-23 02:12:06') LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `orders` WHERE (user_id = 2 and delivery_cycle_id = 3) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 02:12:06' and pickup_close > '2010-06-23 02:12:06') LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `orders` WHERE (user_id = 2 and delivery_cycle_id = 3) LIMIT 1[0m
+Rendered layouts/_header (24.6ms)
+Rendered layouts/_footer (0.3ms)
+Completed in 421ms (View: 42, DB: 17) | 200 OK [http://localhost/users/2/orders/1/invoice]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing OrdersController#show to pdf (for 127.0.0.1 at 2010-06-22 22:12:18) [GET]
+  Parameters: {"format"=>"pdf", "action"=>"show", "id"=>"point_packages", "controller"=>"orders"}
+  [4;35;1mUser Columns (2.2ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '2') LIMIT 1[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Update (0.4ms)[0m   [0;1mUPDATE `users` SET `updated_at` = '2010-06-23 02:12:18', `perishable_token` = 'bEv2MyjTRqTrkGNnI5dD', `last_request_at` = '2010-06-23 02:12:18' WHERE `id` = 2[0m
+  [4;35;1mSQL (3.3ms)[0m   [0mCOMMIT[0m
+  [4;36;1mDeliveryCycle Load (0.3ms)[0m   [0;1mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 02:12:18' and pickup_close > '2010-06-23 02:12:18') LIMIT 1[0m
+  [4;35;1mDeliveryCycle Columns (1.7ms)[0m   [0mSHOW FIELDS FROM `delivery_cycles`[0m
+Time now is Tue Jun 22 22:12:18 -0400 2010 and self.order_open is 2010-06-21 23:01:00 -0400 and self.order_close is 2010-06-23 20:44:00 -0400
+  [4;36;1mOrder Columns (3.5ms)[0m   [0;1mSHOW FIELDS FROM `orders`[0m
+  [4;35;1mOrder Load (0.2ms)[0m   [0mSELECT * FROM `orders` WHERE (`orders`.`id` = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Order with ID=point_packages):
+  app/controllers/orders_controller.rb:27:in `show'
+
+Rendered rescues/_trace (170.5ms)
+Rendered rescues/_request_and_response (0.8ms)
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing OrdersController#show to pdf (for 127.0.0.1 at 2010-06-22 22:12:44) [GET]
+  Parameters: {"format"=>"pdf", "action"=>"show", "id"=>"point_packages", "controller"=>"orders"}
+  [4;35;1mUser Columns (2.2ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '2') LIMIT 1[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Update (0.4ms)[0m   [0;1mUPDATE `users` SET `updated_at` = '2010-06-23 02:12:45', `perishable_token` = 'EPMPiFNbyJmYP3WGcunL', `last_request_at` = '2010-06-23 02:12:45' WHERE `id` = 2[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mCOMMIT[0m
+  [4;36;1mDeliveryCycle Load (0.3ms)[0m   [0;1mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 02:12:45' and pickup_close > '2010-06-23 02:12:45') LIMIT 1[0m
+  [4;35;1mDeliveryCycle Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `delivery_cycles`[0m
+Time now is Tue Jun 22 22:12:45 -0400 2010 and self.order_open is 2010-06-21 23:01:00 -0400 and self.order_close is 2010-06-23 20:44:00 -0400
+  [4;36;1mOrder Columns (1.7ms)[0m   [0;1mSHOW FIELDS FROM `orders`[0m
+  [4;35;1mOrder Load (0.3ms)[0m   [0mSELECT * FROM `orders` WHERE (`orders`.`id` = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Order with ID=point_packages):
+  app/controllers/orders_controller.rb:27:in `show'
+
+Rendered rescues/_trace (93.2ms)
+Rendered rescues/_request_and_response (0.8ms)
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing OrdersController#invoice (for 127.0.0.1 at 2010-06-22 22:12:47) [GET]
+  Parameters: {"action"=>"invoice", "id"=>"1", "user_id"=>"2", "controller"=>"orders"}
+  [4;35;1mUser Columns (2.6ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (1.4ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '2') LIMIT 1[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Update (0.3ms)[0m   [0;1mUPDATE `users` SET `updated_at` = '2010-06-23 02:12:48', `perishable_token` = 'SVAaax5sH1wJEcgyFXDF', `last_request_at` = '2010-06-23 02:12:48' WHERE `id` = 2[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCOMMIT[0m
+  [4;36;1mDeliveryCycle Load (0.4ms)[0m   [0;1mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 02:12:48' and pickup_close > '2010-06-23 02:12:48') LIMIT 1[0m
+  [4;35;1mDeliveryCycle Columns (1.9ms)[0m   [0mSHOW FIELDS FROM `delivery_cycles`[0m
+Time now is Tue Jun 22 22:12:48 -0400 2010 and self.order_open is 2010-06-21 23:01:00 -0400 and self.order_close is 2010-06-23 20:44:00 -0400
+  [4;36;1mOrder Columns (2.0ms)[0m   [0;1mSHOW FIELDS FROM `orders`[0m
+  [4;35;1mOrder Load (0.3ms)[0m   [0mSELECT * FROM `orders` WHERE (`orders`.`id` = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `orders` WHERE (`orders`.`id` = 1) [0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+  [4;36;1mDeliveryCycle Load (0.2ms)[0m   [0;1mSELECT * FROM `delivery_cycles` WHERE (`delivery_cycles`.`id` = 3) [0m
+  [4;35;1mLineItem Load (0.3ms)[0m   [0mSELECT `line_items`.* FROM `line_items` inner join orders on orders.id = line_items.order_id WHERE (orders.delivery_cycle_id = 3 and orders.user_id = 2) [0m
+  [4;36;1mLineItem Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `line_items`[0m
+  [4;35;1mProduct Columns (2.3ms)[0m   [0mSHOW FIELDS FROM `products`[0m
+  [4;36;1mProduct Load (0.9ms)[0m   [0;1mSELECT * FROM `products` WHERE (`products`.`id` = 1) [0m
+  [4;35;1mOrderable Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `orderables`[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.line_item_id = 3) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.line_item_id = 3) [0m
+Rendering template within layouts/application
+Rendering orders/invoice
+Rendered layouts/_head_tag (7.4ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 02:12:48' and pickup_close > '2010-06-23 02:12:48') LIMIT 1[0m
+Time now is Tue Jun 22 22:12:48 -0400 2010 and self.order_open is 2010-06-21 23:01:00 -0400 and self.order_close is 2010-06-23 20:44:00 -0400
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 02:12:48' and pickup_close > '2010-06-23 02:12:48') LIMIT 1[0m
+  [4;36;1mOrder Load (0.6ms)[0m   [0;1mSELECT * FROM `orders` WHERE (user_id = 2 and delivery_cycle_id = 3) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 02:12:48' and pickup_close > '2010-06-23 02:12:48') LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `orders` WHERE (user_id = 2 and delivery_cycle_id = 3) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 02:12:48' and pickup_close > '2010-06-23 02:12:48') LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `orders` WHERE (user_id = 2 and delivery_cycle_id = 3) LIMIT 1[0m
+Rendered layouts/_header (29.5ms)
+Rendered layouts/_footer (0.3ms)
+Completed in 442ms (View: 59, DB: 18) | 200 OK [http://localhost/users/2/orders/1/invoice]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing OrdersController#invoice to pdf (for 127.0.0.1 at 2010-06-22 22:12:50) [GET]
+  Parameters: {"format"=>"pdf", "action"=>"invoice", "id"=>"1", "user_id"=>"2", "controller"=>"orders"}
+  [4;36;1mUser Columns (2.1ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '2') LIMIT 1[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Update (0.3ms)[0m   [0mUPDATE `users` SET `updated_at` = '2010-06-23 02:12:50', `perishable_token` = 'sa7lhxV045t6rHpW0HAe', `last_request_at` = '2010-06-23 02:12:50' WHERE `id` = 2[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mDeliveryCycle Load (0.4ms)[0m   [0mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 02:12:50' and pickup_close > '2010-06-23 02:12:50') LIMIT 1[0m
+  [4;36;1mDeliveryCycle Columns (2.1ms)[0m   [0;1mSHOW FIELDS FROM `delivery_cycles`[0m
+Time now is Tue Jun 22 22:12:50 -0400 2010 and self.order_open is 2010-06-21 23:01:00 -0400 and self.order_close is 2010-06-23 20:44:00 -0400
+  [4;35;1mOrder Columns (1.8ms)[0m   [0mSHOW FIELDS FROM `orders`[0m
+  [4;36;1mOrder Load (0.2ms)[0m   [0;1mSELECT * FROM `orders` WHERE (`orders`.`id` = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `orders` WHERE (`orders`.`id` = 1) [0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+  [4;35;1mDeliveryCycle Load (0.4ms)[0m   [0mSELECT * FROM `delivery_cycles` WHERE (`delivery_cycles`.`id` = 3) [0m
+
+Ruport::Controller::UnknownFormatError (Ruport::Controller::UnknownFormatError):
+  ruport (1.6.3) lib/ruport/controller.rb:607:in `use_formatter'
+  ruport (1.6.3) lib/ruport/controller.rb:465:in `send'
+  ruport (1.6.3) lib/ruport/controller.rb:465:in `build'
+  ruport (1.6.3) lib/ruport/controller.rb:432:in `render'
+  ruport (1.6.3) lib/ruport/controller.rb:548:in `method_missing'
+  app/controllers/orders_controller.rb:120:in `invoice'
+  app/controllers/orders_controller.rb:115:in `invoice'
+
+Rendered rescues/_trace (192.0ms)
+Rendered rescues/_request_and_response (0.8ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing OrdersController#invoice to pdf (for 127.0.0.1 at 2010-06-22 22:15:32) [GET]
+  Parameters: {"format"=>"pdf", "action"=>"invoice", "id"=>"1", "user_id"=>"2", "controller"=>"orders"}
+  [4;35;1mUser Columns (2.7ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '2') LIMIT 1[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Update (0.3ms)[0m   [0;1mUPDATE `users` SET `updated_at` = '2010-06-23 02:15:32', `perishable_token` = 'SQuFZ_6PjIw79ZOl1KHd', `last_request_at` = '2010-06-23 02:15:32' WHERE `id` = 2[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCOMMIT[0m
+  [4;36;1mDeliveryCycle Load (1.0ms)[0m   [0;1mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 02:15:32' and pickup_close > '2010-06-23 02:15:32') LIMIT 1[0m
+  [4;35;1mDeliveryCycle Columns (1.9ms)[0m   [0mSHOW FIELDS FROM `delivery_cycles`[0m
+Time now is Tue Jun 22 22:15:32 -0400 2010 and self.order_open is 2010-06-21 23:01:00 -0400 and self.order_close is 2010-06-23 20:44:00 -0400
+  [4;36;1mOrder Columns (3.3ms)[0m   [0;1mSHOW FIELDS FROM `orders`[0m
+  [4;35;1mOrder Load (0.3ms)[0m   [0mSELECT * FROM `orders` WHERE (`orders`.`id` = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `orders` WHERE (`orders`.`id` = 1) [0m
+  [4;35;1mUser Load (1.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+  [4;36;1mDeliveryCycle Load (0.2ms)[0m   [0;1mSELECT * FROM `delivery_cycles` WHERE (`delivery_cycles`.`id` = 3) [0m
+  [4;35;1mLineItem Load (0.4ms)[0m   [0mSELECT `line_items`.* FROM `line_items` inner join orders on orders.id = line_items.order_id WHERE (orders.delivery_cycle_id = 3 and orders.user_id = 2) [0m
+  [4;36;1mLineItem Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `line_items`[0m
+  [4;35;1mProduct Columns (1.8ms)[0m   [0mSHOW FIELDS FROM `products`[0m
+  [4;36;1mProduct Load (1.3ms)[0m   [0;1mSELECT * FROM `products` WHERE (`products`.`id` = 1) [0m
+  [4;35;1mOrderable Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `orderables`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.line_item_id = 3) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.line_item_id = 3) [0m
+
+NoMethodError (undefined method `last_name' for nil:NilClass):
+  app/controllers/orders_controller.rb:121:in `invoice'
+  app/controllers/orders_controller.rb:115:in `invoice'
+
+Rendered rescues/_trace (207.3ms)
+Rendered rescues/_request_and_response (0.8ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing OrdersController#invoice to pdf (for 127.0.0.1 at 2010-06-22 22:16:05) [GET]
+  Parameters: {"format"=>"pdf", "action"=>"invoice", "id"=>"1", "user_id"=>"2", "controller"=>"orders"}
+  [4;35;1mUser Columns (2.3ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '2') LIMIT 1[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Update (0.3ms)[0m   [0;1mUPDATE `users` SET `updated_at` = '2010-06-23 02:16:05', `perishable_token` = 'QSLQYbZo-JKaLBcGO0yT', `last_request_at` = '2010-06-23 02:16:05' WHERE `id` = 2[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCOMMIT[0m
+  [4;36;1mDeliveryCycle Load (0.3ms)[0m   [0;1mSELECT * FROM `delivery_cycles` WHERE (edit_open <= '2010-06-23 02:16:05' and pickup_close > '2010-06-23 02:16:05') LIMIT 1[0m
+  [4;35;1mDeliveryCycle Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `delivery_cycles`[0m
+Time now is Tue Jun 22 22:16:05 -0400 2010 and self.order_open is 2010-06-21 23:01:00 -0400 and self.order_close is 2010-06-23 20:44:00 -0400
+  [4;36;1mOrder Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `orders`[0m
+  [4;35;1mOrder Load (0.2ms)[0m   [0mSELECT * FROM `orders` WHERE (`orders`.`id` = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `orders` WHERE (`orders`.`id` = 1) [0m
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+  [4;36;1mDeliveryCycle Load (0.6ms)[0m   [0;1mSELECT * FROM `delivery_cycles` WHERE (`delivery_cycles`.`id` = 3) [0m
+  [4;35;1mLineItem Load (0.6ms)[0m   [0mSELECT `line_items`.* FROM `line_items` inner join orders on orders.id = line_items.order_id WHERE (orders.delivery_cycle_id = 3 and orders.user_id = 2) [0m
+  [4;36;1mLineItem Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `line_items`[0m
+  [4;35;1mProduct Columns (1.7ms)[0m   [0mSHOW FIELDS FROM `products`[0m
+  [4;36;1mProduct Load (0.9ms)[0m   [0;1mSELECT * FROM `products` WHERE (`products`.`id` = 1) [0m
+  [4;35;1mOrderable Columns (1.8ms)[0m   [0mSHOW FIELDS FROM `orderables`[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.line_item_id = 3) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM `orderables` WHERE (`orderables`.line_item_id = 3) [0m
+Sending data Nesson_invoice.pdf
+Completed in 638ms (View: 2, DB: 16) | 200 OK [http://localhost/users/2/orders/1/invoice.pdf]

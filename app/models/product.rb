@@ -9,6 +9,8 @@ class Product < ActiveRecord::Base
   
   validates_presence_of :account_id
   
+  acts_as_reportable
+  
   def self.by_category
     Category.products_by_category
   end

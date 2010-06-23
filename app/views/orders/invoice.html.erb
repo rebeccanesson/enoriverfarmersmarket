@@ -1,0 +1,10 @@
+<div class="column span-22 last">
+  <h3>Invoice for <%= @order.user.name %> for pick up between 
+     <%= date_format(@order.delivery_cycle.pickup_open) %> and <%= date_format(@order.delivery_cycle.pickup_close) %></h3>
+  <div class="column span-22 last">
+    <p></b> <%= link_to ("#{@order.user.last_name}_invoice.pdf"), :action=>:invoice, :format=>:pdf %></p>
+  </div>
+  <div class="column span-22 last report-data">
+    <%= @report %>
+  </div>
+</div>

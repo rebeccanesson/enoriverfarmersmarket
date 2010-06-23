@@ -33,6 +33,8 @@ class DeliveryCycle < ActiveRecord::Base
                                               "in pickup", 
                                               "closed"]
  cattr_accessor :phases, :phase_names, :user_phase_names
+ 
+ acts_as_reportable
   
   def self.current 
     cycle = DeliveryCycle.find(:first, :conditions => ["edit_open <= ? and pickup_close > ?", Time.zone.now, Time.zone.now])

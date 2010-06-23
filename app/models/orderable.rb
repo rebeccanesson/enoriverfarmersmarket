@@ -17,6 +17,8 @@ class Orderable < ActiveRecord::Base
   named_scope :ordered, :conditions => "status = 'Ordered'"
   named_scope :closed, :conditions => "status = 'Closed'"
   
+  acts_as_reportable
+  
   def add_to_cart(override=false)
     if self.status == 'Available' or override
       self.status = 'In Cart'

@@ -62,7 +62,7 @@ class Admin::DeliveryCyclesController < Admin::AdminController
     respond_to do |format|
       if @delivery_cycle.update_attributes(params[:delivery_cycle])
         flash[:notice] = 'DeliveryCycle was successfully updated.'
-        format.html { redirect_to(admin_delivery_cycle_path(@delivery_cycle)) }
+        format.html { redirect_to(admin_delivery_cycles_path) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

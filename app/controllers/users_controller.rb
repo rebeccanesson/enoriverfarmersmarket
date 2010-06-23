@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
   before_filter :require_no_user, :only => [:new, :create]
   before_filter :require_user, :only => [:show, :edit, :update, :add_to_cart, :remove_from_cart]
-  before_filter :ordering_is_open, :only => [:add_to_cart, :remove_from_cart]
+  before_filter :require_ordering_is_open, :only => [:add_to_cart, :remove_from_cart]
+  before_filter :require_order_not_final, :only => [:add_to_cart, :remove_from_cart]
   
   def new
     @user = User.new
@@ -133,21 +134,12 @@ class UsersController < ApplicationController
       end
     end
   end
-        
-    
-  def ordering_is_open
-    current_delivery_cycle
-    logger.debug("#{@current_delivery_cycle} #{@current_delivery_cycle.is_order}")
-    unless @current_delivery_cycle and @current_delivery_cycle.is_order
-      respond_to do |format|
-        format.html { 
-          flash[:notice] = "Products can only be added to or removed from your cart when ordering is open."
-          redirect_to products_url(@user)
-        }
-        format.js { 
-          render :action => :error
-        }
-      end
+  
+  def order_not_final
+    @order = Order.find(params[:id])
+    if @order.final
+      flash[:notice] = 'Invoices may only be viewed before the order is final.'
+      redirect_to user_order_url(@order.user,@order)
     end
   end
   

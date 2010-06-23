@@ -21,3 +21,8 @@ ul li {
   height: 165px;
   text-indent: -9999px;
 }
+
+th { 
+	font-weight:bold;
+  border-bottom:1px solid black;	
+}
