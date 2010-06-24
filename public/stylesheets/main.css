@@ -60,7 +60,7 @@ body {
 
 a {
 	color:#D90010;
-	font-weight:500;
+	font-weight:bold;
 	text-decoration:none;
 }
 
@@ -69,6 +69,7 @@ a {
 	background-color:#53D03F;
 	padding:5px;
 	border:1px #0E6800 solid;	
+	margin-bottom:10px;
 }
 a:hover, a:active { 
 	color:#D90010;
