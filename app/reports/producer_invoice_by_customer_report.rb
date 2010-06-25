@@ -10,7 +10,7 @@ class ProducerInvoiceByCustomerReport < Ruport::Controller
     
     raw_data = LineItem.report_table(:all, 
       :joins => "inner join products on line_items.product_id = products.id inner join orders on orders.id = line_items.order_id", 
-      :conditions => ["products.account_id = ? and orders.delivery_cycle_id = ?", account_id, delivery_cycle_id],
+      :conditions => ["products.account_id = ? and orders.delivery_cycle_id = ? and orders.final = true", account_id, delivery_cycle_id],
       :methods=>[:total_price,:item_count], 
       :include=>{ :product=>{:only=>[:price_per_unit,:ordering_unit,:title]}, 
                   :order=>{:methods=>[:user_name] } }, 
