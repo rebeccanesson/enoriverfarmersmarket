@@ -1,0 +1,10 @@
+<div class="column span-24 last left-column">
+  <h3>Invoices by Producer 
+     <%= date_format(@delivery_cycle.delivery_open) %> and <%= date_format(@delivery_cycle.delivery_close) %></h3>
+  <div class="column span-22 last">
+    <p></b> <%= link_to ("invoices_by_producer.pdf"), :action=>:invoices_by_producer, :format=>:pdf %></p>
+  </div>
+  <div class="column span-22 last report-data">
+    <%= @report %>
+  </div>
+</div>
