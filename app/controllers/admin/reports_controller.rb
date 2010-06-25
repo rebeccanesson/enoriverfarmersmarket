@@ -2,6 +2,9 @@ class Admin::ReportsController < Admin::AdminController
   
   def invoices_by_customer
     @delivery_cycle = current_delivery_cycle
+    if !@delivery_cycle
+      redirect_to '/admin'
+    end
     respond_to do |format|
       format.html { 
         @report = AdminInvoicesByCustomerReport.render_html(:delivery_cycle_id=>@delivery_cycle.id)
@@ -15,6 +18,9 @@ class Admin::ReportsController < Admin::AdminController
   
   def invoices_by_producer
     @delivery_cycle = current_delivery_cycle
+    if !@delivery_cycle
+      redirect_to '/admin'
+    end
     respond_to do |format|
       format.html { 
         @report = AdminInvoicesByProducerReport.render_html(:delivery_cycle_id=>@delivery_cycle.id)
