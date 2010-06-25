@@ -4,7 +4,8 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :products, :member => { :make_orderable => :post, :remove_orderable => :post }
 
-  map.resources :accounts, :member => { :add_member => :post, :remove_member => :get } do |accounts|
+  map.resources :accounts, :member => { :add_member => :post, :remove_member => :get, 
+                                        :invoice_by_customer => :get, :invoice_by_product => :get } do |accounts|
     accounts.resources :products, :member => { :make_orderable => :post, :remove_orderable => :post }
   end
   

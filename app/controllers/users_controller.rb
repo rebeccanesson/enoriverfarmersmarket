@@ -136,8 +136,9 @@ class UsersController < ApplicationController
   end
   
   def require_order_not_final
-    @order = Order.find(params[:id])
-    if @order.final
+    @user = User.find(params[:id])
+    @order = @user.current_order
+    if @order and @order.final
       flash[:notice] = 'Invoices may only be viewed before the order is final.'
       redirect_to user_order_url(@order.user,@order)
     end

@@ -31,4 +31,9 @@ class Order < ActiveRecord::Base
     self.subtotal + self.member_surcharge
   end 
   
+  # added for use in reporting
+  def user_name
+    self.user.name
+  end
+  
 end

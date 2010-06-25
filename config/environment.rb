@@ -55,7 +55,7 @@ Comatose.configure do |config|
   config.default_tree_level   = 5
 end
 
-MEMBER_SURCHARGE = 0.0
-PRODUCER_SURCHARGE = 0.0
+MEMBER_SURCHARGE = 0.00
+PRODUCER_SURCHARGE = 0.05
 
 Mime::Type.register 'application/pdf', :pdf

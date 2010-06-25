@@ -117,8 +117,23 @@ class AccountsController < ApplicationController
     end
     redirect_to account_url(@account)
   end
+  
+  def invoice_by_customer
+    @account = Account.find(params[:id])
+    @delivery_cycle = current_delivery_cycle
+    respond_to do |format|
+      format.html { 
+        @report = ProducerInvoiceByCustomerReport.render_html(:account_id=>@account.id, :delivery_cycle_id=>@delivery_cycle.id)
+      }
+      format.pdf {
+        pdf = ProducerInvoiceByCustomerReport.render_pdf(:account_id=>@account.id, :delivery_cycle_id=>@delivery_cycle.id)
+        send_data pdf, :type => "application/pdf", :filename => "#{@account.name}_invoice.pdf"
+      }
+    end
+  end
       
-    
+  def invoice_by_product
+  end
   
   def load_account
     @account = Account.find(params[:id])
@@ -131,4 +146,14 @@ class AccountsController < ApplicationController
       redirect_to account_path(@account)
     end
   end
+  
+  def ordering_is_over
+    @account = Account.find(params[:id])
+    @delivery_cycle = current_delivery_cycle
+    unless @delivery_cycle.after_order
+      flash[:notice] = 'Invoices may only be viewed after the ordering period closes.'
+      redirect_to account_url(@account)
+    end
+  end
+  
 end

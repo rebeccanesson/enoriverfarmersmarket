@@ -19,6 +19,14 @@
    <%= "Website: #{@account.website_url}" unless @account.website_url.blank? %>
 </p>
 
+<% if @current_delivery_cycle and @current_delivery_cycle.is_after_order %>
+<h3>Producer Invoices</h3>
+  <ul>
+    <li><%= link_to 'Producer invoice by customer', invoice_by_customer_account_url(@account) %></li>
+    <li><%= link_to 'Producer invoice by product', invoice_by_product_account_url(@account) %></li>
+  </ul>
+<% end %>
+
 <h3>Products</h3>
 
   <div class="column span-18">
