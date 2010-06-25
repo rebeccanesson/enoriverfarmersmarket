@@ -32,14 +32,24 @@ class ProducerInvoiceByCustomerReport < Ruport::Controller
     data_grouping = Ruport::Data::Grouping.new(raw_data, :by=>'Customer Name')
     grouping_with_totals = Ruport::Data::Grouping.new
     
+    running_subtotal = running_market_fee = running_total = 0
     data_grouping.each do |name,group|
       subtotal   = group.sum('Total Price')
       market_fee = subtotal * PRODUCER_SURCHARGE
       total      = subtotal - market_fee 
+      running_subtotal += subtotal
+      running_market_fee += market_fee
+      running_total += total
       grouping_with_totals << (((group << [nil,nil,nil,nil,'Subtotal',subtotal]) << [nil,nil,nil,nil,'Market Fee',market_fee]) << [nil,nil,nil,nil,'Total',total])                        
     end
     
-    self.data = grouping_with_totals
+    total_group = Ruport::Data::Group.new :name => 'Summary',
+                                          :data => [['Subtotal',running_subtotal],['Market Fee',running_market_fee],['Total',running_total]]
+    puts "before adding new group -> #{grouping_with_totals.inspect}\n\n\n\n\n"
+    grouping_with_totals << total_group
+    puts "after adding new group -> #{grouping_with_totals.inspect}\n\n\n\n\n"
+    self.data = grouping_with_totals.sort_grouping_by { |g| (g.name == 'Summary' ? 1 : 0) }
+    
   end
 
   formatter :csv do
