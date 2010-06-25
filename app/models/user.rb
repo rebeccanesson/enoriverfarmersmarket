@@ -35,4 +35,8 @@ class User < ActiveRecord::Base
   def current_order
     Order.find(:first, :conditions => ["user_id = ? and delivery_cycle_id = ?", self.id, DeliveryCycle.current.id])
   end
+  
+  def is_producer
+    self.managed_accounts.size > 0
+  end
 end
