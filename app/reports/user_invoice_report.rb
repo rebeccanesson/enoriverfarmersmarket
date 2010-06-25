@@ -27,6 +27,13 @@ class UserInvoiceReport < Ruport::Controller
 
     raw_data = raw_data.sub_table(['Product ID', 'Product Name', 'Item Count', 'Ordering Unit', 'Price per Unit', 'Total Price'])
     
+    subtotal   = raw_data.sum('Total Price')
+    market_fee = subtotal * MEMBER_SURCHARGE
+    total      = subtotal + market_fee 
+    
+    data_with_totals = (((raw_data << [nil,nil,nil,nil,'Subtotal',subtotal]) << [nil,nil,nil,nil,'Market Fee',market_fee]) << [nil,nil,nil,nil,'Total',total])                        
+    
+    
     # totals = Ruport::Data::Table.new :data => [["Subtotal", nil, nil, nil, nil, raw_data.sum('PRX Cut'), raw_data.sum('Discount'), raw_data.sum('Subsidy'), raw_data.sum('Unspent Point Value') ]], 
     #                                   :column_names => ["Event", "Date", "Account Name", "Path", "List Price", "PRX Cut", "Discount", "Subsidy", "Unspent Point Value"]
     # 
