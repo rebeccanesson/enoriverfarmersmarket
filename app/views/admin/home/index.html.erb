@@ -9,4 +9,11 @@
   <li><%= link_to 'Manage Delivery Cycles', :controller=>'/admin/delivery_cycles'%></li>
   <li><%= link_to 'Manage Site Content', :controller=>'/comatose_admin' %></li>
 </ul>
+
+<h3>Invoices</h3>
+<ul>
+  <li><%= link_to 'View all Customer Invoices', :controller=>'/admin/reports', :action=>'invoices_by_customer' %></li>
+  <li><%= link_to 'View all Producer Invoices', :controller=>'/admin/reports', :action=>'invoices_by_producer' %></li>
+</ul>
+
 </div>

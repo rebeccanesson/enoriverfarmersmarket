@@ -12,8 +12,9 @@ class UserInvoiceReport < Ruport::Controller
       :joins => "inner join orders on orders.id = line_items.order_id",
       :conditions =>["orders.delivery_cycle_id = ? and orders.user_id = ?", delivery_cycle_id, user_id], 
       :methods=>[:total_price, :item_count], 
-      :include => { :product=>{:only=>[:price_per_unit,:ordering_unit,:title] } }, 
+      :include => { :product=>{:only=>[:price_per_unit,:ordering_unit,:title], :methods => [:account_name] } }, 
       :transforms => lambda { |r|
+        r['Producer'] = r['product.account_name']
         r['Product ID'] = r['product_id']
         r['Product Name'] = r['product.title']
         r['Item Count'] = r['item_count']
@@ -25,21 +26,29 @@ class UserInvoiceReport < Ruport::Controller
     
     return if raw_data.data.empty?
 
-    raw_data = raw_data.sub_table(['Product ID', 'Product Name', 'Item Count', 'Ordering Unit', 'Price per Unit', 'Total Price'])
+    raw_data = raw_data.sub_table(['Producer', 'Product ID', 'Product Name', 'Item Count', 'Ordering Unit', 'Price per Unit', 'Total Price'])
     
-    subtotal   = raw_data.sum('Total Price')
-    market_fee = subtotal * MEMBER_SURCHARGE
-    total      = subtotal + market_fee 
+    data_grouping = Ruport::Data::Grouping.new(raw_data, :by=>'Producer')
+    grouping_with_totals = Ruport::Data::Grouping.new
     
-    data_with_totals = (((raw_data << [nil,nil,nil,nil,'Subtotal',subtotal]) << [nil,nil,nil,nil,'Market Fee',market_fee]) << [nil,nil,nil,nil,'Total',total])                        
+    running_subtotal = running_market_fee = running_total = 0
+    data_grouping.each do |name,group|
+      subtotal   = group.sum('Total Price')
+      market_fee = subtotal * MEMBER_SURCHARGE
+      total      = subtotal + market_fee 
+      running_subtotal += subtotal
+      running_market_fee += market_fee
+      running_total += total
+      grouping_with_totals << (((group << [nil,nil,nil,nil,'Subtotal',subtotal]) << [nil,nil,nil,nil,'Market Fee',market_fee]) << [nil,nil,nil,nil,'Total',total])                        
+    end
     
-    
-    # totals = Ruport::Data::Table.new :data => [["Subtotal", nil, nil, nil, nil, raw_data.sum('PRX Cut'), raw_data.sum('Discount'), raw_data.sum('Subsidy'), raw_data.sum('Unspent Point Value') ]], 
-    #                                   :column_names => ["Event", "Date", "Account Name", "Path", "List Price", "PRX Cut", "Discount", "Subsidy", "Unspent Point Value"]
-    # 
-    #    raw_data = totals + raw_data
-    
-    self.data = raw_data
+    total_group = Ruport::Data::Group.new :name => 'Summary',
+                                          :data => [['Subtotal',running_subtotal],['Market Fee',running_market_fee],['Total',running_total]]
+    puts "before adding new group -> #{grouping_with_totals.inspect}\n\n\n\n\n"
+    grouping_with_totals << total_group
+    puts "after adding new group -> #{grouping_with_totals.inspect}\n\n\n\n\n"
+    self.data = grouping_with_totals.sort_grouping_by { |g| (g.name == 'Summary' ? 1 : 0) }    
+
   end
 
   formatter :csv do

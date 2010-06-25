@@ -36,4 +36,9 @@ class Product < ActiveRecord::Base
     facets
   end
   
+  # for use by reports
+  def account_name
+    self.account.name
+  end
+  
 end
