@@ -127,12 +127,23 @@ class AccountsController < ApplicationController
       }
       format.pdf {
         pdf = ProducerInvoiceByCustomerReport.render_pdf(:account_id=>@account.id, :delivery_cycle_id=>@delivery_cycle.id)
-        send_data pdf, :type => "application/pdf", :filename => "#{@account.name}_invoice.pdf"
+        send_data pdf, :type => "application/pdf", :filename => "#{@account.name}_invoice_by_customer.pdf"
       }
     end
   end
       
   def invoice_by_product
+    @account = Account.find(params[:id])
+    @delivery_cycle = current_delivery_cycle
+    respond_to do |format|
+      format.html { 
+        @report = ProducerInvoiceByProductReport.render_html(:account_id=>@account.id, :delivery_cycle_id=>@delivery_cycle.id)
+      }
+      format.pdf {
+        pdf = ProducerInvoiceByProductReport.render_pdf(:account_id=>@account.id, :delivery_cycle_id=>@delivery_cycle.id)
+        send_data pdf, :type => "application/pdf", :filename => "#{@account.name}_invoice_by_product.pdf"
+      }
+    end
   end
   
   def load_account

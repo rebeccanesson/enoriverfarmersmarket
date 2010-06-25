@@ -2,7 +2,7 @@
   <h3>Invoice for <%= @account.name %> for delivery to the market between 
      <%= date_format(@delivery_cycle.delivery_open) %> and <%= date_format(@delivery_cycle.delivery_close) %></h3>
   <div class="column span-22 last">
-    <p></b> <%= link_to ("#{@account.name}_invoice.pdf"), :action=>:invoice_by_customer, :format=>:pdf %></p>
+    <p></b> <%= link_to ("#{@account.name}_invoice_by_customer.pdf"), :action=>:invoice_by_customer, :format=>:pdf %></p>
   </div>
   <div class="column span-22 last report-data">
     <%= @report %>
