@@ -146,8 +146,16 @@ class ProductsController < ApplicationController
   
   def ordering_and_delivery_closed
     unless @current_delivery_cycle and @current_delivery_cycle.permits_product_editing
-      flash[:notice] = "You cannot edit or delete products during the ordering and delivery phases of a delivery cycle"
-      redirect_to product_url(@product)
+      flash[:notice] = "You cannot add, edit, or delete products during the ordering and delivery phases of a delivery cycle"
+      if @account and @product
+        redirect_to account_product_url(@account,@product)
+      elsif @product
+        redirect_to product_url(@product)
+      elsif @account
+        redirect_to account_products_url(@account)
+      else
+        redirect_to products_url
+      end
     end
   end
 end
