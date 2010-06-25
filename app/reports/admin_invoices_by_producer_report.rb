@@ -35,8 +35,11 @@ class AdminInvoicesByProducerReport < Ruport::Controller
     
     grouping_with_totals = Ruport::Data::Grouping.new
     
+    return if data_grouping.nil? 
+    
     data_grouping.each do |producer_name, invoices|
       customer_grouping = data_grouping.subgrouping(producer_name)
+      next unless customer_grouping
       puts "customer grouping is #{customer_grouping.inspect}\n\n"
       customer_grouping_with_totals = Ruport::Data::Grouping.new     
       customer_grouping.each do |customer_name, invoice|
@@ -65,22 +68,27 @@ class AdminInvoicesByProducerReport < Ruport::Controller
 
   formatter :html do
     build :list do
-      data.each do |producer_name,invoices|
-        output << "<h2>#{producer_name}:</h2>"
-        customer_grouping = data.subgrouping(producer_name)
-        output << customer_grouping.to_html
+      if !data
+        output << textile("*no data*") unless data
+      else 
+        data.each do |producer_name,invoices|
+          output << "<h2>#{producer_name}:</h2>"
+          customer_grouping = data.subgrouping(producer_name)
+          output << customer_grouping.to_html
+        end
       end
-      output << textile("*no data*") unless data
     end
   end
   
   formatter :pdf do
     build :list do
       pad(10) { add_text "Invoice" }
-      data.each do |producer_name,invoices|
-        pad(10) { add_text "#{producer_name}:"}
-        customer_grouping = data.subgrouping(producer_name)
-        render_grouping customer_grouping, options.to_hash.merge(:formatter => pdf_writer)
+      if data
+        data.each do |producer_name,invoices|
+          pad(10) { add_text "#{producer_name}:"}
+          customer_grouping = data.subgrouping(producer_name)
+          render_grouping customer_grouping, options.to_hash.merge(:formatter => pdf_writer)
+        end
       end
     end
   end
