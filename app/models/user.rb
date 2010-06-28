@@ -54,4 +54,8 @@ class User < ActiveRecord::Base
     end 
   end
   
+  def self.producers
+    User.all.reject { |u| u.managed_accounts.size == 0 }
+  end
+    
 end

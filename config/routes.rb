@@ -14,6 +14,8 @@ ActionController::Routing::Routes.draw do |map|
     admin.resources :delivery_cycles, :member => { :duplicate => :post } do |delivery_cycles|
       delivery_cycles.resources :orders
     end
+    admin.resources :users, :collection => { :compose_users_email => :get, :send_users_email => :get, 
+                                             :compose_producers_email => :get, :send_producers_email => :get }
     admin.resources :reports, :collection => { :invoices_by_customer => :get, :invoices_by_producer => :get }
   end
   

@@ -1,0 +1,8 @@
+<div class="left-column">
+  <% form_tag send_users_email_admin_users_url do %>
+    <p>Hi [user's name],</p>
+    <%= text_area_tag :text %><br />
+    <p>Sincerely, Leila Nesson<br />Eno River Farmers Market Online Ordering Manager</p>
+    <%= submit_tag 'Send Now'%>
+  <% end %>
+</div>

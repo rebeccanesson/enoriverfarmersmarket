@@ -9,6 +9,8 @@
   <li><%= link_to 'Manage Product Categories', :controller=>'/admin/categories'%></li>
   <li><%= link_to 'Manage Delivery Cycles', :controller=>'/admin/delivery_cycles'%></li>
   <li><%= link_to 'Manage Site Content', :controller=>'/comatose_admin' %></li>
+  <li><%= link_to 'Send Email to Users', :controller=>'/admin/users', :action => 'compose_users_email' %></li>
+  <li><%= link_to 'Send Email to Producers', :controller=>'/admin/users', :action => 'compose_producers_email' %></li>
 </ul>
 
 <h3>Invoices</h3>
