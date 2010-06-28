@@ -22,7 +22,14 @@ class ApplicationController < ActionController::Base
     def current_delivery_cycle
       return @current_delivery_cycle if defined?(@current_delivery_cycle)
       @current_delivery_cycle = DeliveryCycle.current
-      return nil unless @current_delivery_cycle
+      unless @current_delivery_cycle
+        orderables = Orderable.find(:all, :conditions => "status='Available' or status='In Cart'")
+        orderables.each do |o| 
+          o.status = 'Closed'
+          o.save
+        end 
+        return nil
+      end
       if @current_delivery_cycle.is_after_order
         @current_delivery_cycle.orderables.available.each do |o|
           o.status = 'Closed'

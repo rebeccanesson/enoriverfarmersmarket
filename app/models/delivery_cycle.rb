@@ -4,6 +4,7 @@ class DeliveryCycle < ActiveRecord::Base
   validate :in_order
   validate :non_empty
   has_many :orderables
+  has_many :orders, :dependent => :destroy
  
   @@phases =           ["NOT_OPEN", 
                         "EDIT_OPEN", 
@@ -37,14 +38,7 @@ class DeliveryCycle < ActiveRecord::Base
  acts_as_reportable
   
   def self.current 
-    cycle = DeliveryCycle.find(:first, :conditions => ["edit_open <= ? and pickup_close > ?", Time.zone.now, Time.zone.now])
-    unless cycle
-      cycle = DeliveryCycle.find(:first, :conditions => ["edit_open >= ?", Time.zone.now], :order => "edit_open ASC")
-    end
-    unless cycle
-      cycle = DeliveryCycle.find(:first, :conditions => ["pickup_close > ?", Time.zone.now], :order => "pickup_close DESC")
-    end
-    cycle
+    DeliveryCycle.find(:first, :conditions => ["edit_open <= ? and pickup_close > ?", Time.zone.now, Time.zone.now])
   end
   
   def self.current_phase

@@ -33,7 +33,9 @@ class User < ActiveRecord::Base
   end
   
   def current_order
-    Order.find(:first, :conditions => ["user_id = ? and delivery_cycle_id = ?", self.id, DeliveryCycle.current.id])
+    delivery_cycle = DeliveryCycle.current
+    return unless delivery_cycle
+    Order.find(:first, :conditions => ["user_id = ? and delivery_cycle_id = ?", self.id, delivery_cycle.id])
   end
   
   def is_producer
