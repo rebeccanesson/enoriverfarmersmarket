@@ -3,7 +3,7 @@
 <ul>
 <li><%= @user.name %></li>
 <li><%= @user.address %></li>
-<li>Phone: <%= (@user.phone.blank? ? 'none' : @user.phone) %></li>
+<li>Phones: <%= @user.phone_string %></li>
 <li><%= link_to 'Edit my info', edit_user_path %></li>
 </ul>
 

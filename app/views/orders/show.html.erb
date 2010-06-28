@@ -40,8 +40,8 @@
     <td><%= line_item.product.title %></td>
     <td><%= line_item.item_count %></td>
     <td><%= line_item.product.ordering_unit %></td>
-    <td><%= line_item.product.price_per_unit %></td>
-    <td><%= line_item.total_price %></td>
+    <td><%= line_item.product.price_in_dollars %></td>
+    <td><%= line_item.total_price_in_dollars %></td>
     <td><%= link_to 'remove one', remove_from_cart_user_path(@order.user, :line_item_id => line_item) %></td>
     <td><%= link_to 'remove all', remove_all_from_cart_user_path(@order.user, :line_item_id => line_item) %></td>
   </tr>

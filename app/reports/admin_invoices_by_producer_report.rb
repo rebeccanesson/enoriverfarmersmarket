@@ -11,7 +11,7 @@ class AdminInvoicesByProducerReport < Ruport::Controller
       :joins => "inner join products on line_items.product_id = products.id inner join orders on orders.id = line_items.order_id", 
       :conditions => ["orders.delivery_cycle_id = ? and orders.final = true", delivery_cycle_id],
       :methods=>[:total_price,:item_count], 
-      :include=>{ :product=>{:only=>[:price_per_unit,:ordering_unit,:title,:account_id],:methods=>[:account_name]}, 
+      :include=>{ :product=>{:only=>[:ordering_unit,:title,:account_id],:methods=>[:account_name, :price_in_dollars]}, 
                   :order=>{:methods=>[:user_name] } }, 
       :transforms=> lambda { |r|
         r['Producer Name'] = r['product.account_name']
@@ -21,7 +21,7 @@ class AdminInvoicesByProducerReport < Ruport::Controller
         r['Product Name'] = r['product.title']
         r['Item Count'] = r['item_count']
         r['Ordering Unit'] = r['product.ordering_unit'] 
-        r['Price per Unit'] = r['product.price_per_unit']
+        r['Price per Unit'] = r['product.price_in_dollars']
         r['Total Price'] = r['total_price']
       }
     )

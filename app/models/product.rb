@@ -11,12 +11,20 @@ class Product < ActiveRecord::Base
   
   acts_as_reportable
   
+  def price_in_dollars
+    self.price_per_unit/100.0 if self.price_per_unit; 
+  end
+  
+  def price_in_dollars=(price_in_dollars)
+    self.price_per_unit = (price_in_dollars*100).to_i
+  end
+  
   def self.by_category
     Category.products_by_category
   end
   
   def formatted_price
-    "$#{price_per_unit / 100}"
+    "$#{self.price_in_dollars}"
   end
   
   def self.facet(products)

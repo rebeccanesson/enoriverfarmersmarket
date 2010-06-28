@@ -12,6 +12,10 @@ class LineItem < ActiveRecord::Base
     self.product.price_per_unit * self.orderables.count
   end
   
+  def total_price_in_dollars
+    self.total_price / 100.0
+  end
+  
   def item_count
     self.orderables.count
   end

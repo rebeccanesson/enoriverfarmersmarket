@@ -20,7 +20,7 @@ class Order < ActiveRecord::Base
   end
   
   def subtotal
-    self.line_items.inject(0) { |sum, li| sum + li.total_price }
+    self.line_items.inject(0) { |sum, li| sum + li.total_price_in_dollars }
   end
   
   def member_surcharge

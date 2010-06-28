@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100622030937) do
+ActiveRecord::Schema.define(:version => 20100627235110) do
 
   create_table "account_memberships", :force => true do |t|
     t.integer  "account_id"
@@ -154,6 +154,8 @@ ActiveRecord::Schema.define(:version => 20100622030937) do
     t.string   "zipcode"
     t.string   "phone"
     t.boolean  "admin",               :default => false
+    t.string   "phone_two"
+    t.string   "phone_three"
   end
 
 end

@@ -39,4 +39,17 @@ class User < ActiveRecord::Base
   def is_producer
     self.managed_accounts.size > 0
   end
+  
+  def phone_string
+    if self.phone.blank? 
+      'none'
+    elsif self.phone_two.blank? 
+      self.phone
+    elsif self.phone_three.blank? 
+      "#{self.phone} and #{self.phone_two}"
+    else
+      "#{self.phone}, #{self.phone_two} and #{self.phone_three}"
+    end 
+  end
+  
 end

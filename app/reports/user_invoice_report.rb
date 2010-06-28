@@ -12,14 +12,14 @@ class UserInvoiceReport < Ruport::Controller
       :joins => "inner join orders on orders.id = line_items.order_id",
       :conditions =>["orders.delivery_cycle_id = ? and orders.user_id = ?", delivery_cycle_id, user_id], 
       :methods=>[:total_price, :item_count], 
-      :include => { :product=>{:only=>[:price_per_unit,:ordering_unit,:title], :methods => [:account_name] } }, 
+      :include => { :product=>{:only=>[:ordering_unit,:title], :methods => [:account_name,:price_in_dollars] } }, 
       :transforms => lambda { |r|
         r['Producer'] = r['product.account_name']
         r['Product ID'] = r['product_id']
         r['Product Name'] = r['product.title']
         r['Item Count'] = r['item_count']
         r['Ordering Unit'] = r['product.ordering_unit'] 
-        r['Price per Unit'] = r['product.price_per_unit']
+        r['Price per Unit'] = r['product.price_in_dollars']
         r['Total Price'] = r['total_price']
       }
     )
