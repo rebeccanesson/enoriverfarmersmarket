@@ -120,7 +120,8 @@ class AccountsController < ApplicationController
   
   def invoice_by_customer
     @account = Account.find(params[:id])
-    @delivery_cycle = current_delivery_cycle
+    @delivery_cycle = DeliveryCycle.find(params[:delivery_cycle_id]) if params[:delivery_cycle_id]
+    @delivery_cycle = current_delivery_cycle unless @delivery_cycle
     respond_to do |format|
       format.html { 
         @report = ProducerInvoiceByCustomerReport.render_html(:account_id=>@account.id, :delivery_cycle_id=>@delivery_cycle.id)
@@ -134,7 +135,8 @@ class AccountsController < ApplicationController
       
   def invoice_by_product
     @account = Account.find(params[:id])
-    @delivery_cycle = current_delivery_cycle
+    @delivery_cycle = DeliveryCycle.find(params[:delivery_cycle_id]) if params[:delivery_cycle_id]
+    @delivery_cycle = current_delivery_cycle unless @delivery_cycle
     respond_to do |format|
       format.html { 
         @report = ProducerInvoiceByProductReport.render_html(:account_id=>@account.id, :delivery_cycle_id=>@delivery_cycle.id)

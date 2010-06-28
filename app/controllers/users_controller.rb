@@ -20,6 +20,9 @@ class UsersController < ApplicationController
   
   def show
     @user = User.find(params[:id])
+    @delivery_cycles = DeliveryCycle.find(:all, 
+                                          :conditions => ["order_close <= ?", Time.now], 
+                                          :order => "order_close DESC")
   end
 
   def edit

@@ -1,5 +1,45 @@
 <div class="span-24 last left-column">
-<h3>Your Profile</h3>
+  <% if @user.managed_accounts.size > 0 %>
+      <% @user.managed_accounts.each do |acct| %>
+
+        <h2>Producer Account: <%= link_to (acct.producer_name ? acct.producer_name : 'New Producer Account'), acct %>
+            <% unless acct.producer_name %>
+              (<%= link_to 'Edit me!', edit_account_path(acct) %>)
+            <% end %>
+        </h2>
+        <ul>
+          <li><%= link_to 'Add a new product', new_account_product_path(acct)%>
+          <% if @current_delivery_cycle and @current_delivery_cycle.is_after_order %>
+            <li><%= link_to 'Current producer invoice by customer', invoice_by_customer_account_url(acct) %></li>
+            <li><%= link_to 'Current producer invoice by product', invoice_by_product_account_url(acct) %></li>
+          <% end %>
+        </ul>
+        <h4>Invoice History</h4>
+        <ul>
+          <% @delivery_cycles.each do |delivery_cycle| %>
+            <li>Producer Invoice for delivery on <%= date_format(delivery_cycle.delivery_open) %>: 
+                <%= link_to 'by customer', invoice_by_customer_account_url(acct, :delivery_cycle_id => delivery_cycle.id) %>,
+                <%= link_to 'by product', invoice_by_product_account_url(acct, :delivery_cycle_id => delivery_cycle.id) %></li>
+          <% end %>
+        </ul>
+      <% end %>
+    </ul>
+  <% else %>
+    <ul>
+      <li>You have no producer accounts.</li>
+      <% @user.producer_account_requests.each do |par| %>
+        <% if par.status == 'Pending' %>
+          <li>The producer account requested on <%= par.created_at %> is <%= par.status %></li>
+        <% else %>
+          <li>The producer account requested on <%= par.created_at %> was <%= par.status %> at <%= par.status_changed_at %></li>
+        <% end %>
+      <% end %>
+      <li><%= link_to 'Request a producer account', request_producer_account_user_path(@user) %></li>
+    </ul>
+  <% end %>  
+  
+  
+<h2>Your <%= (@user.managed_accounts.size > 0 ? 'Personal' : '') %> Profile</h2>
 <ul>
 <li><%= @user.name %></li>
 <li><%= @user.address %></li>
@@ -18,32 +58,7 @@
     <li>You have no items in your cart.</li>
   <% end %>
   </ul>
-
-<h3>Your Producer Accounts</h3>
-<% if @user.managed_accounts.size > 0 %>
-  <ul>
-    <% @user.managed_accounts.each do |acct| %>
-      <li><%= link_to (acct.producer_name ? acct.producer_name : 'New Producer Account'), acct %>
-          <% unless acct.producer_name %>
-            (<%= link_to 'Edit me!', edit_account_path(acct) %>)
-          <% end %>
-      </li>
-    <% end %>
-  </ul>
-<% else %>
-  <ul>
-    <li>You have no producer accounts.</li>
-    <% @user.producer_account_requests.each do |par| %>
-      <% if par.status == 'Pending' %>
-        <li>The producer account requested on <%= par.created_at %> is <%= par.status %></li>
-      <% else %>
-        <li>The producer account requested on <%= par.created_at %> was <%= par.status %> at <%= par.status_changed_at %></li>
-      <% end %>
-    <% end %>
-    <li><%= link_to 'Request a producer account', request_producer_account_user_path(@user) %></li>
-  </ul>
-<% end %>
-
+  
 <h3>Order History</h3>
 <ul>
 <%= render :partial => '/common/order', :collection => @user.orders %>
