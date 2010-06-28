@@ -3,6 +3,7 @@
 	padding-left: 10px;
 	padding-top:10px;
 	min-height: 450px;
+	background-color:#0E6800;
 }
 
 ul { 
@@ -33,7 +34,7 @@ body {
 }
 
 .main-content { 
-	background-color:white;
+	background-color:#F2FFE5;
 }
 
 .foo { 
