@@ -2,22 +2,21 @@
 <div class="span-3" style="margin-bottom:15px;">
   <%= image_for(@account) %>
 </div>
-<div class="span-14 last">
-<h2><%= @account.producer_name %>
+<div class="span-14 last" style="margin-bottom:5px;">
+<h2 style="margin-bottom:5px;padding-bottom:0px;"><%= @account.producer_name %>
     <% if can_edit(@account) %>
       (<%= link_to 'edit', edit_account_path(@account) %>) 
     <% end %>
 </h2>
+<div><%=h @account.street %><br />
+   <%=h @account.city %><br />
+   <%=h @account.state %>, <%=h @account.zipcode %><br />
+   <%= "Phone: #{@account.phone}" unless @account.phone.blank? %>
+   <%= "Website: #{@account.website_url}" unless @account.website_url.blank? %>
+</div>
 </div>
 <div class="span-17 last">
 <p><%= @account.description %></p>
-
-<p><%=h @account.street %><br />
-   <%=h @account.city %><br />
-   <%=h @account.state %>, <%=h @account.zipcode %><br />
-   <%= "Phone: #{@account.phone}" unless @account.phone.blank? %><br />
-   <%= "Website: #{@account.website_url}" unless @account.website_url.blank? %>
-</p>
 
 <h3>Products</h3>
 

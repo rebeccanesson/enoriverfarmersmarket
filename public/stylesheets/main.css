@@ -37,6 +37,7 @@ body {
 
 .main-content { 
 	background-color:#E0FFC2;
+	margin-bottom:15px;
 }
 
 .foo { 
@@ -52,6 +53,7 @@ body {
 
 .left-column { 
 	padding:15px;
+	margin-bottom:15px;
 }
 
 .nav-buttons a { 
