@@ -1,9 +1,11 @@
 #sidebar { 
-	border-left: 1px dashed #53D03F;
+	border: 1px dashed #0E6800;
+	margin-top:10px;
 	padding-left: 10px;
 	padding-top:10px;
+	padding-bottom:10px;
 	min-height: 450px;
-	background-color:#0E6800;
+	background-color:#53D03F;
 }
 
 ul { 
@@ -34,7 +36,7 @@ body {
 }
 
 .main-content { 
-	background-color:#F2FFE5;
+	background-color:#E0FFC2;
 }
 
 .foo { 
