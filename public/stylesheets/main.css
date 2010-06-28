@@ -1,11 +1,12 @@
 #sidebar { 
-	border: 1px dashed #0E6800;
+	border: 1px solid #0E6800;
 	margin-top:10px;
 	padding-left: 10px;
 	padding-top:10px;
 	padding-bottom:10px;
 	min-height: 450px;
 	background-color:#53D03F;
+	color:white;
 }
 
 ul { 
