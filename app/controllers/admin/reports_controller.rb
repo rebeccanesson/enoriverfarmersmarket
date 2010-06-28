@@ -26,7 +26,8 @@ class Admin::ReportsController < Admin::AdminController
   end
   
   def load_delivery_cycle
-    @delivery_cycle = current_delivery_cycle
+    @delivery_cycle = DeliveryCycle.find(params[:delivery_cycle_id]) if params[:delivery_cycle_id]
+    @delivery_cycle = current_delivery_cycle unless @delivery_cycle
      if !@delivery_cycle
        flash[:notice] = 'Cannot view invoices when there is no current delivery cycle.'
        redirect_to '/admin'

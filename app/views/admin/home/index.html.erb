@@ -12,8 +12,11 @@
 
 <h3>Invoices</h3>
 <ul>
-  <li><%= link_to 'View all Customer Invoices', :controller=>'/admin/reports', :action=>'invoices_by_customer' %></li>
-  <li><%= link_to 'View all Producer Invoices', :controller=>'/admin/reports', :action=>'invoices_by_producer' %></li>
+  <% @delivery_cycles.each do |delivery_cycle| %>
+    <li>View all invoices for delivery on <%= date_format(delivery_cycle.delivery_open) %>: 
+          <%= link_to 'for customers', :controller=>'/admin/reports', :action=>'invoices_by_customer', :delivery_cycle_id=>delivery_cycle.id %>,
+          <%= link_to 'for producers', :controller=>'/admin/reports', :action=>'invoices_by_producer', :delivery_cycle_id => delivery_cycle.id %></li>
+  <% end %>
 </ul>
 
 </div>
