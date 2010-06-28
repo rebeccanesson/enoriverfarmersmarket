@@ -31,10 +31,10 @@
         <li><%= link_to 'Delete', account_product_path(product.account,product), :method => :delete %></li>
         <li>Adjust inventory:<br />
           <% form_remote_tag :url => make_orderable_account_product_path(product.account,product) do -%>
-              <div><%= text_field_tag 'number', 0, :size => 2 %> <%= submit_tag 'add' %></div>
+              <div style="margin-left:10px;"><%= text_field_tag 'number', 0, :size => 2 %> <%= submit_tag 'add' %></div>
             <% end -%>
           <% form_remote_tag :url => remove_orderable_account_product_path(product.account,product) do -%>
-              <div><%= text_field_tag 'number', 0, :size => 2 %> <%= submit_tag 'drop' %></div>
+              <div style="margin-left:10px;"><%= text_field_tag 'number', 0, :size => 2 %> <%= submit_tag 'drop' %></div>
             <% end -%>
         </li>
       <% end %>
