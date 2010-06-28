@@ -5,6 +5,7 @@
 
 <div class="column span-22">
  <%= render :partial => '/common/product_small', :collection => @products %>
+ <%= 'No products meet your criteria.' if @products.size == 0%>
 </div>
 
 <br />
