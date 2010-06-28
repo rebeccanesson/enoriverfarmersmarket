@@ -1,0 +1,15 @@
+<div class="left-column">
+<table>
+  <tr>
+    <th>Producer Name</th>
+    <th>Edit</th>
+    <th>Delete</th>
+  </tr>
+<% @accounts.each do |account| %>
+  <tr>
+    <td><%=h account.producer_name %></td>
+    <td><%= link_to 'Edit', edit_account_path(account) %></td>
+    <td><%= link_to 'Delete', account_path(account), :method => :delete %>
+<% end %>
+</table>
+</div>
