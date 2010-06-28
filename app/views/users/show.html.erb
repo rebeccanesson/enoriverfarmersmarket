@@ -8,10 +8,13 @@
             <% end %>
         </h2>
         <ul>
+          <li><%= link_to 'Edit your producer account profile', edit_account_path(acct) %>
           <li><%= link_to 'Add a new product', new_account_product_path(acct)%>
           <% if @current_delivery_cycle and @current_delivery_cycle.is_after_order %>
             <li><%= link_to 'Current producer invoice by customer', invoice_by_customer_account_url(acct) %></li>
             <li><%= link_to 'Current producer invoice by product', invoice_by_product_account_url(acct) %></li>
+          <% elsif @current_delivery_cycle %>
+            <li>Invoices for delivery on <%= date_format(@current_delivery_cycle.delivery_open) %> not available until ordering closes.</li>
           <% end %>
         </ul>
         <h4>Invoice History</h4>
