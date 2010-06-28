@@ -12,11 +12,14 @@ class Product < ActiveRecord::Base
   acts_as_reportable
   
   def price_in_dollars
-    self.price_per_unit/100.0 if self.price_per_unit; 
+    price_per_unit/100.0 if price_per_unit; 
   end
-  
-  def price_in_dollars=(price_in_dollars)
-    self.price_per_unit = (price_in_dollars*100).to_i
+
+  def price_in_dollars=(p)
+    logger.debug("price in dollars is #{p.to_f}")
+    logger.debug("price in dollars * 100 is #{p.to_f*100}")
+    logger.debug("price per unit is #{(p.to_f*100).to_i}")
+    self.price_per_unit = (p.to_f*100).to_i
   end
   
   def self.by_category
@@ -24,7 +27,7 @@ class Product < ActiveRecord::Base
   end
   
   def formatted_price
-    "$#{self.price_in_dollars}"
+    format("$%.2f",self.price_in_dollars)
   end
   
   def self.facet(products)
@@ -38,7 +41,7 @@ class Product < ActiveRecord::Base
         cats = [prod.category] + prod.category.ancestors
         cats.each { |cat| facets[:categories][cat.id] += 1 }
       end
-      facets[:accounts][prod.account] += 1
+      facets[:accounts][prod.account] += 1 if prod.account
     end
     
     facets

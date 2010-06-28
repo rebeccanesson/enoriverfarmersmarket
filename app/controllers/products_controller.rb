@@ -89,7 +89,7 @@ class ProductsController < ApplicationController
     @product.destroy
 
     respond_to do |format|
-      format.html { redirect_to(account_products_url(@account)) }
+      format.html { redirect_to(account_url(@account)) }
       format.xml  { head :ok }
     end
   end
