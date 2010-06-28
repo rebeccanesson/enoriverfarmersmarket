@@ -12,13 +12,13 @@
     </div>
     <div class="span-5 last">
       <p><%= product.formatted_price %> per <%= product.ordering_unit %><br />
-         <%= product.available_orderables.count %> currently available for purchase<br />
+         <%= product.available_orderables.count %> available for purchase<br />
          <% if can_edit(product) %>
-           <%= product.carted_orderables.count %> currently in shopping carts<br />
-           <%= product.ordered_orderables.count %> currently in completed orders<br />
+           <%= product.carted_orderables.count %> in shopping carts<br />
+           <%= product.ordered_orderables.count %> in completed orders<br />
          <% end %>
          <% if @current_user and @current_user.current_order %>
-           <%= @current_user.current_order.count_product(product) %> currently in 
+           <%= @current_user.current_order.count_product(product) %> in 
            <%= (@current_user.current_order.final ? ' your completed order' : ' your shopping cart') %>
          <% end %>
     </div>
