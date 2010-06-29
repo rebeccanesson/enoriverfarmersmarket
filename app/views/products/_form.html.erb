@@ -20,6 +20,11 @@
 </p>
 
 <p>
+  <%= form.label :storage %>
+  <%= select("product", "storage", Product.storage_options) %>
+<p>
+
+<p>
   <%= form.label :category %><br />
   <select name="product[category_id]">
     <%= expand_tree_into_select_field(Category.root_categories) %>

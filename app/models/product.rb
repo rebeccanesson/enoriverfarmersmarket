@@ -12,6 +12,11 @@ class Product < ActiveRecord::Base
   
   acts_as_reportable
   
+  @@storage_options = ['shelved', 'refrigerated', 'frozen']
+  cattr_accessor :storage_options
+  
+  validates_presence_of :storage, :in => @@storage_options, :allow_nil => true
+  
   def price_in_dollars
     price_per_unit/100.0 if price_per_unit; 
   end
