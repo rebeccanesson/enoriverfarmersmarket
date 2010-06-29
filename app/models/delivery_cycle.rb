@@ -148,25 +148,25 @@ class DeliveryCycle < ActiveRecord::Base
     cycles = DeliveryCycle.find(:all, :conditions => ["edit_open <= ? and pickup_close > ?", edit_open, edit_open])
     cycles.reject! { |c| c.id == self.id } if self.id
     if cycles.size > 0 
-      errors.add_to_base("Delivery cycles may not overlap. Edit opens during cycle #{cycles.first}")
+      errors.add_to_base("Delivery cycles may not overlap. Edit opens during cycle #{cycles.first.id}")
       return
     end
     cycles = DeliveryCycle.find(:all, :conditions => ["edit_open <= ? and pickup_close > ?", pickup_close, pickup_close])
     cycles.reject! { |c| c.id == self.id } if self.id
     if cycles.size > 0 
-      errors.add_to_base("Delivery cycles may not overlap.  Pickup closes during cycle #{cycles.first}")
+      errors.add_to_base("Delivery cycles may not overlap.  Pickup closes during cycle #{cycles.first.id}")
       return
     end
     cycles = DeliveryCycle.find(:all, :conditions => ["edit_open >= ? and pickup_close < ?", edit_open, pickup_close])
     cycles.reject! { |c| c.id == self.id } if self.id
     if cycles.size > 0 
-      errors.add_to_base("Delivery cycles may not overlap. The entire cycle is inside cycle #{cycles.first}")
+      errors.add_to_base("Delivery cycles may not overlap. The entire cycle is inside cycle #{cycles.first.id}")
       return
     end
     cycles = DeliveryCycle.find(:all, :conditions => ["edit_open <= ? and pickup_close > ?", edit_open, pickup_close])
     cycles.reject! { |c| c.id == self.id } if self.id
     if cycles.size > 0 
-      errors.add_to_base("Delivery cycles may not overlap.  The cycle contains cycle #{cycles.first}")
+      errors.add_to_base("Delivery cycles may not overlap.  The cycle contains cycle #{cycles.first.id}")
       return
     end        
   end
