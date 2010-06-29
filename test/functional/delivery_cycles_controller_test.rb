@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class DeliveryCyclesControllerTest < ActionController::TestCase
+class Admin::DeliveryCyclesControllerTest < ActionController::TestCase
   test "should get index" do
     get :index
     assert_response :success

@@ -2,10 +2,6 @@
 
 one:
   order_id: 1
-  item_count: 1
-  total: 1
 
 two:
   order_id: 1
-  item_count: 1
-  total: 1

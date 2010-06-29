@@ -15,24 +15,24 @@ class DeliveryCycle < ActiveRecord::Base
                         "DELIVERY_CLOSED", 
                         "PICKUP_OPEN", 
                         "CLOSED"] 
-  @@phase_names =      ["not open yet", 
-                        "open for producers", 
-                        "between producer editing and ordering", 
-                        "open for ordering", 
-                        "between ordering and delivery", 
-                        "in delivery", 
-                        "between delivery and pickup", 
-                        "in pickup", 
-                        "closed"]
-  @@user_phase_names =                       ["not open yet", 
-                                              "not open yet", 
-                                              "not open yet", 
-                                              "open for ordering", 
-                                              "between ordering and pickup", 
-                                              "between ordering and pickup", 
-                                              "between ordering and pickup", 
-                                              "in pickup", 
-                                              "closed"]
+  @@phase_names =      ["Ordering is not open yet.", 
+                        "Producers can add/edit products.", 
+                        "Ordering is not open yet.", 
+                        "Ordering is open.", 
+                        "Ordering is closed.  Prepare for delivery.", 
+                        "Delivery is open.", 
+                        "Delivery is complete, pick up will begin soon.", 
+                        "Pick up is open.", 
+                        "Ordering is closed."]
+  @@user_phase_names =                       ["Ordering is not open yet.", 
+                                              "Ordering is not open yet.", 
+                                              "Ordering is not open yet.", 
+                                              "Ordering is open.", 
+                                              "Ordering is closed. Pick up is soon.", 
+                                              "Ordering is closed. Pick up is soon.", 
+                                              "Ordering is closed. Pick up is soon.", 
+                                              "Pick up is open.", 
+                                              "Ordering is closed."]
  cattr_accessor :phases, :phase_names, :user_phase_names
  
  acts_as_reportable

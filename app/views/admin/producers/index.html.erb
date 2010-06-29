@@ -3,13 +3,16 @@
   <tr>
     <th>Producer Name</th>
     <th>Edit</th>
+    <th>Manage Products</th>
     <th>Delete</th>
   </tr>
 <% @accounts.each do |account| %>
   <tr>
     <td><%=h account.producer_name %></td>
     <td><%= link_to 'Edit', edit_account_path(account) %></td>
-    <td><%= link_to 'Delete', account_path(account), :method => :delete %>
+    <td><%= link_to 'Manage Products', account_path(account) %></td>
+    <td><%= link_to 'Delete', account_path(account), :method => :delete %></td>
+  </tr>
 <% end %>
 </table>
 </div>

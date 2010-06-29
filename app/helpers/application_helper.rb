@@ -59,7 +59,7 @@ module ApplicationHelper
   
   def present_cycle(c)
     if (@current_user and (@current_user.admin or @current_user.is_producer))
-      ret = '<b>Current Ordering Cycle: ' + DeliveryCycle.current_phase_name(true)   + '</b><br />'
+      ret = '<b>' + DeliveryCycle.current_phase_name(true)   + '</b><br />'
       ret += '<b>Set Up:</b> '   + date_format(c.edit_open)     + ' to ' + date_format(c.edit_close)     + '<br />'
       ret += '<b>Ordering:</b> ' + date_format(c.order_open)    + ' to ' + date_format(c.order_close)    + '<br />'
       ret += '<b>Delivery:</b> ' + date_format(c.delivery_open) + ' to ' + date_format(c.delivery_close) + '<br />'

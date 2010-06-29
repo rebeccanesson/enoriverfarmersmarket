@@ -1,6 +1,8 @@
 require 'test_helper'
 
 class ProductsControllerTest < ActionController::TestCase
+  setup :activate_authlogic
+  
   test "should get index" do
     get :index
     assert_response :success
@@ -31,8 +33,9 @@ class ProductsControllerTest < ActionController::TestCase
   end
 
   test "should update product" do
+    UserSession.create(users(:one))
     put :update, :id => products(:one).to_param, :product => { }
-    assert_redirected_to product_path(assigns(:product))
+    assert_redirected_to account_products_path(accounts(:one))
   end
 
   test "should destroy product" do

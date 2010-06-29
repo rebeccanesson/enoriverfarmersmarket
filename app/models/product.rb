@@ -8,6 +8,7 @@ class Product < ActiveRecord::Base
   has_many :line_items
   
   validates_presence_of :account_id
+  validates_length_of :description, :maximum => 700
   
   acts_as_reportable
   

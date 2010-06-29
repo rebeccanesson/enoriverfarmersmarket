@@ -1,7 +1,9 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
-# one:
-#   column: value
-#
-# two:
-#   column: value
+one:
+ user_id: 1
+ producer_name: 'Test Producer'
+
+two:
+  user_id: 1
+  producer_name: 'Another Test Producer'
