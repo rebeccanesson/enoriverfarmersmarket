@@ -114,6 +114,7 @@ class Admin::DeliveryCyclesController < Admin::AdminController
          flash[:notice] = 'DeliveryCycle was successfully duplicated.'
          format.html { redirect_to(admin_delivery_cycles_path) }
        else
+         flash[:notice] = "Could not duplicate delivery cycle. #{new_dc.errors.inspect}"
         logger.debug("errors are: #{new_dc.errors.inspect}")
          format.html { 
                        redirect_to(admin_delivery_cycles_path) 
