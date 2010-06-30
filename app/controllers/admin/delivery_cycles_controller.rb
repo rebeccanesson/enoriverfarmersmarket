@@ -90,6 +90,7 @@ class Admin::DeliveryCyclesController < Admin::AdminController
                                 params[:delivery_cycle][:"start_date(4i)"].to_i, 
                                 params[:delivery_cycle][:"start_date(5i)"].to_i)
     logger.debug("start_date is #{start_date}")
+    start_date = start_date + 4.hours
     dc = DeliveryCycle.find(params[:id])
     logger.debug("dc is #{dc.inspect}")
     logger.debug("edit open is #{start_date}")
