@@ -1,4 +1,5 @@
-<h1>Editing category</h1>
+<div class="left-column">
+<h2>Editing category</h2>
 
 <% form_for([:admin, @category]) do |f| %>
   <%= f.error_messages %>
@@ -8,5 +9,5 @@
   </p>
 <% end %>
 
-<%= link_to 'Show', admin_category_path(@category) %> |
 <%= link_to 'Back', admin_categories_path %>
+</div>
