@@ -62,4 +62,40 @@ class Product < ActiveRecord::Base
     self.created_at < delivery_cycle.order_open
   end
   
+  def category_prefix
+    return 'Uncategorized' unless self.category
+    prefix = self.category.name
+    cat = self.category
+    while cat.parent and cat.parent.parent
+      cat = cat.parent
+      prefix = cat.name + ':' + prefix
+    end
+    prefix
+  end
+  
+  def self.alphabetize(prods)
+    prods.sort do |x,y| 
+      Product.compare(x,y)
+    end
+  end
+  
+  def self.compare(x,y)
+    return 0 unless x.category and y.category
+    return 1 unless x.category
+    return -1 unless y.category
+    
+    xcatlist = x.category.ancestors.collect { |a| a.name }.reverse << x.category.name
+    ycatlist = y.category.ancestors.collect { |a| a.name }.reverse << y.category.name 
+    
+    while xcatlist.size > 0 and ycatlist.size > 0 
+      res = (xcatlist.shift <=> ycatlist.shift)
+      return res unless res == 0
+    end
+    
+    return 0 if xcatlist.size == 0 and ycatlist.size == 0
+    return 1 if xcatlist.size == 0 
+    return -1 if ycatlist.size == 0
+  end
+
+  
 end

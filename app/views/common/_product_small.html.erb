@@ -5,10 +5,9 @@
       <%= image_for(product) %>
     </div>
     <div class="span-5">
-      <p><b><%= link_to product.title, account_product_path(product.account,product) %></b><br />
+      <p><b><%= product.category_prefix %>:<%= link_to product.title, account_product_path(product.account,product) %></b><br />
          From <%= link_to product.account.name, account_path(product.account) %><br />
-         <%= product.description %><br />
-         Category: <%= (product.category ? product.category.name : 'Uncategorized') %></p>
+         <%= product.description %></p>
     </div>
     <div class="span-5 last">
       <p><%= product.formatted_price %> per <%= product.ordering_unit %><br />

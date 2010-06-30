@@ -12,6 +12,7 @@ class ProductsController < ApplicationController
   def index
     @search = Product.search(params[:search])
     @products = @search.all
+    @products = Product.alphabetize(@products)
     @facets = Product.facet(@products)
     @root_categories = Category.root_categories
     
