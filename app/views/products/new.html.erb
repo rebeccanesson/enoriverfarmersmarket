@@ -6,6 +6,9 @@
 
   <%= render :partial => "form", :object => f %>
   <p>
+    <%= label_tag 'Add another product' %>
+    <%= check_box_tag('add_another', value = "1", checked = false, options = {}) %>
+  <p>
     <%= f.submit 'Create' %>
   </p>
 <% end %>

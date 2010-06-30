@@ -6,7 +6,7 @@ class ProductsController < ApplicationController
   before_filter :load_account, :except => [:index, :show]
   before_filter :is_owner_or_admin, :only => [:edit, :update, :destroy]
   before_filter :load_sidebar_variables, :only => [:index]
-  before_filter :ordering_and_delivery_closed, :only => [:edit, :create, :update, :destroy]
+  before_filter :ordering_and_delivery_closed, :only => [:edit, :update, :destroy]
   before_filter :can_make_orderable, :only => [:make_orderable, :remove_orderable]
   
   def index
@@ -61,7 +61,13 @@ class ProductsController < ApplicationController
     respond_to do |format|
       if @product.save
         flash[:notice] = 'Product was successfully created.'
-        format.html { redirect_to account_products_path(@account) }
+        format.html { 
+          if params[:add_another]
+            redirect_to new_account_product_path(@account)
+          else
+            redirect_to account_products_path(@account) 
+          end 
+        }
         format.xml  { render :xml => @product, :status => :created, :location => @product }
       else
         format.html { render :action => "new" }
