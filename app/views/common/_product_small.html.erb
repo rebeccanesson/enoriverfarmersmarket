@@ -26,9 +26,15 @@
 
   <div class="span-5 last">
     <ul>
-      <% if can_edit(product) and @current_delivery_cycle and @current_delivery_cycle.is_edit%>
+      <!-- products can be edited or deleted when there is no cycle or when ordering is not yet open -->
+      <% if can_edit(product) and 
+        (!@current_delivery_cycle or (@current_delivery_cycle and @current_delivery_cycle.is_before_order)) %>
         <li><%= link_to 'Edit', edit_account_product_path(product.account,product) %></li>
         <li><%= link_to 'Delete', account_product_path(product.account,product), :method => :delete %></li>
+      <% end %>
+      <!-- inventory can be changed any time if there is a current cycle open and the product was
+           not added after ordering opened in that cycle -->
+      <% if can_edit(product) and @current_delivery_cycle and product.can_make_orderable(@current_delivery_cycle) %>
         <li>Adjust inventory:<br />
           <% form_remote_tag :url => make_orderable_account_product_path(product.account,product) do -%>
               <div style="margin-left:10px;"><%= text_field_tag 'number', 0, :size => 2 %> <%= submit_tag 'add' %></div>
@@ -37,6 +43,8 @@
               <div style="margin-left:10px;"><%= text_field_tag 'number', 0, :size => 2 %> <%= submit_tag 'drop' %></div>
             <% end -%>
         </li>
+      <% elsif @current_delivery_cycle and !product.can_make_orderable(@current_delivery_cycle) %>
+        <li>Inventory adjustment not available until next cycle.</li>
       <% end %>
       <% if @current_user and @current_delivery_cycle and @current_delivery_cycle.is_order and product.available_orderables.count > 0 %>
         <li><%= link_to 'Add to cart', add_to_cart_user_url(@current_user, :product_id => product.id) %></li>

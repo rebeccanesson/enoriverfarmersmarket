@@ -7,6 +7,7 @@ class ProductsController < ApplicationController
   before_filter :is_owner_or_admin, :only => [:edit, :update, :destroy]
   before_filter :load_sidebar_variables, :only => [:index]
   before_filter :ordering_and_delivery_closed, :only => [:edit, :create, :update, :destroy]
+  before_filter :can_make_orderable, :only => [:make_orderable, :remove_orderable]
   
   def index
     @search = Product.search(params[:search])
@@ -145,8 +146,8 @@ class ProductsController < ApplicationController
   end
   
   def ordering_and_delivery_closed
-    unless @current_delivery_cycle and @current_delivery_cycle.permits_product_editing
-      flash[:notice] = "You cannot add, edit, or delete products during the ordering and delivery phases of a delivery cycle"
+    unless !@current_delivery_cycle or (@current_delivery_cycle and @current_delivery_cycle.permits_product_editing)
+      flash[:notice] = "You cannot edit or delete products during the ordering and delivery phases of a delivery cycle"
       if @account and @product
         redirect_to account_product_url(@account,@product)
       elsif @product
@@ -158,4 +159,15 @@ class ProductsController < ApplicationController
       end
     end
   end
+  
+  def can_make_orderable
+    if !@current_delivery_cycle
+      flash[:notice] = "You cannot add inventory when there is no current delivery cycle." 
+      redirect_to products_url
+    elsif !@product.can_make_orderable(@current_delivery_cycle)
+      flash[:notice] = "You cannot make this product orderable until the current ordering period ends."
+      redirect_to products_url
+    end
+  end
+  
 end

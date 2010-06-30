@@ -86,6 +86,10 @@ class DeliveryCycle < ActiveRecord::Base
     self.current_phase == @@phases[7]
   end
   
+  def is_before_order
+    @@phases.index(self.current_phase) < 3
+  end 
+  
   def is_after_order 
     @@phases.index(self.current_phase) > 3
   end

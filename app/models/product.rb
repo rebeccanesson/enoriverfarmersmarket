@@ -58,4 +58,8 @@ class Product < ActiveRecord::Base
     self.account.name
   end
   
+  def can_make_orderable(delivery_cycle)
+    self.created_at < delivery_cycle.order_open
+  end
+  
 end
