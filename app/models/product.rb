@@ -8,6 +8,13 @@ class Product < ActiveRecord::Base
   has_many :line_items
   
   validates_presence_of :account_id
+  validates_presence_of :title
+  validates_presence_of :description
+  validates_presence_of :category_id
+  validates_presence_of :ordering_unit
+  validates_presence_of :price_per_unit
+  validates_numericality_of :price_per_unit
+  validates_presence_of :storage
   validates_length_of :description, :maximum => 700
   
   acts_as_reportable
