@@ -115,7 +115,7 @@ module ApplicationHelper
   def category_facets(siblings, facets, search, first=false)
     if siblings.size > 0 
       ret = '<ul class="facets">'
-      siblings.collect do |sibling|
+      siblings.sort {|c1,c2| c1.name <=> c2.name }.collect do |sibling|
         next if facets[:categories][sibling.id] == 0
         ret += '<li>'
         ret += link_to "#{sibling.name} (#{facets[:categories][sibling.id]})", products_url(:search => search.conditions.merge(:category_id_equals_any => sibling.descendants.map { |d| d.id }))
