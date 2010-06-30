@@ -65,7 +65,7 @@ class ProductsController < ApplicationController
           if params[:add_another]
             redirect_to new_account_product_path(@account)
           else
-            redirect_to account_products_path(@account) 
+            redirect_to account_path(@account) 
           end 
         }
         format.xml  { render :xml => @product, :status => :created, :location => @product }

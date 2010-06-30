@@ -1,15 +1,15 @@
 <% product = product_small %>
 <div id="<%=dom_id(product)%>" class="span-17" style="margin-bottom:10px;">
-  <div class="span-12">
+  <div class="span-13">
     <div class="span-2">
       <%= image_for(product) %>
     </div>
-    <div class="span-5">
+    <div class="span-7">
       <p><b><%= product.category_prefix %>:<%= link_to product.title, account_product_path(product.account,product) %></b><br />
          From <%= link_to product.account.name, account_path(product.account) %><br />
          <%= product.description %></p>
     </div>
-    <div class="span-5 last">
+    <div class="span-4 last">
       <p><%= product.formatted_price %> per <%= product.ordering_unit %><br />
          <%= product.available_orderables.count %> available for purchase<br />
          <% if can_edit(product) %>
@@ -23,7 +23,7 @@
     </div>
   </div> 
 
-  <div class="span-5 last">
+  <div class="span-4 last">
     <ul>
       <!-- products can be edited or deleted when there is no cycle or when ordering is not yet open -->
       <% if can_edit(product) and 
