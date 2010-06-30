@@ -1,0 +1,9 @@
+<div class="left-column">
+  <h2>Request a New Category</h2>
+  <% @product = Product.new unless @product %>
+  <% form_tag send_category_request_user_url(@user, :account_id => @account.id, :product_id => @product) do %>
+    <p>Please let the adminstrator know what category you would like to add and why:</p>
+    <%= text_area_tag :text %><br />
+    <%= submit_tag 'Send Now'%>
+  <% end %>
+</div>

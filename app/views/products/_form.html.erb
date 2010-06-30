@@ -3,7 +3,14 @@
   <select name="product[category_id]">
     <%= expand_tree_into_select_field(Category.root_categories) %>
   </select>
+  <% if @product %>
+    <%= link_to 'Want to request a new category?', category_request_user_path(@current_user, :account_id => @account.id, :product_id => @product.id) %>
+  <% else %>
+      <%= link_to 'Want to request a new category?', category_request_user_path(@current_user, :account_id => @account.id) %>
+  <% end %>
 </p>
+
+
 
 <p>
   <%= form.label :title %><br />

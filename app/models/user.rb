@@ -57,5 +57,9 @@ class User < ActiveRecord::Base
   def self.producers
     User.all.reject { |u| u.managed_accounts.size == 0 }
   end
+  
+  def self.admins
+    User.find(:all, :conditions => "admin is true")
+  end
     
 end
