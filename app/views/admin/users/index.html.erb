@@ -15,7 +15,11 @@
     <td><%=h user.last_name %></td>
     <td><%=h user.email %></td>
     <td><%= (user.admin ? 'yes' : 'no') %></td>
-    <td></td>
+    <td><% if user.admin and user != @current_user %>
+          <%= link_to 'Remove Admin', remove_admin_admin_user_path(user) %>
+        <% elsif !user.admin %> 
+          <%= link_to 'Make Admin', make_admin_admin_user_path(user)  %>
+        <% end %></td>
     <td><%= link_to 'Edit', edit_user_path(user) %></td>
     <td><%= link_to 'Delete', user_path(user), :method => :delete %>
 <% end %>

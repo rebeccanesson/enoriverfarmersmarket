@@ -15,7 +15,8 @@ ActionController::Routing::Routes.draw do |map|
       delivery_cycles.resources :orders
     end
     admin.resources :users, :collection => { :compose_users_email => :get, :send_users_email => :get, 
-                                             :compose_producers_email => :get, :send_producers_email => :get }
+                                             :compose_producers_email => :get, :send_producers_email => :get }, 
+                            :member => { :make_admin => :get, :remove_admin => :get }
     admin.resources :reports, :collection => { :invoices_by_customer => :get, :invoices_by_producer => :get }
   end
   
