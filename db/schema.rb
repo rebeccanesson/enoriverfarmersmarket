@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100629232142) do
+ActiveRecord::Schema.define(:version => 20100701131228) do
 
   create_table "account_memberships", :force => true do |t|
     t.integer  "account_id"
@@ -128,6 +128,8 @@ ActiveRecord::Schema.define(:version => 20100629232142) do
     t.datetime "updated_at"
     t.integer  "category_id"
     t.string   "storage"
+    t.float    "min_weight"
+    t.float    "max_weight"
   end
 
   create_table "users", :force => true do |t|

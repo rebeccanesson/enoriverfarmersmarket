@@ -15,13 +15,20 @@ class Product < ActiveRecord::Base
   validates_numericality_of :price_per_unit
   validates_presence_of :storage
   validates_length_of :description, :maximum => 700
+  validates_presence_of :min_weight, :if => Proc.new { |prod| prod.ordering_unit == SOLD_BY_WEIGHT }
+  validates_presence_of :max_weight, :if => Proc.new { |prod| prod.ordering_unit == SOLD_BY_WEIGHT }
   
   acts_as_reportable
   
   @@storage_options = ['shelved', 'refrigerated', 'frozen']
   cattr_accessor :storage_options
   
+  SOLD_BY_WEIGHT = 'each, priced by the pound'
+  @@ordering_units = ['each', 'pound', SOLD_BY_WEIGHT, 'bag', 'bunch', 'pint'].sort
+  cattr_accessor :ordering_units
+  
   validates_presence_of :storage, :in => @@storage_options, :allow_nil => true
+  validates_presence_of :ordering_unit => @@ordering_units
   
   def price_in_dollars
     price_per_unit/100.0 if price_per_unit; 
@@ -34,12 +41,33 @@ class Product < ActiveRecord::Base
     self.price_per_unit = (p.to_f*100).to_i
   end
   
+  def sold_by_weight
+    ordering_unit == SOLD_BY_WEIGHT
+  end
+  
+  def estimated_price
+    if ordering_unit == SOLD_BY_WEIGHT
+      (price_per_unit * average_weight) / 100.0 
+    else 
+      price_in_dollars
+    end
+  end
+  
   def self.by_category
     Category.products_by_category
   end
   
   def formatted_price
     format("$%.2f",self.price_in_dollars)
+  end
+  
+  def formatted_estimated_price
+    format("$%.2f",self.estimated_price)
+  end
+  
+  def average_weight
+    return nil unless self.ordering_unit == SOLD_BY_WEIGHT
+    (self.min_weight + self.max_weight) / 2.0
   end
   
   def self.facet(products)
@@ -102,6 +130,5 @@ class Product < ActiveRecord::Base
     return 1 if xcatlist.size == 0 
     return -1 if ycatlist.size == 0
   end
-
   
 end

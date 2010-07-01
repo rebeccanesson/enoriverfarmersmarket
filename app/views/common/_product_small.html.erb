@@ -10,16 +10,23 @@
          <%= product.description %></p>
     </div>
     <div class="span-4 last">
-      <p><%= product.formatted_price %> per <%= product.ordering_unit %><br />
-         <%= product.available_orderables.count %> available for purchase<br />
-         <% if can_edit(product) %>
-           <%= product.carted_orderables.count %> in shopping carts<br />
-           <%= product.ordered_orderables.count %> in completed orders<br />
-         <% end %>
-         <% if @current_user and @current_user.current_order %>
-           <%= @current_user.current_order.count_product(product) %> in 
-           <%= (@current_user.current_order.final ? ' your completed order' : ' your shopping cart') %>
-         <% end %>
+      <% if !product.sold_by_weight %>
+        <%= product.formatted_price %> per <%= product.ordering_unit %><br />
+      <% else %>
+        <%= product.formatted_price %> per pound.<br />
+        <b>Sold by the unit</b><br />  
+        Size range: <%= product.min_weight %> - <%= product.max_weight %> lbs.<br />
+        Estimated price: <%= product.formatted_estimated_price %><br />
+      <% end %>
+      <%= product.available_orderables.count %> available for purchase<br />
+      <% if can_edit(product) %>
+        <%= product.carted_orderables.count %> in shopping carts<br />
+        <%= product.ordered_orderables.count %> in completed orders<br />
+      <% end %>
+      <% if @current_user and @current_user.current_order %>
+        <%= @current_user.current_order.count_product(product) %> in 
+        <%= (@current_user.current_order.final ? ' your completed order' : ' your shopping cart') %>
+      <% end %>
     </div>
   </div> 
 
