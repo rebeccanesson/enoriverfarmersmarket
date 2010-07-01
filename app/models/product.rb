@@ -9,7 +9,6 @@ class Product < ActiveRecord::Base
   
   validates_presence_of :account_id
   validates_presence_of :title
-  validates_presence_of :description
   validates_presence_of :category_id
   validates_presence_of :ordering_unit
   validates_presence_of :price_per_unit
