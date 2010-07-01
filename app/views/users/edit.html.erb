@@ -1,11 +1,14 @@
 <div class="left-column">
-<h1>Edit <%= @user.name %></h1>
+<h2>Edit <%= @user.name %></h2>
 
 <% form_for @user do |f| %>
   <%= f.error_messages %>
   <%= render :partial => "form", :object => f %>
+  <div class="span-4 form-label">
   <%= f.submit "Update" %>
+  </div>
 <% end %>
 
-<br /><%= link_to "My Account", user_path %>
+<br />
+<div class="span-22" style="margin-bottom:15px;"><%= link_to "My Profile", user_path %></div>
 </div>

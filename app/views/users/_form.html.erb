@@ -1,66 +1,66 @@
-<div class="span-4">
+<div class="span-4 form-label">
 <%= form.label :login %>:
 </div>
 <div class="span-18 last">
 <%= form.text_field :login %><br />
 </div>
-<div class="span-4">
+<div class="span-4 form-label">
 <%= form.label :password, form.object.new_record? ? nil : "Change password" %>:
 </div>
 <div class="span-18 last">
 <%= form.password_field :password %><br />
 </div>
 <div class="span-24 last">
-  <div class="span-4">
+  <div class="span-4 form-label">
   <%= form.label :password_confirmation %>:
   </div>
   <div class="span-18 last">
   <%= form.password_field :password_confirmation %><br />
   </div>
 </div>
-<div class="span-4">
+<div class="span-4 form-label">
 <%= form.label :email %>:
 </div>
 <div class="span-18 last">
 <%= form.text_field :email %><br />
 </div>
-<div class="span-4">
+<div class="span-4 form-label">
 <%= form.label :first_name %>:
 </div>
 <div class="span-18 last">
 <%= form.text_field :first_name %><br />
 </div>
-<div class="span-4">
+<div class="span-4 form-label">
 <%= form.label :last_name %>:
 </div>
 <div class="span-18 last">
 <%= form.text_field :last_name %><br />
 </div>
-<div class="span-4">
+<div class="span-4 form-label">
 <%= form.label :street %>:
 </div>
 <div class="span-18 last">
 <%= form.text_field :street %><br />
 </div>
-<div class="span-4">
+<div class="span-4 form-label">
 <%= form.label :city %>:
 </div>
 <div class="span-18 last">
 <%= form.text_field :city %><br />
 </div>
-<div class="span-4">
+<div class="span-4 form-label">
 <%= form.label :state %>:
 </div>
 <div class="span-18 last">
 <%= select(:user, :state, state_select) %><br />
 </div>
-<div class="span-4">
+<div class="span-4 form-label">
 <%= form.label :zipcode %>:
 </div>
 <div class="span-18 last">
 <%= form.text_field :zipcode %><br />
 </div>
-<div class="span-4">
+<div class="span-4 form-label">
 <%= form.label :phone %>:
 </div>
 <div class="span-18 last">
@@ -68,9 +68,12 @@
 <%= form.text_field :phone_two %><br />
 <%= form.text_field :phone_three %><br />
 </div>
-<div class="span-4">
+
 <% if is_admin %>
-  <%= form.label :admin %>:
+<div class="span-4 form-label">
+  <%= form.label :admin %>:</div>
+<div class="span-18">
   <%= form.check_box :admin %><br />
+</div>
 <% end %>
 </div>

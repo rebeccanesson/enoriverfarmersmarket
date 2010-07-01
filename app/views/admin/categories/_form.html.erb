@@ -1,13 +1,15 @@
-<p>
-  <%= form.label :name %><br />
+<div class="span-4 form-label">
+  <%= form.label :name %></div>
+<div class="span-18">
   <%= form.text_field :name %>
-</p>
-<p>
-  <%= form.label :parent_id %><br />
-  <%= select("category", "parent_id", @categories.collect {|c| [ c.name, c.id ] }, {:include_blank => true})
-   %>
-</p>
-<p>
-  <%= form.label :image_url %><br />
+</div>
+<div class="span-4 form-label">
+  <%= form.label :parent_id %></div>
+<div class="span-18">
+  <%= select("category", "parent_id", @categories.collect {|c| [ c.name, c.id ] }, {:include_blank => true}) %>
+</div>
+<div class="span-4 form-label">
+  <%= form.label :image_url %></div>
+<div class="span-18">
   <%= form.text_field :image_url %>
-</p>
+</div>

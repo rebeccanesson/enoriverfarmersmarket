@@ -5,13 +5,16 @@
   <%= f.error_messages %>
 
   <%= render :partial => "form", :object => f %>
-  <p>
-    <%= label_tag 'Add another product' %>
+  <div class="span-4 form-label">
+    <%= label_tag 'Add another product' %></div>
+  <div class="span-18">
     <%= check_box_tag('add_another', value = "1", checked = false, options = {}) %>
-  <p>
+  </div>
+  <div class="span-4 form-label">
     <%= f.submit 'Create' %>
-  </p>
+  </div>
 <% end %>
-
+<div class="span-22" style="margin-bottom:15px;">
 <%= link_to 'Back', account_products_path(@account) %>
+</div>
 </div>

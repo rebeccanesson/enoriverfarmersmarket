@@ -1,31 +1,47 @@
-<div class="span-10">
+<div class="span-4 form-label">
 <%= form.label :producer_name %>
 </div>
-<div class="span-10 last">
+<div class="span-11 last">
 <%= form.text_field :producer_name %>
+</div><br />
+<div class="span-4 form-label">
+<%= form.label :logo_url %>
 </div>
-<br />
-<%= form.label :logo_url %><br />
+<div class="span-11 last">
 <%= form.text_field :logo_url %>
-<br />
-<%= form.label :street %><br />
+</div><br />
+<div class="span-4 form-label">
+<%= form.label :street %>
+</div>
+<div class="span-11 last">
 <%= form.text_field :street %><br />
-<br />
-<%= form.label :city %><br />
+</div><br />
+<div class="span-4 form-label">
+<%= form.label :city %></div>
+<div class="span-11 last">
 <%= form.text_field :city %><br />
-<br />
-<%= form.label :state %><br />
+</div><br />
+<div class="span-4 form-label">
+<%= form.label :state %></div>
+<div class="span-11 last">
 <%= select(:account, :state, state_select) %><br />
-<br />
-<%= form.label :zipcode %><br />
+</div><br />
+<div class="span-4 form-label">
+<%= form.label :zipcode %></div>
+<div class="span-11 last">
 <%= form.text_field :zipcode %><br />
-<br />
-<%= form.label :phone %><br />
+</div><br />
+<div class="span-4 form-label">
+<%= form.label :phone %></div>
+<div class="span-11 last">
 <%= form.text_field :phone %><br />
-<br />
-<%= form.label :description %><br />
+</div><br />
+<div class="span-4 form-label">
+<%= form.label :description %></div>
+<div class="span-11 last">
 <%= form.text_area :description %><br />
-<br />
-<%= form.label :website_url %><br />
-<%= form.text_field :website_url %><br />
-<br />
+</div><br />
+<div class="span-4 form-label">
+<%= form.label :website_url %></div>
+<div class="span-11 last">
+<%= form.text_field :website_url %></div>

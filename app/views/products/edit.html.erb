@@ -1,13 +1,17 @@
-<h1>Editing product</h1>
+<div class="left-column">
+<h2>Editing product</h2>
 
 <% form_for([@account,@product]) do |f| %>
   <%= f.error_messages %>
 
   <%= render :partial => "form", :object => f %>
-  <p>
+  <div class="span-4 form-label">
     <%= f.submit 'Update' %>
-  </p>
+  </div>
 <% end %>
 
+<div class="span-22" style="margin-bottom:15px;">
 <%= link_to 'Show', account_product_path(@account,@product) %> |
 <%= link_to 'Back', account_products_path(@account) %>
+</div>
+</div>

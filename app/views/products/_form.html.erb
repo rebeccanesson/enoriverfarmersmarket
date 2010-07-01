@@ -1,5 +1,6 @@
-<p>
-  <%= form.label :category %><br />
+<div class="span-4 form-label">
+  <%= form.label :category %></div>
+<div class="span-18">
   <select name="product[category_id]">
     <%= expand_tree_into_select_field(Category.root_categories) %>
   </select>
@@ -8,34 +9,34 @@
   <% else %>
       <%= link_to 'Want to request a new category?', category_request_user_path(@current_user, :account_id => @account.id) %>
   <% end %>
-</p>
-
-
-
-<p>
-  <%= form.label :title %><br />
+</div>
+<div class="span-4 form-label">
+  <%= form.label :title %></div>
+<div class="span-18">
   <%= form.text_field :title %>
-</p>
-
-<p>
-  <%= form.label :image_url %><br />
+</div>
+<div class="span-4 form-label">
+  <%= form.label :image_url %></div>
+<div class="span-18">
   <%= form.text_field :image_url %>
-</p>
-
-<p>
-  <%= form.label :description %><br />
+</div>
+<div class="span-4 form-label">
+  <%= form.label :description %></div>
+<div class="span-18">
   <%= form.text_area :description %>
-</p>
-<p>
-  <%= form.label :ordering_unit %><br />
+</div>
+<div class="span-4 form-label">
+  <%= form.label :ordering_unit %></div>
+<div class="span-18">
   <%= form.text_field :ordering_unit %>
-</p>
-<p>
-  <%= form.label :price_in_dollars %><br />
+</div>
+<div class="span-4 form-label">
+  <%= form.label :price_in_dollars %></div>
+<div class="span-18">
   <%= form.text_field :price_in_dollars %>
-</p>
-
-<p>
-  <%= form.label :storage %>
+</div>
+<div class="span-4 form-label">
+  <%= form.label :storage %></div>
+<div class="span-18">
   <%= select("product", "storage", Product.storage_options) %>
-<p>
+</div>
