@@ -39,7 +39,7 @@
     <% end %>
     <!-- inventory can be changed any time if there is a current cycle open and the product was
          not added after ordering opened in that cycle -->
-    <% if can_edit(product) and @current_delivery_cycle and product.can_make_orderable(@current_delivery_cycle) %>
+    <% if can_edit(product) and @current_delivery_cycle and !@current_delivery_cycle.is_after_order and product.can_make_orderable(@current_delivery_cycle) %>
       <li>Adjust inventory:<br />
         <% form_remote_tag :url => make_orderable_account_product_path(product.account,product) do -%>
             <div style="margin-left:10px;"><%= text_field_tag 'number', 0, :size => 2 %> <%= submit_tag 'add' %></div>
