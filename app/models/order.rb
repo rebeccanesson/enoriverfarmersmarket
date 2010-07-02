@@ -36,4 +36,8 @@ class Order < ActiveRecord::Base
     self.user.name
   end
   
+  def includes_sold_by_weight
+    self.line_items.collect { |l| l.product }.select { |p| p.sold_by_weight}.size > 0
+  end
+  
 end

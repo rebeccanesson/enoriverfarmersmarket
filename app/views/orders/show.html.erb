@@ -40,8 +40,12 @@
     <td><%= line_item.product.title %></td>
     <td><%= line_item.item_count %></td>
     <td><%= line_item.product.ordering_unit %></td>
-    <td><%= line_item.product.price_in_dollars %></td>
-    <td><%= line_item.total_price_in_dollars %></td>
+    <% if line_item.product.sold_by_weight %>
+      <td><%= as_money(line_item.product.estimated_price) %>*</td>
+    <% else %>
+      <td><%= as_money(line_item.product.price_in_dollars) %></td>
+    <% end %>
+    <td><%= as_money(line_item.total_price_in_dollars) %><%= (line_item.product.sold_by_weight ? '*' : '') %></td>
     <td><%= link_to 'remove one', remove_from_cart_user_path(@order.user, :line_item_id => line_item) %></td>
     <td><%= link_to 'remove all', remove_all_from_cart_user_path(@order.user, :line_item_id => line_item) %></td>
   </tr>
@@ -51,7 +55,7 @@
      <td style="border-top:1px solid black;"></td>
      <td style="border-top:1px solid black;"></td>
     <td style="border-top:1px solid black;">SubTotal:</td>
-     <td style="border-top:1px solid black;"><%= @order.subtotal %></td>
+     <td style="border-top:1px solid black;"><%= as_money(@order.subtotal) %><%= @order.includes_sold_by_weight ? '*' : '' %></td>
      <td style="border-top:1px solid black;"></td>
      <td style="border-top:1px solid black;"></td> 
    </tr>
@@ -60,7 +64,7 @@
      <td></td>
      <td></td>
     <td>Market Fee:</td>
-     <td><%= @order.member_surcharge %></td>
+     <td><%= as_money(@order.member_surcharge) %><%= @order.includes_sold_by_weight ? '*' : '' %></td>
      <td></td>
      <td></td>
    </tr>
@@ -69,9 +73,11 @@
      <td></td>
      <td></td>
      <td>Total:</td>
-     <td><%= @order.total %></td>
+     <td><%= as_money(@order.total) %><%= @order.includes_sold_by_weight ? '*' : '' %></td>
       <td></td>
       <td></td>
    </tr>    
 </table>
+
+<p>* <%= SOLD_BY_WEIGHT_EXPLANATION %></p>
 </div>

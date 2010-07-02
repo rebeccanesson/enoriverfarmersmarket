@@ -194,4 +194,8 @@ module ApplicationHelper
   def is_admin
     @current_user and @current_user.admin
   end
+  
+  def as_money(q) 
+    format("$%.2f", q)
+  end 
 end

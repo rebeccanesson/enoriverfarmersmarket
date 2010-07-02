@@ -59,3 +59,5 @@ MEMBER_SURCHARGE = 0.00
 PRODUCER_SURCHARGE = 0.05
 
 Mime::Type.register 'application/pdf', :pdf
+
+SOLD_BY_WEIGHT_EXPLANATION = "Products that are priced per pound but sold by the unit may vary in weight. Prices for products sold by weight are estimated price based on the average weight of a unit.  The actual prices for these products will be determined by actual weight at pick up."

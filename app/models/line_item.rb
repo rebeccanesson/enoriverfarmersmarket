@@ -9,11 +9,15 @@ class LineItem < ActiveRecord::Base
   acts_as_reportable
   
   def total_price
-    self.product.price_per_unit * self.orderables.count
+    self.product.price_per_unit * item_count
   end
   
   def total_price_in_dollars
-    self.total_price / 100.0
+    if self.product.sold_by_weight
+      self.product.estimated_price * item_count
+    else 
+      self.total_price / 100.0
+    end
   end
   
   def item_count
