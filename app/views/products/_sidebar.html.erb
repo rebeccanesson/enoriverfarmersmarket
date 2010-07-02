@@ -16,7 +16,9 @@
   <b>By Producer:</b>
   <ul>
     <% @facets[:accounts].each_pair do |acct, cnt| %>
-    <li><%= link_to "#{acct.name} (#{cnt})", products_url(:search => @search.conditions.merge(:account_id_equals => acct.id)) %></li>
+      <% if cnt > 0 %>
+        <li><%= link_to "#{acct.name} (#{cnt})", products_url(:search => @search.conditions.merge(:account_id_equals => acct.id)) %></li>
+      <% end %>
     <% end %>
     <li><%= link_to "Any Producer", products_url(:search => @search.conditions.reject{|k,v| k == :account_id_equals }) %></li>
   </ul>
