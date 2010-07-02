@@ -36,13 +36,13 @@ module ApplicationHelper
     if item.is_a?(Product)
       if item.image_url and !item.image_url.blank?
         res = "<img src='#{item.image_url}' />"
-      elsif item.account and item.account.logo_url and !item.account.logo_url.blank? 
-        res = "<img src='#{item.account.logo_url}' />"
       elsif item.category 
         cat_image = item.category.image
         if cat_image and !cat_image.blank? 
           res = "<img src='#{cat_image}' />"
         end
+      elsif item.account and item.account.logo_url and !item.account.logo_url.blank? 
+        res = "<img src='#{item.account.logo_url}' />"
       end
     elsif item.is_a?(Category)
       cat_image = item.image
