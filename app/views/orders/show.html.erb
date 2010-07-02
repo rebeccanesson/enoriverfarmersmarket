@@ -31,8 +31,10 @@
     <th>Ordering Unit</th>
     <th>Unit Price</th>
     <th>Total Price</th>
-    <th>Remove One</th>
-    <th>Remove All</th>
+    <% if !@order.final %>
+      <th>Remove One</th>
+      <th>Remove All</th>
+    <% end %>
     <th>
   </tr>
 <% @order.line_items.each do |line_item| %> 
@@ -46,8 +48,10 @@
       <td><%= as_money(line_item.product.price_in_dollars) %></td>
     <% end %>
     <td><%= as_money(line_item.total_price_in_dollars) %><%= (line_item.product.sold_by_weight ? '*' : '') %></td>
-    <td><%= link_to 'remove one', remove_from_cart_user_path(@order.user, :line_item_id => line_item) %></td>
-    <td><%= link_to 'remove all', remove_all_from_cart_user_path(@order.user, :line_item_id => line_item) %></td>
+    <% if !@order.final %>
+      <td><%= link_to 'remove one', remove_from_cart_user_path(@order.user, :line_item_id => line_item) %></td>
+      <td><%= link_to 'remove all', remove_all_from_cart_user_path(@order.user, :line_item_id => line_item) %></td>
+    <% end %>
   </tr>
 <% end %>
    <tr>
