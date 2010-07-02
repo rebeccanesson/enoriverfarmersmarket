@@ -14,8 +14,8 @@ class ProductsController < ApplicationController
     page = 1 unless page
     @search = Product.search(params[:search])
     @products = @search.all
-    @products = Product.alphabetize(@products).paginate(:page => page, :per_page => 10)
     @facets = Product.facet(@products)
+    @products = Product.alphabetize(@products).paginate(:page => page, :per_page => 10)
     @root_categories = Category.root_categories
     
     if params[:account_id]
