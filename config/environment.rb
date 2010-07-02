@@ -28,7 +28,6 @@ Rails::Initializer.run do |config|
   config.gem "acts_as_reportable", :lib => 'ruport/acts_as_reportable'
   config.gem "ruport"
   config.gem "will_paginate"
-  config.gem "pdf-writer"
 
   # Only load the plugins named here, in the order given (default is alphabetical).
   # :all can be used as a placeholder for all plugins not explicitly named
