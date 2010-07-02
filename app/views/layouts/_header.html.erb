@@ -21,7 +21,7 @@
        <%= link_to (@current_user.current_order.final ? 'View My Order' : 'View My Cart'), user_order_path(@current_user,@current_user.current_order) %> 
       <% end %>
       <% if @current_user_session %>
-         <%= link_to 'My Profile', user_path(@current_user) %>  
+         <%= link_to 'My Account', user_path(@current_user) %>  
       <% end %>
       <% if @current_user and @current_user.admin %>
          <%= link_to 'Administer Site', '/admin' %>  
