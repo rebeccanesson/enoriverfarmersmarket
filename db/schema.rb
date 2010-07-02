@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100701131228) do
+ActiveRecord::Schema.define(:version => 20100702195909) do
 
   create_table "account_memberships", :force => true do |t|
     t.integer  "account_id"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(:version => 20100701131228) do
     t.string   "producer_name"
     t.string   "logo_url"
     t.text     "description"
+    t.string   "profile_image"
   end
 
   create_table "categories", :force => true do |t|
