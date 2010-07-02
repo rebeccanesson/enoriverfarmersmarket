@@ -14,7 +14,7 @@ class ProductsController < ApplicationController
     page = 1 unless page
     @search = Product.search(params[:search])
     @products = @search.all
-    @products = Product.alphabetize(@products).paginate(:page => page)
+    @products = Product.alphabetize(@products).paginate(:page => page, :per_page => 10)
     @facets = Product.facet(@products)
     @root_categories = Category.root_categories
     
