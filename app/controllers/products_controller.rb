@@ -137,18 +137,23 @@ class ProductsController < ApplicationController
   def add_to_cart
     success = false
     @user = User.find(params[:user_id])
-    @orderable = @product.available_orderables_in_cycle(@current_delivery_cycle).first
-    if @orderable
-      @order = @user.current_order
-      if !@order
-        @order = Order.create(:user_id => @user.id, :delivery_cycle => @current_delivery_cycle)
-      end
-      if @order
-        @line_item = @order.line_item_for_product(@product) || LineItem.create(:order_id => @order.id, :product_id => @product.id)
-        if @line_item.save
-          @orderable.update_attributes(:status => 'In Cart', :line_item_id => @line_item.id)
-          if @orderable.save
-            success = true
+    number = params[:number].to_i 
+    if number and number > 0
+      number.times do |i|
+        orderable = @product.available_orderables_in_cycle(@current_delivery_cycle).first
+        if orderable
+          @order = @user.current_order
+          if !@order
+            @order = Order.create(:user_id => @user.id, :delivery_cycle => @current_delivery_cycle)
+          end
+          if @order
+            @line_item = @order.line_item_for_product(@product) || LineItem.create(:order_id => @order.id, :product_id => @product.id)
+            if @line_item.save
+              orderable.update_attributes(:status => 'In Cart', :line_item_id => @line_item.id)
+              if !orderable.save 
+                break
+              end
+            end
           end
         end
       end

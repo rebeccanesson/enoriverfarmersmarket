@@ -36,17 +36,17 @@ class Product < ActiveRecord::Base
   
   def available_orderables_in_cycle(cycle)
     return 0 unless cycle
-    self.available_orderables.select { |o| o.delivery_cycle.id == cycle.id }
+    Orderable.find(:all, :conditions => ["status='Available' and product_id = ? and delivery_cycle_id = ?", self.id, cycle.id])
   end
 
   def carted_orderables_in_cycle(cycle)
     return 0 unless cycle
-    self.carted_orderables.select { |o| o.delivery_cycle.id == cycle.id }
+    Orderable.find(:all, :conditions => ["status='In Cart' and product_id = ? and delivery_cycle_id = ?", self.id, cycle.id])
   end
   
   def ordered_orderables_in_cycle(cycle)
     return 0 unless cycle
-    self.ordered_orderables.select { |o| o.delivery_cycle.id == cycle.id }
+    Orderable.find(:all, :conditions => ["status='Ordered' and product_id = ? and delivery_cycle_id = ?", self.id, cycle.id])
   end 
   
   def price_in_dollars

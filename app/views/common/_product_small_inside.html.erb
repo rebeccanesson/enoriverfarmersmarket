@@ -52,7 +52,11 @@
       <li>Inventory adjustment not available until next cycle.</li>
     <% end %>
     <% if @current_user and @current_delivery_cycle and @current_delivery_cycle.is_order and product.available_orderables_in_cycle(@current_delivery_cycle).size > 0 %>
-      <li><%= link_to_remote 'Add to cart', :url => { :action => :add_to_cart, :controller => :products, :id => product.id, :user_id => @current_user.id} %></li>
+      <li>Add to cart:</br> 
+        <% form_remote_tag :url => add_to_cart_product_path(product, :user_id => @current_user.id) do -%>
+            <div style="margin-left:10px;"><%= text_field_tag 'number', 0, :size => 2 %> <%= submit_tag 'add' %></div>
+        <% end -%>
+        </li>
     <% end %>
   </ul>
 </div>
