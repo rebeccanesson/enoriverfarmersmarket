@@ -27,11 +27,12 @@ class Product < ActiveRecord::Base
   @@ordering_units = ['each', 'pound', SOLD_BY_WEIGHT, 'bag', 'bunch', 'pint'].sort
   cattr_accessor :ordering_units
   
-  cattr_reader :per_page
-  @@per_page = 10
-  
   validates_presence_of :storage, :in => @@storage_options, :allow_nil => true
   validates_presence_of :ordering_unit => @@ordering_units
+  
+  def self.per_page
+    10
+  end
   
   def price_in_dollars
     price_per_unit/100.0 if price_per_unit; 
