@@ -73,11 +73,13 @@ module ApplicationHelper
     end
   end
   
-  def expand_tree_into_select_field(categories)
+  def expand_tree_into_select_field(categories, sel_id)
     returning(String.new) do |html|
       categories.each do |category|
-        html << %{<option value="#{ category.id }">#{ '&nbsp;&nbsp;&nbsp;' * category.ancestors.size }#{ category.name }</option>}
-        html << expand_tree_into_select_field(category.children.sort { |x,y| x.name <=> y.name }) if category.children.size > 0
+        html << %{<option value="#{ category.id }"}
+        html << %{ selected='selected' } if category.id == sel_id 
+        html << %{>#{ '&nbsp;&nbsp;&nbsp;' * category.ancestors.size }#{ category.name }</option>}
+        html << expand_tree_into_select_field(category.children.sort { |x,y| x.name <=> y.name }, sel_id) if category.children.size > 0
       end
     end
   end
