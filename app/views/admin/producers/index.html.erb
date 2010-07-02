@@ -8,7 +8,7 @@
   </tr>
 <% @accounts.each do |account| %>
   <tr>
-    <td><%=h account.producer_name %></td>
+    <td><%= link_to account.producer_name, user_path(account.creator) %></td>
     <td><%= link_to 'Edit', edit_account_path(account) %></td>
     <td><%= link_to 'Manage Products', account_path(account) %></td>
     <td><%= link_to 'Delete', account_path(account), :method => :delete %></td>
