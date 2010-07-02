@@ -69,7 +69,8 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :users, :member => {:request_producer_account => :get, 
                                     :remove_from_cart => :get, 
                                     :remove_all_from_cart => :get, 
-                                    :category_request => :get, :send_category_request => :post } do |users|
+                                    :category_request => :get, :send_category_request => :post, 
+                                    :ordering_request => :get, :send_ordering_request => :post } do |users|
     users.resources :orders, :member => { :terms => :get, :finalize => :get, :invoice => :get }
   end
   

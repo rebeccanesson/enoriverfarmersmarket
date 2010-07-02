@@ -24,11 +24,11 @@ class Product < ActiveRecord::Base
   cattr_accessor :storage_options
   
   SOLD_BY_WEIGHT = 'each, priced by the pound'
-  @@ordering_units = ['each', 'pound', SOLD_BY_WEIGHT, 'bag', 'bunch', 'pint'].sort
+  @@ordering_units = ['each', 'pound', SOLD_BY_WEIGHT, 'bag', 'bunch', 'pint'].sort << 'other'
   cattr_accessor :ordering_units
   
   validates_presence_of :storage, :in => @@storage_options, :allow_nil => true
-  validates_presence_of :ordering_unit => @@ordering_units
+  # validates_presence_of :ordering_unit, :in => @@ordering_units
   
   def self.per_page
     10

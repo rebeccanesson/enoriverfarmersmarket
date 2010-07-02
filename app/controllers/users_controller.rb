@@ -135,4 +135,27 @@ class UsersController < ApplicationController
     end
   end
   
+  def ordering_request 
+    @user = User.find(params[:id])
+    @account = Account.find(params[:account_id])
+    @product = Product.find(params[:product_id]) if params[:product_id]
+  end
+  
+  
+  def send_ordering_request
+    text = params[:text]
+    requesting_user = User.find(params[:id])
+    @account = Account.find(params[:account_id])
+    @product = Product.find(params[:product_id]) unless params[:product_id].blank?
+    User.admins.each do |admin_user|
+      UserMailer.deliver_ordering_request(admin_user,requesting_user,text)
+    end
+    flash[:notice] = "The adminstrator has been notified of your request."
+    if @product
+      redirect_to edit_account_product_url(@account,@product)
+    else
+      redirect_to new_account_product_url(@account)
+    end
+  end
+  
 end

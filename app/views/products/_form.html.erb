@@ -32,8 +32,13 @@
 <div class="span-4 form-label">
   <%= form.label :ordering_unit, 'Sold by' %></div>
 <div class="span-18">
-  <div class="span-4">
+  <div>
     <%= select "product", "ordering_unit", Product.ordering_units, {}, {:onChange=>'updatePriceLabel(this.value);'} %>
+    <% if @product %>
+      <%= link_to 'Want to request a new ordering unit?', ordering_request_user_path(@current_user, :account_id => @account.id, :product_id => @product.id) %>
+    <% else %>
+        <%= link_to 'Want to request a new ordering unit?', ordering_request_user_path(@current_user, :account_id => @account.id) %>
+    <% end %>
   </div>
   <div id="weight_fields">
     <div class="span-4 form-label">
