@@ -12,7 +12,15 @@ class ProductsController < ApplicationController
   def index
     page = params[:page] if params[:page]
     page = 1 unless page
-    @search = Product.search(params[:search])
+    if @current_delivery_cycle and @current_delivery_cycle.is_order
+      if params[:search]
+        @search = Product.search(params[:search].merge(:available_orderables_id_greater_than => 0))
+      else 
+        @search = Product.search({:available_orderables_id_greater_than => 0})
+      end
+    else 
+      @search = Product.search(params[:search])
+    end
     @products = @search.all.uniq
     @facets = Product.facet(@products, @current_delivery_cycle)
     @products = Product.alphabetize(@products).paginate(:page => page, :per_page => 10)
