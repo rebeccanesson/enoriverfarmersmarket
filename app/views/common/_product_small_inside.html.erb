@@ -4,7 +4,7 @@
     <div style="padding:4px;"><%= image_for(product) %></div>
   </div>
   <div class="span-7">
-    <div style="padding-left:4px;"><b><%= product.category_prefix %>:<%= link_to product.title, account_product_path(product.account,product) %></b><br />
+    <div style="padding-left:4px;"><b><%= product.category_prefix %>:<%= product.title %></b><br />
        From <%= link_to product.account.name, account_path(product.account) %><br />
        <%= product.description %></div>
   </div>
