@@ -54,7 +54,7 @@
     <% if @current_user and @current_delivery_cycle and @current_delivery_cycle.is_order and product.available_orderables_in_cycle(@current_delivery_cycle).size > 0 %>
       <li>Add to cart:</br> 
         <% form_remote_tag :url => add_to_cart_product_path(product, :user_id => @current_user.id) do -%>
-            <div style="margin-left:10px;"><%= text_field_tag 'number', 0, :size => 2 %> <%= submit_tag 'add' %></div>
+            <div style="margin-left:10px;"><%= text_field_tag 'number', 1, :size => 2 %> <%= submit_tag 'add' %></div>
         <% end -%>
         </li>
     <% end %>
