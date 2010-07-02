@@ -50,41 +50,6 @@ class UsersController < ApplicationController
     end
   end
   
-  def add_to_cart
-    success = false
-    @user = User.find(params[:id])
-    @product = Product.find(params[:product_id])
-    @orderable = @product.available_orderables_in_cycle(@current_delivery_cycle).first
-    if @orderable
-      @order = @user.current_order
-      if !@order
-        @order = Order.create(:user_id => @user.id, :delivery_cycle => @current_delivery_cycle)
-      end
-      if @order
-        @line_item = @order.line_item_for_product(@product) || LineItem.create(:order_id => @order.id, :product_id => @product.id)
-        if @line_item.save
-          @orderable.update_attributes(:status => 'In Cart', :line_item_id => @line_item.id)
-          if @orderable.save
-            success = true
-          end
-        end
-      end
-    end
-    respond_to do |format|
-      if success
-        format.html { 
-          flash[:notice] = "The item has been added to your cart."
-          redirect_to products_url
-        }
-      else
-        format.html { 
-          flash[:notice] = "The item could not be added to the cart."
-          redirect_to products_url 
-        }
-      end
-    end
-  end
-  
   def remove_from_cart
     result = false
     @user = User.find(params[:id])

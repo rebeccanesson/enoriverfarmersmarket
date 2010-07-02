@@ -2,8 +2,8 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.xml
   
-  before_filter :load_product, :only => [:show, :edit, :update, :destroy, :make_orderable, :remove_orderable]
-  before_filter :load_account, :except => [:index, :show]
+  before_filter :load_product, :only => [:show, :edit, :update, :destroy, :make_orderable, :remove_orderable, :add_to_cart]
+  before_filter :load_account, :except => [:index, :show, :add_to_cart]
   before_filter :is_owner_or_admin, :only => [:edit, :update, :destroy]
   before_filter :load_sidebar_variables, :only => [:index]
   before_filter :ordering_and_delivery_closed, :only => [:edit, :update, :destroy]
@@ -121,7 +121,7 @@ class ProductsController < ApplicationController
     if number and number > 0
       number.times do |i|
         break unless @current_delivery_cycle
-        o = Orderable.find(:first, :conditions => 'status = "Available"', :delivery_cycle_id => @current_delivery_cycle.id)
+        o = Orderable.find(:first, :conditions => ["status = 'Available' and delivery_cycle_id = ?", @current_delivery_cycle.id])
         if o
           o.destroy
         else
@@ -133,6 +133,30 @@ class ProductsController < ApplicationController
       format.js
     end 
   end 
+  
+  def add_to_cart
+    success = false
+    @user = User.find(params[:user_id])
+    @orderable = @product.available_orderables_in_cycle(@current_delivery_cycle).first
+    if @orderable
+      @order = @user.current_order
+      if !@order
+        @order = Order.create(:user_id => @user.id, :delivery_cycle => @current_delivery_cycle)
+      end
+      if @order
+        @line_item = @order.line_item_for_product(@product) || LineItem.create(:order_id => @order.id, :product_id => @product.id)
+        if @line_item.save
+          @orderable.update_attributes(:status => 'In Cart', :line_item_id => @line_item.id)
+          if @orderable.save
+            success = true
+          end
+        end
+      end
+    end
+    respond_to do |format|
+      format.js
+    end
+  end
   
   def load_product 
     @product = Product.find(params[:id])

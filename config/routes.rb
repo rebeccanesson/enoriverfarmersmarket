@@ -2,7 +2,7 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :orders
 
-  map.resources :products, :member => { :make_orderable => :post, :remove_orderable => :post }
+  map.resources :products, :member => { :make_orderable => :post, :remove_orderable => :post, :add_to_cart => :post}
 
   map.resources :accounts, :member => { :add_member => :post, :remove_member => :get, 
                                         :invoice_by_customer => :get, :invoice_by_product => :get } do |accounts|
@@ -67,7 +67,6 @@ ActionController::Routing::Routes.draw do |map|
                 :member => {:approve => :get, :deny => :get }
   
   map.resources :users, :member => {:request_producer_account => :get, 
-                                    :add_to_cart => :get, 
                                     :remove_from_cart => :get, 
                                     :remove_all_from_cart => :get, 
                                     :category_request => :get, :send_category_request => :post } do |users|

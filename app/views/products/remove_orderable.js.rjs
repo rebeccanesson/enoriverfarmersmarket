@@ -1,2 +1,2 @@
-page.replace_html "#{dom_id(@product)}", :partial => '/common/product_small', :object => @product
+page.replace_html "#{dom_id(@product)}", :partial => '/common/product_small_inside', :object => @product
 page.visual_effect :highlight, "#{dom_id(@product)}"
