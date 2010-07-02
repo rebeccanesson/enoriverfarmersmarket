@@ -2,12 +2,12 @@
 <div id="<%=dom_id(product)%>" class="span-17 product-listing" style="margin-bottom:10px;">
   <div class="span-13">
     <div class="span-2">
-      <%= image_for(product) %>
+      <div style="padding:4px;"><%= image_for(product) %></div>
     </div>
     <div class="span-7">
-      <p><b><%= product.category_prefix %>:<%= link_to product.title, account_product_path(product.account,product) %></b><br />
+      <div style="padding-left:4px;"><b><%= product.category_prefix %>:<%= link_to product.title, account_product_path(product.account,product) %></b><br />
          From <%= link_to product.account.name, account_path(product.account) %><br />
-         <%= product.description %></p>
+         <%= product.description %></div>
     </div>
     <div class="span-4 last">
       <% if !product.sold_by_weight %>
@@ -18,10 +18,10 @@
         Size range: <%= product.min_weight %> - <%= product.max_weight %> lbs.<br />
         Estimated price: <%= product.formatted_estimated_price %><br />
       <% end %>
-      <%= product.available_orderables.count %> available for purchase<br />
+      <%= product.available_orderables_in_cycle(@current_delivery_cycle).count %> available for purchase<br />
       <% if can_edit(product) %>
-        <%= product.carted_orderables.count %> in shopping carts<br />
-        <%= product.ordered_orderables.count %> in completed orders<br />
+        <%= product.carted_orderables_in_cycle(@current_delivery_cycle).count %> in shopping carts<br />
+        <%= product.ordered_orderables_in_cycle(@current_delivery_cycle).count %> in completed orders<br />
       <% end %>
       <% if @current_user and @current_user.current_order %>
         <%= @current_user.current_order.count_product(product) %> in 
@@ -52,7 +52,7 @@
       <% elsif @current_delivery_cycle and !product.can_make_orderable(@current_delivery_cycle) %>
         <li>Inventory adjustment not available until next cycle.</li>
       <% end %>
-      <% if @current_user and @current_delivery_cycle and @current_delivery_cycle.is_order and product.available_orderables.count > 0 %>
+      <% if @current_user and @current_delivery_cycle and @current_delivery_cycle.is_order and product.available_orderables_in_cycle(@current_delivery_cycle).count > 0 %>
         <li><%= link_to 'Add to cart', add_to_cart_user_url(@current_user, :product_id => product.id) %></li>
       <% end %>
     </ul>

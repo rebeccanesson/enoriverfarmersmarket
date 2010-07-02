@@ -54,7 +54,7 @@ class UsersController < ApplicationController
     success = false
     @user = User.find(params[:id])
     @product = Product.find(params[:product_id])
-    @orderable = @product.available_orderables.first
+    @orderable = @product.available_orderables_in_cycle(@current_delivery_cycle).first
     if @orderable
       @order = @user.current_order
       if !@order

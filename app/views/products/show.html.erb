@@ -12,10 +12,10 @@
     
   <div>
       <p><%= @product.formatted_price %> per <%= @product.ordering_unit %><br />
-         <%= @product.available_orderables.count %> currently available for purchase<br />
+         <%= @product.available_orderables_in_cycle(@current_delivery_cycle).count %> currently available for purchase<br />
          <% if can_edit(@product) %>
-           <%= @product.carted_orderables.count %> currently in shopping carts<br />
-           <%= @product.ordered_orderables.count %> currently in completed orders<br />
+           <%= @product.carted_orderables_in_cycle(@current_delivery_cycle).count %> currently in shopping carts<br />
+           <%= @product.ordered_orderables_in_cycle(@current_delivery_cycle).count %> currently in completed orders<br />
          <% end %>
          <% if @current_user and @current_user.current_order %>
            <%= @current_user.current_order.count_product(@product) %> currently in 
@@ -35,7 +35,7 @@
           <div><%= text_field_tag 'number', 0, :size => 3 %> <%= submit_tag 'Drop Inventory' %></div>
             <% end -%></li>
       <% end %>
-      <% if @current_user and @current_delivery_cycle and @current_delivery_cycle.is_order and @product.available_orderables.count > 0 %>
+      <% if @current_user and @current_delivery_cycle and @current_delivery_cycle.is_order and @product.available_orderables_in_cycle(@current_delivery_cycle).count > 0 %>
         <li><%= link_to 'Add to cart', add_to_cart_user_url(@current_user, :product_id => @product.id) %></li>
       <% end %>
     </ul>

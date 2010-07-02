@@ -34,6 +34,21 @@ class Product < ActiveRecord::Base
     10
   end
   
+  def available_orderables_in_cycle(cycle)
+    return 0 unless cycle
+    self.available_orderables.select { |o| o.delivery_cycle.id == cycle.id }
+  end
+
+  def carted_orderables_in_cycle(cycle)
+    return 0 unless cycle
+    self.carted_orderables.select { |o| o.delivery_cycle.id == cycle.id }
+  end
+  
+  def ordered_orderables_in_cycle(cycle)
+    return 0 unless cycle
+    self.ordered_orderables.select { |o| o.delivery_cycle.id == cycle.id }
+  end 
+  
   def price_in_dollars
     price_per_unit/100.0 if price_per_unit; 
   end
@@ -74,13 +89,13 @@ class Product < ActiveRecord::Base
     (self.min_weight + self.max_weight) / 2.0
   end
   
-  def self.facet(products)
+  def self.facet(products,cycle)
     facets = { :statuses => {:available => 0}, :categories => {}, :accounts => {} }
     Category.all.each { |c| facets[:categories][c.id] = 0 }
     Account.all.each { |a| facets[:accounts][a] = 0 }
     
     products.each do |prod|
-      facets[:statuses][:available] += 1 if prod.available_orderables.size > 0
+      facets[:statuses][:available] += 1 if prod.available_orderables_in_cycle(cycle).size > 0
       if prod.category
         cats = [prod.category] + prod.category.ancestors
         cats.each { |cat| facets[:categories][cat.id] += 1 }
