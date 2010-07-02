@@ -8,7 +8,7 @@ class Category < ActiveRecord::Base
   validates_uniqueness_of :name, :scope => :parent_id
   
   def self.root_categories
-    Category.find(:all, :conditions => "parent_id is null")
+    Category.find(:all, :conditions => "parent_id is null", :order => "name ASC")
   end 
   
   def self.products_by_category

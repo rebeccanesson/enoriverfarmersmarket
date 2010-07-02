@@ -77,7 +77,7 @@ module ApplicationHelper
     returning(String.new) do |html|
       categories.each do |category|
         html << %{<option value="#{ category.id }">#{ '&nbsp;&nbsp;&nbsp;' * category.ancestors.size }#{ category.name }</option>}
-        html << expand_tree_into_select_field(category.children) if category.children.size > 0
+        html << expand_tree_into_select_field(category.children.sort { |x,y| x.name <=> y.name }) if category.children.size > 0
       end
     end
   end

@@ -1,5 +1,5 @@
 <% product = product_small %>
-<div id="<%=dom_id(product)%>" class="span-17" style="margin-bottom:10px;">
+<div id="<%=dom_id(product)%>" class="span-17 product-listing" style="margin-bottom:10px;">
   <div class="span-13">
     <div class="span-2">
       <%= image_for(product) %>
@@ -11,9 +11,9 @@
     </div>
     <div class="span-4 last">
       <% if !product.sold_by_weight %>
-        <%= product.formatted_price %> per <%= product.ordering_unit %><br />
+        <b><%= product.formatted_price %> per <%= product.ordering_unit %></b><br />
       <% else %>
-        <%= product.formatted_price %> per pound.<br />
+        <b><%= product.formatted_price %> per pound.</b><br />
         <b>Sold by the unit</b><br />  
         Size range: <%= product.min_weight %> - <%= product.max_weight %> lbs.<br />
         Estimated price: <%= product.formatted_estimated_price %><br />

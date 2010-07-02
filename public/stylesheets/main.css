@@ -86,3 +86,7 @@ a:hover, a:active {
 	text-align:right;
 	margin-top:0.3em;
 }
+
+.product-listing { 
+	border: 1px solid #036800;
+}

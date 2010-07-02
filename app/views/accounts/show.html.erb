@@ -9,8 +9,7 @@
     <% end %>
 </h2>
 <div><%=h @account.street %><br />
-   <%=h @account.city %><br />
-   <%=h @account.state %>, <%=h @account.zipcode %><br />
+   <%=h @account.city %> <%=h @account.state %>, <%=h @account.zipcode %><br />
    <%= "Phone: #{@account.phone}" unless @account.phone.blank? %><br />
    <%= "Website: #{@account.website_url}" unless @account.website_url.blank? %>
 </div>

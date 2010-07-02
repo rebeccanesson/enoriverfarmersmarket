@@ -10,9 +10,11 @@ class ProductsController < ApplicationController
   before_filter :can_make_orderable, :only => [:make_orderable, :remove_orderable]
   
   def index
+    page = params[:page] if params[:page]
+    page = 1 unless page
     @search = Product.search(params[:search])
     @products = @search.all
-    @products = Product.alphabetize(@products)
+    @products = Product.alphabetize(@products).paginate(:page => page)
     @facets = Product.facet(@products)
     @root_categories = Category.root_categories
     
