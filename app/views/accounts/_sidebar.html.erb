@@ -5,6 +5,7 @@
       <% if can_edit(@account) %>
         <li><%= link_to 'Edit account', edit_account_path(@account) %></li>
         <li><%= link_to 'Add a new product', new_account_product_path(@account,@product) %></li>
+        <li><%= link_to 'View invoices', user_path(@current_user) %></li>
       <% end %>
   </div>
 </div>
