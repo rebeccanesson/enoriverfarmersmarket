@@ -13,7 +13,7 @@ class ProductsController < ApplicationController
     page = params[:page] if params[:page]
     page = 1 unless page
     @search = Product.search(params[:search])
-    @products = @search.all
+    @products = @search.all.uniq
     @facets = Product.facet(@products, @current_delivery_cycle)
     @products = Product.alphabetize(@products).paginate(:page => page, :per_page => 10)
     @root_categories = Category.root_categories
