@@ -11,7 +11,7 @@
   <div><%=h @account.street %><br />
      <%=h @account.city %> <%=h @account.state %>, <%=h @account.zipcode %><br />
      <%= "Phone: #{@account.phone}" unless @account.phone.blank? %><br />
-     <%= "Website: #{@account.website_url}" unless @account.website_url.blank? %>
+     <%= "Website: #{link_to @account.website_url}" unless @account.website_url.blank? %>
   </div>
 </div>
 <div class="span-17 last">
