@@ -35,17 +35,17 @@ class Product < ActiveRecord::Base
   end
   
   def available_orderables_in_cycle(cycle)
-    return 0 unless cycle
+    return [] unless cycle
     Orderable.find(:all, :conditions => ["status='Available' and product_id = ? and delivery_cycle_id = ?", self.id, cycle.id])
   end
 
   def carted_orderables_in_cycle(cycle)
-    return 0 unless cycle
+    return [] unless cycle
     Orderable.find(:all, :conditions => ["status='In Cart' and product_id = ? and delivery_cycle_id = ?", self.id, cycle.id])
   end
   
   def ordered_orderables_in_cycle(cycle)
-    return 0 unless cycle
+    return [] unless cycle
     Orderable.find(:all, :conditions => ["status='Ordered' and product_id = ? and delivery_cycle_id = ?", self.id, cycle.id])
   end 
   
