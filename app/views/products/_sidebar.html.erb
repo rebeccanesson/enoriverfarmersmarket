@@ -5,7 +5,7 @@
   <b>By Status:</b>
   <ul>
     <li><%= link_to "Available for Order (#{@facets[:statuses][:available]})", products_url(:search => @search.conditions.merge(:available_orderables_id_greater_than => 0)) %></li>
-    <% unless @current_delivery_cycle.is_order %>
+    <% unless @current_delivery_cycle and @current_delivery_cycle.is_order %>
       <li><%= link_to "Any Product", products_url(:search => @search.conditions.reject{|k,v| k == :available_orderables_id_greater_than }) %></li>
     <% end %>
   </ul>
