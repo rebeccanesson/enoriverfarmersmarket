@@ -13,7 +13,8 @@
 }
 
 #sidebar p { 
-	font-size:1em;
+	font-size:.9em;
+	text-align:justify;
 }
 
 ul { 
