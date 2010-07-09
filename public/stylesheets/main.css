@@ -1,12 +1,19 @@
 #sidebar { 
 	border: 1px solid #0E6800;
 	margin-top:10px;
-	padding-left: 10px;
-	padding-top:10px;
-	padding-bottom:10px;
+	padding: 10px;
 	min-height: 450px;
 	background-color:#53D03F;
 	margin-bottom:10px;
+}
+
+#sidebar h5 { 
+	margin-bottom:0px;
+	padding-bottom:0px;
+}
+
+#sidebar p { 
+	font-size:1em;
 }
 
 ul { 
