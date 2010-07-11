@@ -17,7 +17,7 @@ module ApplicationHelper
     res = false
     if item.is_a?(Product) and current_user and (current_user.admin or current_user.managed_accounts.include?(item.account))
       res = true
-    elsif item.is_a?(Account) and current_user and (current_user.admin or current_user.managed_account.include?(item))
+    elsif item.is_a?(Account) and current_user and (current_user.admin or current_user.managed_accounts.include?(item))
       res = true
     end
     res
